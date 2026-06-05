@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Filtres A2P3 - REB Transfert Assist</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f7f8;
+      color: #1f2933;
+    }
+
+    nav {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 10px;
+      padding: 15px 20px;
+      background: white;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .onglet {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 54px;
+      padding: 10px;
+      background: #e9eef2;
+      border-radius: 8px;
+      color: #123b57;
+      text-decoration: none;
+      text-align: center;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .onglet:hover {
+      background: #d7e3ea;
+    }
+
+    .onglet.actif {
+      background: #123b57;
+      color: white;
+    }
+
+    main {
+      max-width: 1200px;
+      min-height: 650px;
+      margin: 0 auto;
+      padding: 40px 25px 140px;
+      background: white;
+      box-sizing: border-box;
+    }
+
+    h1 {
+      margin-top: 0;
+      margin-bottom: 30px;
+      color: #123b57;
+      font-size: 34px;
+      text-align: center;
+    }
+
+    .contenu {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .bloc {
+      margin-bottom: 20px;
+      padding: 22px;
+      background: #f4f7f8;
+      border-left: 5px solid #123b57;
+      border-radius: 10px;
+    }
+
+    .bloc h2 {
+      margin-top: 0;
+      color: #123b57;
+      font-size: 22px;
+    }
+
+    .bloc p {
+      margin-bottom: 0;
+      line-height: 1.6;
+    }
+
+    .boutons-navigation {
+      position: fixed;
+      left: 28px;
+      bottom: 28px;
+      z-index: 2000;
+      display: flex;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .bouton-rond {
+      width: 82px;
+      height: 82px;
+      padding: 0;
+      border-radius: 50%;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      background:
+        linear-gradient(
+          160deg,
+          rgba(255, 255, 255, 0.55) 0%,
+          rgba(255, 255, 255, 0.08) 38%,
+          transparent 39%
+        ),
+        linear-gradient(145deg, #2389dc, #07559c);
+
+      border: 3px solid #164d87;
+
+      box-shadow:
+        0 5px 12px rgba(0, 0, 0, 0.25),
+        inset 0 1px 3px rgba(255, 255, 255, 0.65);
+
+      color: white;
+      text-decoration: none;
+      cursor: pointer;
+
+      transition:
+        transform 0.2s,
+        box-shadow 0.2s;
+    }
+
+    .bouton-rond:hover {
+      transform: scale(1.06);
+
+      box-shadow:
+        0 7px 16px rgba(0, 0, 0, 0.3),
+        inset 0 1px 3px rgba(255, 255, 255, 0.65);
+    }
+
+    .bouton-rond svg {
+      width: 35px;
+      height: 35px;
+      fill: none;
+      stroke: white;
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .bouton-rond span {
+      margin-top: 2px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    @media (max-width: 950px) {
+      nav {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      main {
+        padding: 30px 15px 140px;
+      }
+
+      h1 {
+        font-size: 28px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .boutons-navigation {
+        left: 15px;
+        bottom: 15px;
+        gap: 10px;
+      }
+
+      .bouton-rond {
+        width: 68px;
+        height: 68px;
+      }
+
+      .bouton-rond svg {
+        width: 29px;
+        height: 29px;
+      }
+
+      .bouton-rond span {
+        font-size: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <a href="epishuttle.html" class="onglet actif">EpiShuttle</a>
+    <a href="materiel.html" class="onglet">Matériel</a>
+    <a href="procedures.html" class="onglet">Procédures</a>
+    <a href="checklists.html" class="onglet">Check-lists</a>
+    <a href="informations.html" class="onglet">Informations</a>
+    <a href="depart-operationnel.html" class="onglet">Départ opérationnel</a>
+  </nav>
+
+  <main>
+
+    <h1>Filtres A2P3</h1>
+
+    <div class="contenu">
+
+      <section class="bloc">
+        <h2>Fonction</h2>
+        <p>
+          Cette partie présentera le rôle des filtres A2P3 dans le fonctionnement
+          de l’EpiShuttle.
+        </p>
+      </section>
+
+      <section class="bloc">
+        <h2>Points de contrôle</h2>
+        <p>
+          Les vérifications à réaliser avant le départ seront précisées ici.
+        </p>
+      </section>
+
+      <section class="bloc">
+        <h2>Utilisation</h2>
+        <p>
+          Une explication, des photographies ou une vidéo pourront être ajoutées
+          dans cette partie.
+        </p>
+      </section>
+
+      <section class="bloc">
+        <h2>Points de vigilance</h2>
+        <p>
+          Les erreurs à éviter et les situations nécessitant une attention particulière
+          seront indiquées ici.
+        </p>
+      </section>
+
+    </div>
+
+  </main>
+
+  <div class="boutons-navigation">
+
+    <button
+      type="button"
+      class="bouton-rond"
+      title="Retour à la page précédente"
+      aria-label="Retour à la page précédente"
+      onclick="history.back()"
+    >
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M9 7L4 12l5 5"></path>
+        <path d="M4 12h9a6 6 0 0 1 6 6"></path>
+      </svg>
+      <span>Retour</span>
+    </button>
+
+    <a
+      href="index.html"
+      class="bouton-rond"
+      title="Retour à l’accueil"
+      aria-label="Retour à l’accueil"
+    >
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M3 11.5L12 4l9 7.5"></path>
+        <path d="M5.5 10v10h13V10"></path>
+        <path d="M9.5 20v-6h5v6"></path>
+      </svg>
+      <span>Accueil</span>
+    </a>
+
+  </div>
+
+</body>
+</html>
