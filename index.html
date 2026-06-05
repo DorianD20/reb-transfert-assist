@@ -17,11 +17,11 @@
       background: #123b57;
       color: white;
       text-align: center;
-      padding: 30px 20px 20px 20px;
+      padding: 30px 20px 20px;
     }
 
     header h1 {
-      margin: 0 0 10px 0;
+      margin: 0 0 10px;
       font-size: 32px;
     }
 
@@ -31,23 +31,27 @@
     }
 
     nav {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 10px;
+      padding: 15px 20px;
       background: white;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 12px;
-      padding: 18px 20px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     }
 
     .onglet {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 54px;
+      padding: 10px;
       background: #e9eef2;
       border-radius: 8px;
-      padding: 12px 18px;
-      font-weight: bold;
-      text-decoration: none;
       color: #123b57;
-      transition: 0.2s;
+      text-decoration: none;
+      text-align: center;
+      font-size: 16px;
+      font-weight: bold;
     }
 
     .onglet:hover {
@@ -55,55 +59,67 @@
     }
 
     main {
-      max-width: 1200px;
+      max-width: 1400px;
+      min-height: 560px;
       margin: 0 auto;
-      padding: 50px 20px;
+      padding: 55px 30px;
       background: white;
-      min-height: 500px;
+      box-sizing: border-box;
     }
 
     .schema {
-      display: flex;
-      justify-content: center;
+      display: grid;
+      grid-template-columns: 1fr 90px 1.45fr 90px 1fr;
       align-items: center;
       gap: 20px;
-      flex-wrap: wrap;
-      margin-top: 40px;
     }
 
     .bloc {
-      width: 220px;
-      min-height: 140px;
+      min-height: 280px;
       background: #f4f7f8;
       border: 2px solid #d9e2e8;
-      border-radius: 14px;
+      border-radius: 18px;
+      padding: 30px;
+      box-sizing: border-box;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding: 20px;
-      box-sizing: border-box;
     }
 
-    .bloc .icone {
-      font-size: 40px;
-      margin-bottom: 12px;
+    .icone {
+      font-size: 72px;
+      margin-bottom: 20px;
     }
 
-    .bloc .titre {
-      font-size: 20px;
+    .titre {
+      font-size: 31px;
+      line-height: 1.1;
       font-weight: bold;
-      margin-bottom: 8px;
+      color: #1f2933;
     }
 
-    .bloc .sous-texte {
-      font-size: 14px;
+    .sous-texte {
+      margin-top: 14px;
+      font-size: 17px;
       color: #52606d;
     }
 
+    .epishuttle {
+      background: white;
+    }
+
+    .epishuttle img {
+      display: block;
+      width: 100%;
+      max-width: 560px;
+      height: auto;
+    }
+
     .fleche {
-      font-size: 42px;
+      text-align: center;
+      font-size: 68px;
       color: #123b57;
       font-weight: bold;
     }
@@ -115,13 +131,21 @@
       color: #5f6b73;
     }
 
-    @media (max-width: 900px) {
+    @media (max-width: 950px) {
+      nav {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
       .schema {
-        flex-direction: column;
+        grid-template-columns: 1fr;
       }
 
       .fleche {
         transform: rotate(90deg);
+      }
+
+      .bloc {
+        min-height: 230px;
       }
     }
   </style>
@@ -145,27 +169,26 @@
 
   <main>
     <div class="schema">
+
       <div class="bloc">
-        <div class="icone">🏥</div>
-        <div class="titre">Établissement de soins</div>
-        <div class="sous-texte">Structure de départ</div>
+        <div class="icone">🏠</div>
+        <div class="titre">Structure<br>de départ</div>
       </div>
 
       <div class="fleche">➜</div>
 
-      <div class="bloc">
-        <div class="icone">🧪</div>
-        <div class="titre">EpiShuttle</div>
-        <div class="sous-texte">Dispositif de transport sécurisé</div>
+      <div class="bloc epishuttle">
+        <img src="epishuttle.png" alt="EpiShuttle">
       </div>
 
       <div class="fleche">➜</div>
 
       <div class="bloc">
         <div class="icone">🏥</div>
-        <div class="titre">ESR N</div>
-        <div class="sous-texte">Établissement de référence</div>
+        <div class="titre">ESR<br>National</div>
+        <div class="sous-texte">Établissement de référence REB</div>
       </div>
+
     </div>
   </main>
 
