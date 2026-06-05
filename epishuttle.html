@@ -3,16 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>EpiShuttle - REB Transfert Assist</title>
-.mention-legale {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px 25px 30px;
-  font-size: 11px;
-  line-height: 1.4;
-  color: #6b7280;
-  text-align: center;
-}
+
   <style>
     body {
       margin: 0;
@@ -27,7 +20,7 @@
       gap: 10px;
       padding: 15px 20px;
       background: white;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
       position: sticky;
       top: 0;
       z-index: 1000;
@@ -59,29 +52,82 @@
 
     main {
       max-width: 1200px;
+      min-height: 650px;
       margin: 0 auto;
       padding: 40px 25px;
       background: white;
-      min-height: 600px;
       box-sizing: border-box;
     }
 
     h1 {
       margin-top: 0;
+      margin-bottom: 10px;
       color: #123b57;
+      font-size: 34px;
+      text-align: center;
+    }
+
+    .introduction {
+      margin: 0 0 35px;
+      text-align: center;
+      font-size: 17px;
+      color: #52606d;
+    }
+
+    .zone-image {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .zone-image img {
+      display: block;
+      width: 100%;
+      max-width: 950px;
+      height: auto;
+      object-fit: contain;
     }
 
     .retour {
       display: inline-block;
-      margin-top: 30px;
+      margin-top: 35px;
       color: #123b57;
       font-weight: bold;
       text-decoration: none;
     }
 
+    .retour:hover {
+      text-decoration: underline;
+    }
+
+    .mention-legale {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 18px 25px 30px;
+      box-sizing: border-box;
+      font-size: 11px;
+      line-height: 1.4;
+      color: #6b7280;
+      text-align: center;
+    }
+
     @media (max-width: 950px) {
       nav {
         grid-template-columns: repeat(2, 1fr);
+      }
+
+      main {
+        padding: 30px 15px;
+      }
+
+      h1 {
+        font-size: 28px;
+      }
+
+      .introduction {
+        font-size: 15px;
       }
     }
   </style>
@@ -99,15 +145,28 @@
   </nav>
 
   <main>
+
     <h1>EpiShuttle</h1>
 
-    <p>Cette page contiendra la présentation interactive de l’EpiShuttle.</p>
+    <p class="introduction">
+      Présentation interactive de l’EpiShuttle et de ses principaux points d’intérêt.
+    </p>
+
+    <div class="zone-image">
+      <img
+        src="epishuttle-interactif.png"
+        alt="Vue latérale de l’EpiShuttle"
+      >
+    </div>
 
     <a href="index.html" class="retour">← Retour à l’accueil</a>
-   </main>
+
+  </main>
 
   <footer class="mention-legale">
-    Illustration EpiShuttle® fournie ou issue de la documentation EpiGuard. Utilisation provisoire dans le cadre d’un prototype universitaire non commercial, en attente de confirmation d’autorisation.
+    Illustration EpiShuttle® fournie ou issue de la documentation EpiGuard.
+    Utilisation provisoire dans le cadre d’un prototype universitaire non commercial,
+    en attente de confirmation d’autorisation.
   </footer>
 
 </body>
