@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Matériel - REB Transfert Assist</title>
 
   <style>
@@ -19,7 +20,7 @@
       gap: 10px;
       padding: 15px 20px;
       background: white;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
       position: sticky;
       top: 0;
       z-index: 1000;
@@ -51,29 +52,180 @@
 
     main {
       max-width: 1200px;
+      min-height: 650px;
       margin: 0 auto;
-      padding: 40px 25px;
+      padding: 40px 25px 140px;
       background: white;
-      min-height: 600px;
       box-sizing: border-box;
     }
 
     h1 {
       margin-top: 0;
+      margin-bottom: 35px;
       color: #123b57;
+      font-size: 34px;
+      text-align: center;
     }
 
-    .retour {
-      display: inline-block;
-      margin-top: 30px;
+    .grille-materiel {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      max-width: 950px;
+      margin: 0 auto;
+    }
+
+    .carte-materiel {
+      min-height: 180px;
+      padding: 25px;
+      border: 2px solid #d9e2e8;
+      border-radius: 16px;
+      background: #f4f7f8;
       color: #123b57;
-      font-weight: bold;
       text-decoration: none;
+      text-align: center;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      transition:
+        transform 0.2s,
+        background 0.2s,
+        box-shadow 0.2s;
+    }
+
+    .carte-materiel:hover {
+      transform: translateY(-4px);
+      background: #e8f0f4;
+      box-shadow: 0 7px 18px rgba(0, 0, 0, 0.14);
+    }
+
+    .numero {
+      margin-bottom: 12px;
+      font-size: 15px;
+      font-weight: bold;
+      color: #52606d;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .titre-carte {
+      font-size: 24px;
+      line-height: 1.25;
+      font-weight: bold;
+    }
+
+    .boutons-navigation {
+      position: fixed;
+      left: 28px;
+      bottom: 28px;
+      z-index: 2000;
+      display: flex;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .bouton-rond {
+      width: 82px;
+      height: 82px;
+      padding: 0;
+      border-radius: 50%;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      background:
+        linear-gradient(
+          160deg,
+          rgba(255, 255, 255, 0.55) 0%,
+          rgba(255, 255, 255, 0.08) 38%,
+          transparent 39%
+        ),
+        linear-gradient(145deg, #2389dc, #07559c);
+
+      border: 3px solid #164d87;
+
+      box-shadow:
+        0 5px 12px rgba(0, 0, 0, 0.25),
+        inset 0 1px 3px rgba(255, 255, 255, 0.65);
+
+      color: white;
+      text-decoration: none;
+      cursor: pointer;
+
+      transition:
+        transform 0.2s,
+        box-shadow 0.2s;
+    }
+
+    .bouton-rond:hover {
+      transform: scale(1.06);
+
+      box-shadow:
+        0 7px 16px rgba(0, 0, 0, 0.3),
+        inset 0 1px 3px rgba(255, 255, 255, 0.65);
+    }
+
+    .bouton-rond svg {
+      width: 35px;
+      height: 35px;
+      fill: none;
+      stroke: white;
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .bouton-rond span {
+      margin-top: 2px;
+      font-size: 12px;
+      font-weight: bold;
     }
 
     @media (max-width: 950px) {
       nav {
         grid-template-columns: repeat(2, 1fr);
+      }
+
+      main {
+        padding: 30px 15px 140px;
+      }
+
+      h1 {
+        font-size: 28px;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .grille-materiel {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .boutons-navigation {
+        left: 15px;
+        bottom: 15px;
+        gap: 10px;
+      }
+
+      .bouton-rond {
+        width: 68px;
+        height: 68px;
+      }
+
+      .bouton-rond svg {
+        width: 29px;
+        height: 29px;
+      }
+
+      .bouton-rond span {
+        font-size: 10px;
       }
     }
   </style>
@@ -91,12 +243,66 @@
   </nav>
 
   <main>
+
     <h1>Matériel</h1>
 
-    <p>Cette page contiendra la liste du matériel nécessaire au transport opérationnel.</p>
+    <div class="grille-materiel">
 
-    <a href="index.html" class="retour">← Retour à l’accueil</a>
+      <a href="malle-operationnelle-1.html" class="carte-materiel">
+        <div class="numero">Malle n°1</div>
+        <div class="titre-carte">Malle Opérationnelle N°1</div>
+      </a>
+
+      <a href="malle-operationnelle-2.html" class="carte-materiel">
+        <div class="numero">Malle n°2</div>
+        <div class="titre-carte">Malle Opérationnelle N°2</div>
+      </a>
+
+      <a href="malle-operationnelle-3.html" class="carte-materiel">
+        <div class="numero">Malle n°3</div>
+        <div class="titre-carte">Malle Opérationnelle N°3</div>
+      </a>
+
+      <a href="malle-communication-ceotronics.html" class="carte-materiel">
+        <div class="numero">Communication</div>
+        <div class="titre-carte">Malle communication CEOTRONICS</div>
+      </a>
+
+    </div>
+
   </main>
+
+  <div class="boutons-navigation">
+
+    <button
+      type="button"
+      class="bouton-rond"
+      title="Retour à la page précédente"
+      aria-label="Retour à la page précédente"
+      onclick="history.back()"
+    >
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M9 7L4 12l5 5"></path>
+        <path d="M4 12h9a6 6 0 0 1 6 6"></path>
+      </svg>
+      <span>Retour</span>
+    </button>
+
+    <a
+      href="index.html"
+      class="bouton-rond"
+      title="Retour à l’accueil"
+      aria-label="Retour à l’accueil"
+    >
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M3 11.5L12 4l9 7.5"></path>
+        <path d="M5.5 10v10h13V10"></path>
+        <path d="M9.5 20v-6h5v6"></path>
+      </svg>
+      <span>Accueil</span>
+    </a>
+
+  </div>
 
 </body>
 </html>
