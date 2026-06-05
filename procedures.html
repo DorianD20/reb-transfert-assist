@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Procédures - REB Transfert Assist</title>
+
+  <title>Procédures / Check-lists - REB Transfert Assist</title>
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
@@ -19,7 +25,7 @@
       gap: 10px;
       padding: 15px 20px;
       background: white;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
       position: sticky;
       top: 0;
       z-index: 1000;
@@ -51,29 +57,153 @@
 
     main {
       max-width: 1200px;
+      min-height: 650px;
       margin: 0 auto;
-      padding: 40px 25px;
+      padding: 40px 25px 140px;
       background: white;
-      min-height: 600px;
-      box-sizing: border-box;
     }
 
     h1 {
-      margin-top: 0;
+      margin: 0 0 35px;
       color: #123b57;
+      font-size: 34px;
+      text-align: center;
     }
 
-    .retour {
-      display: inline-block;
-      margin-top: 30px;
+    .grille-contenu {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      max-width: 950px;
+      margin: 0 auto;
+    }
+
+    .carte {
+      min-height: 180px;
+      padding: 25px;
+      border: 2px solid #d9e2e8;
+      border-radius: 16px;
+      background: #f4f7f8;
       color: #123b57;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .titre-carte {
+      font-size: 24px;
+      line-height: 1.25;
       font-weight: bold;
+    }
+
+    .boutons-navigation {
+      position: fixed;
+      left: 28px;
+      bottom: 28px;
+      z-index: 2000;
+      display: flex;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .bouton-rond {
+      width: 82px;
+      height: 82px;
+      padding: 0;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      background:
+        linear-gradient(
+          160deg,
+          rgba(255, 255, 255, 0.55) 0%,
+          rgba(255, 255, 255, 0.08) 38%,
+          transparent 39%
+        ),
+        linear-gradient(145deg, #2389dc, #07559c);
+
+      border: 3px solid #164d87;
+
+      box-shadow:
+        0 5px 12px rgba(0, 0, 0, 0.25),
+        inset 0 1px 3px rgba(255, 255, 255, 0.65);
+
+      color: white;
       text-decoration: none;
+      cursor: pointer;
+    }
+
+    .bouton-rond svg {
+      width: 35px;
+      height: 35px;
+      fill: none;
+      stroke: white;
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .bouton-rond span {
+      margin-top: 2px;
+      font-size: 12px;
+      font-weight: bold;
     }
 
     @media (max-width: 950px) {
       nav {
         grid-template-columns: repeat(2, 1fr);
+      }
+
+      main {
+        padding: 30px 15px 140px;
+      }
+
+      h1 {
+        font-size: 28px;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .grille-contenu {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        grid-template-columns: 1fr;
+        gap: 7px;
+        padding: 10px;
+      }
+
+      .onglet {
+        min-height: 46px;
+        font-size: 14px;
+      }
+
+      .boutons-navigation {
+        left: 15px;
+        bottom: 15px;
+        gap: 10px;
+      }
+
+      .bouton-rond {
+        width: 68px;
+        height: 68px;
+      }
+
+      .bouton-rond svg {
+        width: 29px;
+        height: 29px;
+      }
+
+      .bouton-rond span {
+        font-size: 10px;
       }
     }
   </style>
@@ -82,20 +212,69 @@
 <body>
 
   <nav>
-  <a href="epishuttle.html" class="onglet">EpiShuttle</a>
-  <a href="materiel.html" class="onglet">Matériel</a>
-  <a href="procedures.html" class="onglet">Procédures / Check-lists</a>
-  <a href="informations.html" class="onglet">Informations</a>
-  <a href="depart-operationnel.html" class="onglet">Départ opérationnel</a>
-</nav>
+    <a href="epishuttle.html" class="onglet">EpiShuttle</a>
+    <a href="materiel.html" class="onglet">Matériel</a>
+    <a href="procedures.html" class="onglet actif">Procédures / Check-lists</a>
+    <a href="informations.html" class="onglet">Informations</a>
+    <a href="depart-operationnel.html" class="onglet">Départ opérationnel</a>
+  </nav>
 
   <main>
-    <h1>Procédures</h1>
 
-    <p>Cette page contiendra les procédures liées au transport opérationnel.</p>
+    <h1>Procédures / Check-lists</h1>
 
-    <a href="index.html" class="retour">← Retour à l’accueil</a>
+    <div class="grille-contenu">
+
+      <div class="carte">
+        <div class="titre-carte">
+          Procédures
+        </div>
+      </div>
+
+      <div class="carte">
+        <div class="titre-carte">
+          Check-lists
+        </div>
+      </div>
+
+    </div>
+
   </main>
 
+  <div class="boutons-navigation">
+
+    <button
+      type="button"
+      class="bouton-rond"
+      title="Retour à la page précédente"
+      aria-label="Retour à la page précédente"
+      onclick="history.back()"
+    >
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M9 7L4 12l5 5"></path>
+        <path d="M4 12h9a6 6 0 0 1 6 6"></path>
+      </svg>
+
+      <span>Retour</span>
+    </button>
+
+    <a
+      href="index.html"
+      class="bouton-rond"
+      title="Retour à l’accueil"
+      aria-label="Retour à l’accueil"
+    >
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M3 11.5L12 4l9 7.5"></path>
+        <path d="M5.5 10v10h13V10"></path>
+        <path d="M9.5 20v-6h5v6"></path>
+      </svg>
+
+      <span>Accueil</span>
+    </a>
+
+  </div>
+
 </body>
+
 </html>
