@@ -1,13 +1,9 @@
-```html
 <!DOCTYPE html>
 <html lang="fr">
 
 <head>
   <meta charset="UTF-8">
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>REB Transfert Assist</title>
 
@@ -92,18 +88,11 @@
       background: #f4f7f8;
       border: 2px solid #d9e2e8;
       border-radius: 18px;
-
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-
       text-align: center;
-    }
-
-    .icone {
-      margin-bottom: 20px;
-      font-size: 72px;
     }
 
     .titre {
@@ -128,6 +117,8 @@
       width: 100%;
       max-width: 560px;
       height: auto;
+      pointer-events: none;
+      user-select: none;
     }
 
     .fleche {
@@ -149,7 +140,6 @@
       left: 28px;
       bottom: 28px;
       z-index: 2000;
-
       display: flex;
       align-items: center;
       gap: 14px;
@@ -161,7 +151,6 @@
       padding: 0;
       border: 3px solid #164d87;
       border-radius: 50%;
-
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -183,18 +172,10 @@
       color: white;
       text-decoration: none;
       cursor: pointer;
-
-      transition:
-        transform 0.2s,
-        box-shadow 0.2s;
     }
 
     .bouton-rond:hover {
       transform: scale(1.06);
-
-      box-shadow:
-        0 7px 16px rgba(0, 0, 0, 0.3),
-        inset 0 1px 3px rgba(255, 255, 255, 0.65);
     }
 
     .bouton-rond svg {
@@ -236,14 +217,6 @@
     }
 
     @media (max-width: 600px) {
-      header {
-        padding: 24px 15px 18px;
-      }
-
-      header h1 {
-        font-size: 27px;
-      }
-
       nav {
         grid-template-columns: 1fr;
         gap: 7px;
@@ -297,25 +270,11 @@
   </header>
 
   <nav>
-    <a href="epishuttle.html" class="onglet">
-      EpiShuttle
-    </a>
-
-    <a href="materiel.html" class="onglet">
-      Matériel
-    </a>
-
-    <a href="procedures.html" class="onglet">
-      Procédures / Check-lists
-    </a>
-
-    <a href="informations.html" class="onglet">
-      Informations
-    </a>
-
-    <a href="depart-operationnel.html" class="onglet">
-      Départ opérationnel
-    </a>
+    <a href="epishuttle.html" class="onglet">EpiShuttle</a>
+    <a href="materiel.html" class="onglet">Matériel</a>
+    <a href="procedures.html" class="onglet">Procédures / Check-lists</a>
+    <a href="informations.html" class="onglet">Informations</a>
+    <a href="depart-operationnel.html" class="onglet">Départ opérationnel</a>
   </nav>
 
   <main>
@@ -323,37 +282,24 @@
     <div class="schema">
 
       <div class="bloc">
-        <div class="icone"></div>
-
         <div class="titre">
           Structure<br>
           de départ
         </div>
       </div>
 
-      <div class="fleche">
-        ➜
-      </div>
+      <div class="fleche">➜</div>
 
       <div class="bloc epishuttle">
-        <a
-          href="epishuttle.html"
-          aria-label="Accéder à la rubrique EpiShuttle"
+        <img
+          src="epishuttle.png"
+          alt="EpiShuttle"
         >
-          <img
-            src="epishuttle.png"
-            alt="EpiShuttle"
-          >
-        </a>
       </div>
 
-      <div class="fleche">
-        ➜
-      </div>
+      <div class="fleche">➜</div>
 
       <div class="bloc">
-        <div class="icone"></div>
-
         <div class="titre">
           ESR<br>
           National
@@ -409,4 +355,3 @@
 </body>
 
 </html>
-```
