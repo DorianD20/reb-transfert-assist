@@ -4,19 +4,106 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>REB Transfert Assist</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f7f8;
+      color: #1f2933;
+    }
+
+    header {
+      background: #123b57;
+      color: white;
+      text-align: center;
+      padding: 35px 20px;
+    }
+
+    header h1 {
+      margin: 0 0 10px;
+      font-size: 32px;
+    }
+
+    header p {
+      margin: 0;
+      font-size: 16px;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 30px 20px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .menu {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .volet {
+      background: white;
+      border-radius: 12px;
+      padding: 24px 15px;
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      cursor: pointer;
+    }
+
+    .volet:hover {
+      background: #e8f0f4;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 13px;
+      color: #5f6b73;
+    }
+
+    @media (max-width: 600px) {
+      .menu {
+        grid-template-columns: 1fr;
+      }
+
+      header h1 {
+        font-size: 26px;
+      }
+    }
+  </style>
 </head>
 
 <body>
-  <h1>REB Transfert Assist</h1>
-  <p>Outil d’aide au transport en contexte de risque épidémique et biologique.</p>
 
-  <h2>Accès aux différents volets</h2>
+  <header>
+    <h1>REB Transfert Assist</h1>
+    <p>Outil d’aide au transport en contexte de risque épidémique et biologique</p>
+  </header>
 
-  <button>EpiShuttle</button>
-  <button>Matériel</button>
-  <button>Procédures</button>
-  <button>Check-lists</button>
-  <button>Informations</button>
-  <button>Départ opérationnel</button>
+  <main>
+    <h2>Accès aux différents volets</h2>
+
+    <div class="menu">
+      <div class="volet">EpiShuttle</div>
+      <div class="volet">Matériel</div>
+      <div class="volet">Procédures</div>
+      <div class="volet">Check-lists</div>
+      <div class="volet">Informations</div>
+      <div class="volet">Départ opérationnel</div>
+    </div>
+  </main>
+
+  <footer>
+    Prototype réalisé dans le cadre d’un mémoire universitaire
+  </footer>
+
 </body>
 </html>
