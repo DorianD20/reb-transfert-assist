@@ -9,7 +9,7 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #f4f7f8;
+      background: #f5f7f8;
       color: #1f2933;
     }
 
@@ -17,11 +17,11 @@
       background: #123b57;
       color: white;
       text-align: center;
-      padding: 35px 20px;
+      padding: 30px 20px 20px 20px;
     }
 
     header h1 {
-      margin: 0 0 10px;
+      margin: 0 0 10px 0;
       font-size: 32px;
     }
 
@@ -30,36 +30,82 @@
       font-size: 16px;
     }
 
-    main {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 30px 20px;
-    }
-
-    h2 {
-      text-align: center;
-      margin-bottom: 25px;
-    }
-
-    .menu {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
-    }
-
-    .volet {
+    nav {
       background: white;
-      border-radius: 12px;
-      padding: 24px 15px;
-      text-align: center;
-      font-size: 18px;
-      font-weight: bold;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding: 18px 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     }
 
-    .volet:hover {
-      background: #e8f0f4;
+    .onglet {
+      background: #e9eef2;
+      border-radius: 8px;
+      padding: 12px 18px;
+      font-weight: bold;
+      text-decoration: none;
+      color: #123b57;
+      transition: 0.2s;
+    }
+
+    .onglet:hover {
+      background: #d7e3ea;
+    }
+
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 50px 20px;
+      background: white;
+      min-height: 500px;
+    }
+
+    .schema {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 40px;
+    }
+
+    .bloc {
+      width: 220px;
+      min-height: 140px;
+      background: #f4f7f8;
+      border: 2px solid #d9e2e8;
+      border-radius: 14px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .bloc .icone {
+      font-size: 40px;
+      margin-bottom: 12px;
+    }
+
+    .bloc .titre {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .bloc .sous-texte {
+      font-size: 14px;
+      color: #52606d;
+    }
+
+    .fleche {
+      font-size: 42px;
+      color: #123b57;
+      font-weight: bold;
     }
 
     footer {
@@ -69,13 +115,13 @@
       color: #5f6b73;
     }
 
-    @media (max-width: 600px) {
-      .menu {
-        grid-template-columns: 1fr;
+    @media (max-width: 900px) {
+      .schema {
+        flex-direction: column;
       }
 
-      header h1 {
-        font-size: 26px;
+      .fleche {
+        transform: rotate(90deg);
       }
     }
   </style>
@@ -88,16 +134,38 @@
     <p>Outil d’aide au transport en contexte de risque épidémique et biologique</p>
   </header>
 
-  <main>
-    <h2>Accès aux différents volets</h2>
+  <nav>
+    <a href="#" class="onglet">EpiShuttle</a>
+    <a href="#" class="onglet">Matériel</a>
+    <a href="#" class="onglet">Procédures</a>
+    <a href="#" class="onglet">Check-lists</a>
+    <a href="#" class="onglet">Informations</a>
+    <a href="#" class="onglet">Départ opérationnel</a>
+  </nav>
 
-    <div class="menu">
-      <div class="volet">EpiShuttle</div>
-      <div class="volet">Matériel</div>
-      <div class="volet">Procédures</div>
-      <div class="volet">Check-lists</div>
-      <div class="volet">Informations</div>
-      <div class="volet">Départ opérationnel</div>
+  <main>
+    <div class="schema">
+      <div class="bloc">
+        <div class="icone">🏥</div>
+        <div class="titre">Établissement de soins</div>
+        <div class="sous-texte">Structure de départ</div>
+      </div>
+
+      <div class="fleche">➜</div>
+
+      <div class="bloc">
+        <div class="icone">🧪</div>
+        <div class="titre">EpiShuttle</div>
+        <div class="sous-texte">Dispositif de transport sécurisé</div>
+      </div>
+
+      <div class="fleche">➜</div>
+
+      <div class="bloc">
+        <div class="icone">🏥</div>
+        <div class="titre">ESR N</div>
+        <div class="sous-texte">Établissement de référence</div>
+      </div>
     </div>
   </main>
 
