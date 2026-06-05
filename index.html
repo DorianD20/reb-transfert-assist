@@ -1,11 +1,21 @@
+```html
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
   <title>REB Transfert Assist</title>
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
@@ -14,10 +24,10 @@
     }
 
     header {
+      padding: 30px 20px 20px;
       background: #123b57;
       color: white;
       text-align: center;
-      padding: 30px 20px 20px;
     }
 
     header h1 {
@@ -36,7 +46,10 @@
       gap: 10px;
       padding: 15px 20px;
       background: white;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
 
     .onglet {
@@ -62,9 +75,8 @@
       max-width: 1400px;
       min-height: 560px;
       margin: 0 auto;
-      padding: 55px 30px;
+      padding: 55px 30px 140px;
       background: white;
-      box-sizing: border-box;
     }
 
     .schema {
@@ -76,34 +88,35 @@
 
     .bloc {
       min-height: 280px;
+      padding: 30px;
       background: #f4f7f8;
       border: 2px solid #d9e2e8;
       border-radius: 18px;
-      padding: 30px;
-      box-sizing: border-box;
+
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
+
       text-align: center;
     }
 
     .icone {
-      font-size: 72px;
       margin-bottom: 20px;
+      font-size: 72px;
     }
 
     .titre {
+      color: #1f2933;
       font-size: 31px;
       line-height: 1.1;
       font-weight: bold;
-      color: #1f2933;
     }
 
     .sous-texte {
       margin-top: 14px;
-      font-size: 17px;
       color: #52606d;
+      font-size: 17px;
     }
 
     .epishuttle {
@@ -118,22 +131,95 @@
     }
 
     .fleche {
+      color: #123b57;
       text-align: center;
       font-size: 68px;
-      color: #123b57;
       font-weight: bold;
     }
 
     footer {
-      text-align: center;
       padding: 20px;
-      font-size: 13px;
       color: #5f6b73;
+      text-align: center;
+      font-size: 13px;
+    }
+
+    .boutons-navigation {
+      position: fixed;
+      left: 28px;
+      bottom: 28px;
+      z-index: 2000;
+
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .bouton-rond {
+      width: 82px;
+      height: 82px;
+      padding: 0;
+      border: 3px solid #164d87;
+      border-radius: 50%;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      background:
+        linear-gradient(
+          160deg,
+          rgba(255, 255, 255, 0.55) 0%,
+          rgba(255, 255, 255, 0.08) 38%,
+          transparent 39%
+        ),
+        linear-gradient(145deg, #2389dc, #07559c);
+
+      box-shadow:
+        0 5px 12px rgba(0, 0, 0, 0.25),
+        inset 0 1px 3px rgba(255, 255, 255, 0.65);
+
+      color: white;
+      text-decoration: none;
+      cursor: pointer;
+
+      transition:
+        transform 0.2s,
+        box-shadow 0.2s;
+    }
+
+    .bouton-rond:hover {
+      transform: scale(1.06);
+
+      box-shadow:
+        0 7px 16px rgba(0, 0, 0, 0.3),
+        inset 0 1px 3px rgba(255, 255, 255, 0.65);
+    }
+
+    .bouton-rond svg {
+      width: 35px;
+      height: 35px;
+      fill: none;
+      stroke: white;
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .bouton-rond span {
+      margin-top: 2px;
+      font-size: 12px;
+      font-weight: bold;
     }
 
     @media (max-width: 950px) {
       nav {
         grid-template-columns: repeat(2, 1fr);
+      }
+
+      main {
+        padding: 40px 20px 140px;
       }
 
       .schema {
@@ -148,6 +234,55 @@
         min-height: 230px;
       }
     }
+
+    @media (max-width: 600px) {
+      header {
+        padding: 24px 15px 18px;
+      }
+
+      header h1 {
+        font-size: 27px;
+      }
+
+      nav {
+        grid-template-columns: 1fr;
+        gap: 7px;
+        padding: 10px;
+      }
+
+      .onglet {
+        min-height: 46px;
+        font-size: 14px;
+      }
+
+      main {
+        padding: 30px 15px 130px;
+      }
+
+      .titre {
+        font-size: 26px;
+      }
+
+      .boutons-navigation {
+        left: 15px;
+        bottom: 15px;
+        gap: 10px;
+      }
+
+      .bouton-rond {
+        width: 68px;
+        height: 68px;
+      }
+
+      .bouton-rond svg {
+        width: 29px;
+        height: 29px;
+      }
+
+      .bouton-rond span {
+        font-size: 10px;
+      }
+    }
   </style>
 </head>
 
@@ -155,45 +290,123 @@
 
   <header>
     <h1>REB Transfert Assist</h1>
-    <p>Outil d’aide au transport en contexte de risque épidémique et biologique</p>
+
+    <p>
+      Outil d’aide au transport en contexte de risque épidémique et biologique
+    </p>
   </header>
 
   <nav>
-  <a href="epishuttle.html" class="onglet">EpiShuttle</a>
-  <a href="materiel.html" class="onglet">Matériel</a>
-  <a href="procedures.html" class="onglet actif">Procédures / Check-lists</a>
-  <a href="informations.html" class="onglet">Informations</a>
-  <a href="depart-operationnel.html" class="onglet">Départ opérationnel</a>
-</nav>
+    <a href="epishuttle.html" class="onglet">
+      EpiShuttle
+    </a>
+
+    <a href="materiel.html" class="onglet">
+      Matériel
+    </a>
+
+    <a href="procedures.html" class="onglet">
+      Procédures / Check-lists
+    </a>
+
+    <a href="informations.html" class="onglet">
+      Informations
+    </a>
+
+    <a href="depart-operationnel.html" class="onglet">
+      Départ opérationnel
+    </a>
+  </nav>
 
   <main>
+
     <div class="schema">
 
       <div class="bloc">
-  <div class="icone">🏠 🏥</div>
-  <div class="titre">Structure<br>de départ</div>
-</div>
+        <div class="icone"></div>
 
-      <div class="fleche">➜</div>
-
-      <div class="bloc epishuttle">
-        <img src="epishuttle.png" alt="EpiShuttle">
+        <div class="titre">
+          Structure<br>
+          de départ
+        </div>
       </div>
 
-      <div class="fleche">➜</div>
+      <div class="fleche">
+        ➜
+      </div>
+
+      <div class="bloc epishuttle">
+        <a
+          href="epishuttle.html"
+          aria-label="Accéder à la rubrique EpiShuttle"
+        >
+          <img
+            src="epishuttle.png"
+            alt="EpiShuttle"
+          >
+        </a>
+      </div>
+
+      <div class="fleche">
+        ➜
+      </div>
 
       <div class="bloc">
-        <div class="icone">🏥</div>
-        <div class="titre">ESR<br>National</div>
-        <div class="sous-texte">Établissement de référence REB</div>
+        <div class="icone"></div>
+
+        <div class="titre">
+          ESR<br>
+          National
+        </div>
+
+        <div class="sous-texte">
+          Établissement de référence REB
+        </div>
       </div>
 
     </div>
+
   </main>
 
   <footer>
     Prototype réalisé dans le cadre d’un mémoire universitaire
   </footer>
 
+  <div class="boutons-navigation">
+
+    <button
+      type="button"
+      class="bouton-rond"
+      title="Retour à la page précédente"
+      aria-label="Retour à la page précédente"
+      onclick="history.back()"
+    >
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M9 7L4 12l5 5"></path>
+        <path d="M4 12h9a6 6 0 0 1 6 6"></path>
+      </svg>
+
+      <span>Retour</span>
+    </button>
+
+    <a
+      href="index.html"
+      class="bouton-rond"
+      title="Retour à l’accueil"
+      aria-label="Retour à l’accueil"
+    >
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M3 11.5L12 4l9 7.5"></path>
+        <path d="M5.5 10v10h13V10"></path>
+        <path d="M9.5 20v-6h5v6"></path>
+      </svg>
+
+      <span>Accueil</span>
+    </a>
+
+  </div>
+
 </body>
+
 </html>
+```
