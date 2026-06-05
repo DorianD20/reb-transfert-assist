@@ -90,24 +90,6 @@
       object-fit: contain;
     }
 
-    .retour {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 35px;
-  padding: 10px 14px;
-  background: #e9eef2;
-  border-radius: 10px;
-  color: #123b57;
-  font-size: 22px;
-  font-weight: bold;
-  text-decoration: none;
-}
-
-.retour:hover {
-  background: #d7e3ea;
-}
-
     .mention-legale {
       max-width: 1200px;
       margin: 0 auto;
@@ -117,6 +99,68 @@
       line-height: 1.4;
       color: #6b7280;
       text-align: center;
+    }
+
+    .bouton-accueil {
+      position: fixed;
+      left: 28px;
+      bottom: 28px;
+      z-index: 2000;
+
+      width: 82px;
+      height: 82px;
+      border-radius: 50%;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      background:
+        linear-gradient(
+          160deg,
+          rgba(255, 255, 255, 0.55) 0%,
+          rgba(255, 255, 255, 0.08) 38%,
+          transparent 39%
+        ),
+        linear-gradient(145deg, #2389dc, #07559c);
+
+      border: 3px solid #164d87;
+
+      box-shadow:
+        0 5px 12px rgba(0, 0, 0, 0.25),
+        inset 0 1px 3px rgba(255, 255, 255, 0.65);
+
+      color: white;
+      text-decoration: none;
+
+      transition:
+        transform 0.2s,
+        box-shadow 0.2s;
+    }
+
+    .bouton-accueil svg {
+      width: 35px;
+      height: 35px;
+      fill: none;
+      stroke: white;
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .bouton-accueil span {
+      margin-top: 2px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    .bouton-accueil:hover {
+      transform: scale(1.06);
+
+      box-shadow:
+        0 7px 16px rgba(0, 0, 0, 0.3),
+        inset 0 1px 3px rgba(255, 255, 255, 0.65);
     }
 
     @media (max-width: 950px) {
@@ -134,6 +178,24 @@
 
       .introduction {
         font-size: 15px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .bouton-accueil {
+        left: 15px;
+        bottom: 15px;
+        width: 68px;
+        height: 68px;
+      }
+
+      .bouton-accueil svg {
+        width: 29px;
+        height: 29px;
+      }
+
+      .bouton-accueil span {
+        font-size: 10px;
       }
     }
   </style>
@@ -165,9 +227,22 @@
       >
     </div>
 
-    <a href="index.html" class="retour" title="Retour à l’accueil">↩︎ 🏠</a>
-
   </main>
+
+  <a
+    href="index.html"
+    class="bouton-accueil"
+    title="Retour à l’accueil"
+    aria-label="Retour à l’accueil"
+  >
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M3 11.5L12 4l9 7.5"></path>
+      <path d="M5.5 10v10h13V10"></path>
+      <path d="M9.5 20v-6h5v6"></path>
+    </svg>
+
+    <span>Accueil</span>
+  </a>
 
   <footer class="mention-legale">
     Illustration EpiShuttle® fournie ou issue de la documentation EpiGuard.
