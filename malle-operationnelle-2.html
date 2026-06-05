@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,10 @@
   <title>Malle Opérationnelle N°2 - REB Transfert Assist</title>
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
@@ -44,21 +49,19 @@
       min-height: 54px;
       padding: 10px;
       border-radius: 8px;
+      color: #123b57;
       text-decoration: none;
       text-align: center;
+      font-size: 16px;
       font-weight: bold;
     }
 
     .onglet {
       background: #e9eef2;
-      color: #123b57;
-      font-size: 16px;
     }
 
     .sous-onglet {
-      background: #eef3f6;
-      color: #123b57;
-      font-size: 15px;
+      background: #f1f4f6;
     }
 
     .onglet:hover,
@@ -78,38 +81,31 @@
       margin: 0 auto;
       padding: 40px 25px 140px;
       background: white;
-      box-sizing: border-box;
     }
 
     h1 {
-      margin-top: 0;
-      margin-bottom: 30px;
+      margin: 0 0 30px;
       color: #123b57;
-      font-size: 34px;
       text-align: center;
+      font-size: 34px;
     }
 
     .contenu {
       max-width: 900px;
       margin: 0 auto;
-    }
-
-    .bloc {
       padding: 24px;
       background: #f4f7f8;
-      border-left: 5px solid #123b57;
-      border-radius: 10px;
+      border: 1px solid #d9e2e8;
+      border-radius: 14px;
     }
 
-    .bloc h2 {
+    h2 {
       margin-top: 0;
       color: #123b57;
     }
 
-    .liste-materiel {
-      margin: 0;
-      padding-left: 22px;
-      line-height: 1.8;
+    li {
+      margin-bottom: 10px;
     }
 
     .boutons-navigation {
@@ -141,6 +137,7 @@
         linear-gradient(145deg, #2389dc, #07559c);
 
       border: 3px solid #164d87;
+
       box-shadow:
         0 5px 12px rgba(0, 0, 0, 0.25),
         inset 0 1px 3px rgba(255, 255, 255, 0.65);
@@ -148,10 +145,6 @@
       color: white;
       text-decoration: none;
       cursor: pointer;
-    }
-
-    .bouton-rond:hover {
-      transform: scale(1.06);
     }
 
     .bouton-rond svg {
@@ -171,10 +164,7 @@
     }
 
     @media (max-width: 950px) {
-      .nav-principale {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
+      .nav-principale,
       .nav-malles {
         grid-template-columns: repeat(2, 1fr);
       }
@@ -189,6 +179,19 @@
     }
 
     @media (max-width: 600px) {
+      .nav-principale,
+      .nav-malles {
+        grid-template-columns: 1fr;
+        gap: 7px;
+        padding: 10px;
+      }
+
+      .onglet,
+      .sous-onglet {
+        min-height: 46px;
+        font-size: 14px;
+      }
+
       .boutons-navigation {
         left: 15px;
         bottom: 15px;
@@ -215,12 +218,12 @@
 <body>
 
   <nav class="nav-principale">
-  <a href="epishuttle.html" class="onglet">EpiShuttle</a>
-  <a href="materiel.html" class="onglet actif">Matériel</a>
-  <a href="procedures.html" class="onglet">Procédures / Check-lists</a>
-  <a href="informations.html" class="onglet">Informations</a>
-  <a href="depart-operationnel.html" class="onglet">Départ opérationnel</a>
-</nav>
+    <a href="epishuttle.html" class="onglet">EpiShuttle</a>
+    <a href="materiel.html" class="onglet actif">Matériel</a>
+    <a href="procedures.html" class="onglet">Procédures / Check-lists</a>
+    <a href="informations.html" class="onglet">Informations</a>
+    <a href="depart-operationnel.html" class="onglet">Départ opérationnel</a>
+  </nav>
 
   <nav class="nav-malles">
     <a href="malle-operationnelle-1.html" class="sous-onglet">
@@ -245,16 +248,14 @@
     <h1>Malle Opérationnelle N°2</h1>
 
     <div class="contenu">
-      <section class="bloc">
-        <h2>Contenu de la malle</h2>
+      <h2>Contenu de la malle</h2>
 
-        <ul class="liste-materiel">
-          <li>Matériel à renseigner</li>
-          <li>Matériel à renseigner</li>
-          <li>Matériel à renseigner</li>
-          <li>Matériel à renseigner</li>
-        </ul>
-      </section>
+      <ul>
+        <li>Matériel à renseigner</li>
+        <li>Matériel à renseigner</li>
+        <li>Matériel à renseigner</li>
+        <li>Matériel à renseigner</li>
+      </ul>
     </div>
 
   </main>
@@ -272,6 +273,7 @@
         <path d="M9 7L4 12l5 5"></path>
         <path d="M4 12h9a6 6 0 0 1 6 6"></path>
       </svg>
+
       <span>Retour</span>
     </button>
 
@@ -286,10 +288,12 @@
         <path d="M5.5 10v10h13V10"></path>
         <path d="M9.5 20v-6h5v6"></path>
       </svg>
+
       <span>Accueil</span>
     </a>
 
   </div>
 
 </body>
+
 </html>
