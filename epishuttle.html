@@ -74,20 +74,68 @@
       color: #52606d;
     }
 
-    .zone-image {
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    .zone-interactive {
+      position: relative;
       width: 100%;
+      max-width: 950px;
       margin: 0 auto;
     }
 
-    .zone-image img {
+    .zone-interactive img {
       display: block;
       width: 100%;
-      max-width: 950px;
       height: auto;
       object-fit: contain;
+    }
+
+    .pastille {
+      position: absolute;
+      width: 22px;
+      height: 22px;
+      padding: 0;
+      border: 3px solid white;
+      border-radius: 50%;
+      background: #e53935;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+      cursor: pointer;
+      transform: translate(-50%, -50%);
+      z-index: 20;
+    }
+
+    .pastille:hover,
+    .pastille:focus {
+      transform: translate(-50%, -50%) scale(1.15);
+      outline: none;
+    }
+
+    .bulle {
+      position: absolute;
+      display: none;
+      min-width: 150px;
+      max-width: 230px;
+      padding: 12px 14px;
+      background: white;
+      border: 2px solid #123b57;
+      border-radius: 10px;
+      box-shadow: 0 5px 18px rgba(0, 0, 0, 0.22);
+      transform: translate(-50%, calc(-100% - 18px));
+      text-align: center;
+      z-index: 30;
+    }
+
+    .bulle.ouverte {
+      display: block;
+    }
+
+    .bulle a {
+      color: #123b57;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .bulle a:hover {
+      text-decoration: underline;
     }
 
     .mention-legale {
@@ -101,12 +149,17 @@
       text-align: center;
     }
 
-    .bouton-accueil {
+    .boutons-navigation {
       position: fixed;
       left: 28px;
       bottom: 28px;
       z-index: 2000;
+      display: flex;
+      gap: 14px;
+      align-items: center;
+    }
 
+    .bouton-rond {
       width: 82px;
       height: 82px;
       border-radius: 50%;
@@ -133,13 +186,22 @@
 
       color: white;
       text-decoration: none;
+      cursor: pointer;
 
       transition:
         transform 0.2s,
         box-shadow 0.2s;
     }
 
-    .bouton-accueil svg {
+    .bouton-rond:hover {
+      transform: scale(1.06);
+
+      box-shadow:
+        0 7px 16px rgba(0, 0, 0, 0.3),
+        inset 0 1px 3px rgba(255, 255, 255, 0.65);
+    }
+
+    .bouton-rond svg {
       width: 35px;
       height: 35px;
       fill: none;
@@ -149,18 +211,10 @@
       stroke-linejoin: round;
     }
 
-    .bouton-accueil span {
+    .bouton-rond span {
       margin-top: 2px;
       font-size: 12px;
       font-weight: bold;
-    }
-
-    .bouton-accueil:hover {
-      transform: scale(1.06);
-
-      box-shadow:
-        0 7px 16px rgba(0, 0, 0, 0.3),
-        inset 0 1px 3px rgba(255, 255, 255, 0.65);
     }
 
     @media (max-width: 950px) {
@@ -169,7 +223,7 @@
       }
 
       main {
-        padding: 30px 15px;
+        padding: 30px 15px 120px;
       }
 
       h1 {
@@ -182,20 +236,39 @@
     }
 
     @media (max-width: 600px) {
-      .bouton-accueil {
+      .boutons-navigation {
         left: 15px;
         bottom: 15px;
+        gap: 10px;
+      }
+
+      .bouton-rond {
         width: 68px;
         height: 68px;
       }
 
-      .bouton-accueil svg {
+      .bouton-rond svg {
         width: 29px;
         height: 29px;
       }
 
-      .bouton-accueil span {
+      .bouton-rond span {
         font-size: 10px;
+      }
+
+      .pastille {
+        width: 18px;
+        height: 18px;
+      }
+
+      .bulle {
+        min-width: 125px;
+        max-width: 180px;
+        padding: 10px 12px;
+      }
+
+      .bulle a {
+        font-size: 14px;
       }
     }
   </style>
@@ -217,38 +290,176 @@
     <h1>EpiShuttle</h1>
 
     <p class="introduction">
-      Présentation interactive de l’EpiShuttle et de ses principaux points d’intérêt.
+      Cliquez sur une pastille pour afficher le point d’intérêt correspondant.
     </p>
 
-    <div class="zone-image">
+    <div class="zone-interactive" id="zoneInteractive">
+
       <img
         src="epishuttle-interactif.png"
         alt="Vue latérale de l’EpiShuttle"
       >
+
+      <button
+        class="pastille"
+        style="left: 8%; top: 48%;"
+        data-bulle="bulle-filtres"
+        aria-label="Filtres A2P3"
+      ></button>
+
+      <div
+        class="bulle"
+        id="bulle-filtres"
+        style="left: 8%; top: 48%;"
+      >
+        <a href="filtres-a2p3.html">Filtres A2P3</a>
+      </div>
+
+      <button
+        class="pastille"
+        style="left: 4.7%; top: 66%;"
+        data-bulle="bulle-pompe"
+        aria-label="Pompe CleanAir"
+      ></button>
+
+      <div
+        class="bulle"
+        id="bulle-pompe"
+        style="left: 4.7%; top: 66%;"
+      >
+        <a href="pompe-cleanair.html">Pompe CleanAir®</a>
+      </div>
+
+      <button
+        class="pastille"
+        style="left: 44%; top: 38%;"
+        data-bulle="bulle-epiport200"
+        aria-label="EpiPort 200"
+      ></button>
+
+      <div
+        class="bulle"
+        id="bulle-epiport200"
+        style="left: 44%; top: 38%;"
+      >
+        <a href="epiport-200.html">EpiPort 200</a>
+      </div>
+
+      <button
+        class="pastille"
+        style="left: 74.5%; top: 17%;"
+        data-bulle="bulle-dome"
+        aria-label="Dôme en polycarbonate"
+      ></button>
+
+      <div
+        class="bulle"
+        id="bulle-dome"
+        style="left: 74.5%; top: 17%;"
+      >
+        <a href="dome-polycarbonate.html">Dôme en polycarbonate</a>
+      </div>
+
+      <button
+        class="pastille"
+        style="left: 93%; top: 66%;"
+        data-bulle="bulle-epiport150"
+        aria-label="EpiPort 150"
+      ></button>
+
+      <div
+        class="bulle"
+        id="bulle-epiport150"
+        style="left: 93%; top: 66%;"
+      >
+        <a href="epiport-150.html">EpiPort 150</a>
+      </div>
+
     </div>
 
   </main>
 
-  <a
-    href="index.html"
-    class="bouton-accueil"
-    title="Retour à l’accueil"
-    aria-label="Retour à l’accueil"
-  >
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M3 11.5L12 4l9 7.5"></path>
-      <path d="M5.5 10v10h13V10"></path>
-      <path d="M9.5 20v-6h5v6"></path>
-    </svg>
+  <div class="boutons-navigation">
 
-    <span>Accueil</span>
-  </a>
+    <button
+      type="button"
+      class="bouton-rond"
+      title="Retour à la page précédente"
+      aria-label="Retour à la page précédente"
+      onclick="history.back()"
+    >
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M9 7L4 12l5 5"></path>
+        <path d="M4 12h9a6 6 0 0 1 6 6"></path>
+      </svg>
+      <span>Retour</span>
+    </button>
+
+    <a
+      href="index.html"
+      class="bouton-rond"
+      title="Retour à l’accueil"
+      aria-label="Retour à l’accueil"
+    >
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M3 11.5L12 4l9 7.5"></path>
+        <path d="M5.5 10v10h13V10"></path>
+        <path d="M9.5 20v-6h5v6"></path>
+      </svg>
+      <span>Accueil</span>
+    </a>
+
+  </div>
 
   <footer class="mention-legale">
     Illustration EpiShuttle® fournie ou issue de la documentation EpiGuard.
     Utilisation provisoire dans le cadre d’un prototype universitaire non commercial,
     en attente de confirmation d’autorisation.
   </footer>
+
+  <script>
+    const zoneInteractive = document.getElementById("zoneInteractive");
+    const pastilles = document.querySelectorAll(".pastille");
+    const bulles = document.querySelectorAll(".bulle");
+
+    function fermerToutesLesBulles() {
+      bulles.forEach(function(bulle) {
+        bulle.classList.remove("ouverte");
+      });
+    }
+
+    pastilles.forEach(function(pastille) {
+      pastille.addEventListener("click", function(event) {
+        event.stopPropagation();
+
+        const identifiantBulle = pastille.dataset.bulle;
+        const bulleCible = document.getElementById(identifiantBulle);
+        const etaitDejaOuverte = bulleCible.classList.contains("ouverte");
+
+        fermerToutesLesBulles();
+
+        if (!etaitDejaOuverte) {
+          bulleCible.classList.add("ouverte");
+        }
+      });
+    });
+
+    bulles.forEach(function(bulle) {
+      bulle.addEventListener("click", function(event) {
+        event.stopPropagation();
+      });
+    });
+
+    zoneInteractive.addEventListener("click", function() {
+      fermerToutesLesBulles();
+    });
+
+    document.addEventListener("keydown", function(event) {
+      if (event.key === "Escape") {
+        fermerToutesLesBulles();
+      }
+    });
+  </script>
 
 </body>
 </html>
