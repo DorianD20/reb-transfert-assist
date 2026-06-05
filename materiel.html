@@ -3,15 +3,15 @@
 
 <head>
   <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Matériel - REB Transfert Assist</title>
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
@@ -61,12 +61,10 @@
       margin: 0 auto;
       padding: 40px 25px 140px;
       background: white;
-      box-sizing: border-box;
     }
 
     h1 {
-      margin-top: 0;
-      margin-bottom: 35px;
+      margin: 0 0 35px;
       color: #123b57;
       font-size: 34px;
       text-align: center;
@@ -89,15 +87,10 @@
       color: #123b57;
       text-decoration: none;
       text-align: center;
-
       display: flex;
       align-items: center;
       justify-content: center;
-
-      box-sizing: border-box;
-
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-
       transition:
         transform 0.2s,
         background 0.2s,
@@ -116,21 +109,12 @@
       font-weight: bold;
     }
 
-    /*
-      Présentation particulière de la case CEOTRONICS :
-      le titre est placé en haut et l’image en dessous.
-    */
-
     .carte-ceotronics {
       flex-direction: column;
       justify-content: flex-start;
       gap: 14px;
       padding-top: 22px;
       padding-bottom: 16px;
-    }
-
-    .carte-ceotronics .titre-carte {
-      margin: 0;
     }
 
     .image-ceotronics {
@@ -157,7 +141,6 @@
       height: 82px;
       padding: 0;
       border-radius: 50%;
-
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -181,18 +164,10 @@
       color: white;
       text-decoration: none;
       cursor: pointer;
-
-      transition:
-        transform 0.2s,
-        box-shadow 0.2s;
     }
 
     .bouton-rond:hover {
       transform: scale(1.06);
-
-      box-shadow:
-        0 7px 16px rgba(0, 0, 0, 0.3),
-        inset 0 1px 3px rgba(255, 255, 255, 0.65);
     }
 
     .bouton-rond svg {
@@ -236,6 +211,17 @@
     }
 
     @media (max-width: 600px) {
+      nav {
+        grid-template-columns: 1fr;
+        gap: 7px;
+        padding: 10px;
+      }
+
+      .onglet {
+        min-height: 46px;
+        font-size: 14px;
+      }
+
       .boutons-navigation {
         left: 15px;
         bottom: 15px;
@@ -261,13 +247,13 @@
 
 <body>
 
- <nav>
-  <a href="epishuttle.html" class="onglet">EpiShuttle</a>
-  <a href="materiel.html" class="onglet">Matériel</a>
-  <a href="procedures.html" class="onglet">Procédures / Check-lists</a>
-  <a href="informations.html" class="onglet">Informations</a>
-  <a href="depart-operationnel.html" class="onglet">Départ opérationnel</a>
-</nav>
+  <nav>
+    <a href="epishuttle.html" class="onglet">EpiShuttle</a>
+    <a href="materiel.html" class="onglet actif">Matériel</a>
+    <a href="procedures.html" class="onglet">Procédures / Check-lists</a>
+    <a href="informations.html" class="onglet">Informations</a>
+    <a href="depart-operationnel.html" class="onglet">Départ opérationnel</a>
+  </nav>
 
   <main>
 
@@ -275,28 +261,19 @@
 
     <div class="grille-materiel">
 
-      <a
-        href="malle-operationnelle-1.html"
-        class="carte-materiel"
-      >
+      <a href="malle-operationnelle-1.html" class="carte-materiel">
         <div class="titre-carte">
           Malle Opérationnelle N°1
         </div>
       </a>
 
-      <a
-        href="malle-operationnelle-2.html"
-        class="carte-materiel"
-      >
+      <a href="malle-operationnelle-2.html" class="carte-materiel">
         <div class="titre-carte">
           Malle Opérationnelle N°2
         </div>
       </a>
 
-      <a
-        href="malle-operationnelle-3.html"
-        class="carte-materiel"
-      >
+      <a href="malle-operationnelle-3.html" class="carte-materiel">
         <div class="titre-carte">
           Malle Opérationnelle N°3
         </div>
