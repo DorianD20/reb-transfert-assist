@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>EPI - REB Transfert Assist</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f7f8;
+      color: #1f2933;
+    }
+
+    nav {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 10px;
+      padding: 15px 20px;
+      background: white;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .onglet {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 54px;
+      padding: 10px;
+      background: #e9eef2;
+      border-radius: 8px;
+      color: #123b57;
+      text-decoration: none;
+      text-align: center;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .onglet:hover {
+      background: #d7e3ea;
+    }
+
+    .onglet.actif {
+      background: #123b57;
+      color: white;
+    }
+
+    main {
+      max-width: 1200px;
+      min-height: 650px;
+      margin: 0 auto;
+      padding: 40px 25px 140px;
+      background: white;
+    }
+
+    h1 {
+      margin: 0 0 35px;
+      color: #123b57;
+      font-size: 34px;
+      text-align: center;
+    }
+
+    /* Grille adaptée pour centrer la ou les cartes EPI */
+    .grille-epi {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 400px));
+      gap: 24px;
+      justify-content: center;
+      max-width: 950px;
+      margin: 0 auto;
+    }
+
+    .carte-epi {
+      min-height: 320px;
+      padding: 25px;
+      border: 2px solid #d9e2e8;
+      border-radius: 16px;
+      background: #f4f7f8;
+      color: #123b57;
+      text-decoration: none;
+      text-align: center;
+      
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 20px;
+
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      transition:
+        transform 0.2s,
+        background 0.2s,
+        box-shadow 0.2s;
+    }
+
+    .carte-epi:hover {
+      transform: translateY(-4px);
+      background: #e8f0f4;
+      box-shadow: 0 7px 18px rgba(0, 0, 0, 0.14);
+    }
+
+    .titre-carte {
+      font-size: 24px;
+      line-height: 1.25;
+      font-weight: bold;
+    }
+
+    .image-epi {
+      display: block;
+      width: auto;
+      max-width: 100%;
+      height: 240px;
+      object-fit: contain;
+      border-radius: 7px;
+    }
+
+    .boutons-navigation {
+      position: fixed;
+      left: 28px;
+      bottom: 28px;
+      z-index: 2000;
+      display: flex;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .bouton-rond {
+      width: 82px;
+      height: 82px;
+      padding: 0;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      background:
+        linear-gradient(
+          160deg,
+          rgba(255, 255, 255, 0.55) 0%,
+          rgba(255, 255, 255, 0.08) 38%,
+          transparent 39%
+        ),
+        linear-gradient(145deg, #2389dc, #07559c);
+
+      border: 3px solid #164d87;
+
+      box-shadow:
+        0 5px 12px rgba(0, 0, 0, 0.25),
+        inset 0 1px 3px rgba(255, 255, 255, 0.65);
+
+      color: white;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .bouton-rond svg {
+      width: 35px;
+      height: 35px;
+      fill: none;
+      stroke: white;
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .bouton-rond span {
+      margin-top: 2px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    @media (max-width: 950px) {
+      nav {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      main {
+        padding: 30px 15px 140px;
+      }
+
+      h1 {
+        font-size: 28px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        grid-template-columns: 1fr;
+        gap: 7px;
+        padding: 10px;
+      }
+
+      .onglet {
+        min-height: 46px;
+        font-size: 14px;
+      }
+      
+      .grille-epi {
+        grid-template-columns: 1fr;
+      }
+
+      .boutons-navigation {
+        left: 15px;
+        bottom: 15px;
+        gap: 10px;
+      }
+
+      .bouton-rond {
+        width: 68px;
+        height: 68px;
+      }
+
+      .bouton-rond svg {
+        width: 29px;
+        height: 29px;
+      }
+
+      .bouton-rond span {
+        font-size: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <a href="epishuttle.html" class="onglet">EpiShuttle</a>
+    <a href="materiel.html" class="onglet">Matériel</a>
+    <a href="procedures.html" class="onglet">Procédures / Check-lists</a>
+    <a href="epi.html" class="onglet actif">EPI</a>
+    <a href="informations.html" class="onglet">Informations</a>
+    <a href="depart-operationnel.html" class="onglet">Départ opérationnel</a>
+  </nav>
+
+  <main>
+
+    <h1>Équipements de Protection Individuelle</h1>
+
+    <div class="grille-epi">
+
+      <a href="tychem-2000c.html" class="carte-epi">
+        <div class="titre-carte">
+          TYCHEM 2000C
+        </div>
+
+        <img
+          src="onglet-tenue-complete-tychem2000c.jpg"
+          alt="Tenue TYCHEM 2000C"
+          class="image-epi"
+        >
+      </a>
+
+    </div>
+
+  </main>
+
+  <div class="boutons-navigation">
+
+    <button
+      type="button"
+      class="bouton-rond"
+      title="Retour à la page précédente"
+      aria-label="Retour à la page précédente"
+      onclick="history.back()"
+    >
+      <svg viewBox="0 0 24
