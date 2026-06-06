@@ -3,15 +3,15 @@
 
 <head>
   <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>EpiShuttle - REB Transfert Assist</title>
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
@@ -44,7 +44,6 @@
       text-align: center;
       font-size: 16px;
       font-weight: bold;
-      box-sizing: border-box;
     }
 
     .onglet:hover {
@@ -60,14 +59,12 @@
       max-width: 1200px;
       min-height: 650px;
       margin: 0 auto;
-      padding: 40px 25px;
+      padding: 40px 25px 140px;
       background: white;
-      box-sizing: border-box;
     }
 
     h1 {
-      margin-top: 0;
-      margin-bottom: 10px;
+      margin: 0 0 10px;
       color: #123b57;
       font-size: 34px;
       text-align: center;
@@ -75,9 +72,9 @@
 
     .introduction {
       margin: 0 0 35px;
+      color: #52606d;
       text-align: center;
       font-size: 17px;
-      color: #52606d;
     }
 
     .zone-interactive {
@@ -127,7 +124,6 @@
       transform: translate(-50%, calc(-100% - 18px));
       text-align: center;
       z-index: 30;
-      box-sizing: border-box;
     }
 
     .bulle.ouverte {
@@ -149,11 +145,10 @@
       max-width: 1200px;
       margin: 0 auto;
       padding: 18px 25px 30px;
-      box-sizing: border-box;
-      font-size: 11px;
-      line-height: 1.4;
       color: #6b7280;
       text-align: center;
+      font-size: 11px;
+      line-height: 1.4;
     }
 
     .boutons-navigation {
@@ -162,14 +157,15 @@
       bottom: 28px;
       z-index: 2000;
       display: flex;
-      gap: 14px;
       align-items: center;
+      gap: 14px;
     }
 
     .bouton-rond {
       width: 82px;
       height: 82px;
       padding: 0;
+      border: 3px solid #164d87;
       border-radius: 50%;
 
       display: flex;
@@ -185,8 +181,6 @@
           transparent 39%
         ),
         linear-gradient(145deg, #2389dc, #07559c);
-
-      border: 3px solid #164d87;
 
       box-shadow:
         0 5px 12px rgba(0, 0, 0, 0.25),
@@ -231,7 +225,7 @@
       }
 
       main {
-        padding: 30px 15px 120px;
+        padding: 30px 15px 140px;
       }
 
       h1 {
@@ -255,6 +249,21 @@
         font-size: 14px;
       }
 
+      .pastille {
+        width: 18px;
+        height: 18px;
+      }
+
+      .bulle {
+        min-width: 125px;
+        max-width: 180px;
+        padding: 10px 12px;
+      }
+
+      .bulle a {
+        font-size: 14px;
+      }
+
       .boutons-navigation {
         left: 15px;
         bottom: 15px;
@@ -274,21 +283,6 @@
       .bouton-rond span {
         font-size: 10px;
       }
-
-      .pastille {
-        width: 18px;
-        height: 18px;
-      }
-
-      .bulle {
-        min-width: 125px;
-        max-width: 180px;
-        padding: 10px 12px;
-      }
-
-      .bulle a {
-        font-size: 14px;
-      }
     }
   </style>
 </head>
@@ -296,25 +290,11 @@
 <body>
 
   <nav>
-    <a href="epishuttle.html" class="onglet actif">
-      EpiShuttle
-    </a>
-
-    <a href="materiel.html" class="onglet">
-      Matériel
-    </a>
-
-    <a href="procedures.html" class="onglet">
-      Procédures / Check-lists
-    </a>
-
-    <a href="informations.html" class="onglet">
-      Informations
-    </a>
-
-    <a href="depart-operationnel.html" class="onglet">
-      Départ opérationnel
-    </a>
+    <a href="epishuttle.html" class="onglet actif">EpiShuttle</a>
+    <a href="materiel.html" class="onglet">Matériel</a>
+    <a href="procedures.html" class="onglet">Procédures / Check-lists</a>
+    <a href="informations.html" class="onglet">Informations</a>
+    <a href="depart-operationnel.html" class="onglet">Départ opérationnel</a>
   </nav>
 
   <main>
@@ -331,8 +311,6 @@
         src="epishuttle-interactif.png"
         alt="Vue latérale de l’EpiShuttle"
       >
-
-      <!-- Filtres A2P3 -->
 
       <button
         type="button"
@@ -352,8 +330,6 @@
         </a>
       </div>
 
-      <!-- Pompe CleanAir -->
-
       <button
         type="button"
         class="pastille"
@@ -371,8 +347,6 @@
           Pompe CleanAir®
         </a>
       </div>
-
-      <!-- EpiPort 200 -->
 
       <button
         type="button"
@@ -392,8 +366,6 @@
         </a>
       </div>
 
-      <!-- Dôme en polycarbonate -->
-
       <button
         type="button"
         class="pastille"
@@ -411,8 +383,6 @@
           Dôme en polycarbonate
         </a>
       </div>
-
-      <!-- EpiPort 150 -->
 
       <button
         type="button"
@@ -435,6 +405,12 @@
     </div>
 
   </main>
+
+  <footer class="mention-legale">
+    Illustration EpiShuttle® fournie ou issue de la documentation EpiGuard.
+    Utilisation provisoire dans le cadre d’un prototype universitaire non commercial,
+    en attente de confirmation d’autorisation.
+  </footer>
 
   <div class="boutons-navigation">
 
@@ -470,16 +446,15 @@
 
   </div>
 
-  <footer class="mention-legale">
-    Illustration EpiShuttle® fournie ou issue de la documentation EpiGuard.
-    Utilisation provisoire dans le cadre d’un prototype universitaire non commercial,
-    en attente de confirmation d’autorisation.
-  </footer>
-
   <script>
-    const zoneInteractive = document.getElementById("zoneInteractive");
-    const pastilles = document.querySelectorAll(".pastille");
-    const bulles = document.querySelectorAll(".bulle");
+    const zoneInteractive =
+      document.getElementById("zoneInteractive");
+
+    const pastilles =
+      document.querySelectorAll(".pastille");
+
+    const bulles =
+      document.querySelectorAll(".bulle");
 
     function fermerToutesLesBulles() {
       bulles.forEach(function (bulle) {
@@ -491,8 +466,12 @@
       pastille.addEventListener("click", function (event) {
         event.stopPropagation();
 
-        const identifiantBulle = pastille.dataset.bulle;
-        const bulleCible = document.getElementById(identifiantBulle);
+        const identifiantBulle =
+          pastille.dataset.bulle;
+
+        const bulleCible =
+          document.getElementById(identifiantBulle);
+
         const etaitDejaOuverte =
           bulleCible.classList.contains("ouverte");
 
