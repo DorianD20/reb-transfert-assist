@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,10 @@
   <title>EpiPort 150 - REB Transfert Assist</title>
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
@@ -56,15 +61,13 @@
       margin: 0 auto;
       padding: 40px 25px 140px;
       background: white;
-      box-sizing: border-box;
     }
 
     h1 {
-      margin-top: 0;
-      margin-bottom: 30px;
+      margin: 0 0 30px;
       color: #123b57;
-      font-size: 34px;
       text-align: center;
+      font-size: 34px;
     }
 
     .contenu {
@@ -73,21 +76,21 @@
     }
 
     .bloc {
-      margin-bottom: 20px;
+      margin-bottom: 22px;
       padding: 22px;
       background: #f4f7f8;
-      border-left: 5px solid #123b57;
-      border-radius: 10px;
+      border: 1px solid #d9e2e8;
+      border-radius: 14px;
     }
 
     .bloc h2 {
-      margin-top: 0;
+      margin: 0 0 12px;
       color: #123b57;
-      font-size: 22px;
+      font-size: 23px;
     }
 
     .bloc p {
-      margin-bottom: 0;
+      margin: 0;
       line-height: 1.6;
     }
 
@@ -97,15 +100,17 @@
       bottom: 28px;
       z-index: 2000;
       display: flex;
-      gap: 14px;
       align-items: center;
+      gap: 14px;
     }
 
     .bouton-rond {
       width: 82px;
       height: 82px;
       padding: 0;
+      border: 3px solid #164d87;
       border-radius: 50%;
+
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -120,8 +125,6 @@
         ),
         linear-gradient(145deg, #2389dc, #07559c);
 
-      border: 3px solid #164d87;
-
       box-shadow:
         0 5px 12px rgba(0, 0, 0, 0.25),
         inset 0 1px 3px rgba(255, 255, 255, 0.65);
@@ -129,18 +132,10 @@
       color: white;
       text-decoration: none;
       cursor: pointer;
-
-      transition:
-        transform 0.2s,
-        box-shadow 0.2s;
     }
 
     .bouton-rond:hover {
       transform: scale(1.06);
-
-      box-shadow:
-        0 7px 16px rgba(0, 0, 0, 0.3),
-        inset 0 1px 3px rgba(255, 255, 255, 0.65);
     }
 
     .bouton-rond svg {
@@ -174,6 +169,17 @@
     }
 
     @media (max-width: 600px) {
+      nav {
+        grid-template-columns: 1fr;
+        gap: 7px;
+        padding: 10px;
+      }
+
+      .onglet {
+        min-height: 46px;
+        font-size: 14px;
+      }
+
       .boutons-navigation {
         left: 15px;
         bottom: 15px;
@@ -200,12 +206,12 @@
 <body>
 
   <nav>
-  <a href="epishuttle.html" class="onglet">EpiShuttle</a>
-  <a href="materiel.html" class="onglet">Matériel</a>
-  <a href="procedures.html" class="onglet actif">Procédures / Check-lists</a>
-  <a href="informations.html" class="onglet">Informations</a>
-  <a href="depart-operationnel.html" class="onglet">Départ opérationnel</a>
-</nav>
+    <a href="epishuttle.html" class="onglet actif">EpiShuttle</a>
+    <a href="materiel.html" class="onglet">Matériel</a>
+    <a href="procedures.html" class="onglet">Procédures / Check-lists</a>
+    <a href="informations.html" class="onglet">Informations</a>
+    <a href="depart-operationnel.html" class="onglet">Départ opérationnel</a>
+  </nav>
 
   <main>
 
@@ -215,21 +221,25 @@
 
       <section class="bloc">
         <h2>Fonction</h2>
+
         <p>
-          Cette partie présentera le rôle de l’EpiPort 150 dans l’accès au patient
-          et dans l’utilisation de l’EpiShuttle.
+          Cette partie présentera le rôle de l’EpiPort 150 dans l’accès au
+          patient et dans l’utilisation de l’EpiShuttle.
         </p>
       </section>
 
       <section class="bloc">
         <h2>Points de contrôle</h2>
+
         <p>
-          Les vérifications à réaliser avant l’installation du patient seront précisées ici.
+          Les vérifications à réaliser avant l’installation du patient seront
+          précisées ici.
         </p>
       </section>
 
       <section class="bloc">
         <h2>Utilisation</h2>
+
         <p>
           Une explication, des photographies ou une vidéo pourront être ajoutées
           dans cette partie.
@@ -238,9 +248,10 @@
 
       <section class="bloc">
         <h2>Points de vigilance</h2>
+
         <p>
-          Les erreurs à éviter et les situations nécessitant une attention particulière
-          seront indiquées ici.
+          Les erreurs à éviter et les situations nécessitant une attention
+          particulière seront indiquées ici.
         </p>
       </section>
 
@@ -261,6 +272,7 @@
         <path d="M9 7L4 12l5 5"></path>
         <path d="M4 12h9a6 6 0 0 1 6 6"></path>
       </svg>
+
       <span>Retour</span>
     </button>
 
@@ -275,10 +287,12 @@
         <path d="M5.5 10v10h13V10"></path>
         <path d="M9.5 20v-6h5v6"></path>
       </svg>
+
       <span>Accueil</span>
     </a>
 
   </div>
 
 </body>
+
 </html>
