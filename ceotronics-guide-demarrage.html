@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Démarrage CEOTRONICS - REB Transfert Assist</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f7f8;
+      color: #1f2933;
+    }
+
+    .nav-principale,
+    .nav-malles {
+      display: grid;
+      gap: 10px;
+      padding: 15px 20px;
+      background: white;
+    }
+
+    .nav-principale {
+      grid-template-columns: repeat(6, 1fr);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav-malles {
+      grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid #d9e2e8;
+      border-bottom: 1px solid #d9e2e8;
+    }
+
+    .onglet,
+    .sous-onglet {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 54px;
+      padding: 10px;
+      border-radius: 8px;
+      color: #123b57;
+      text-decoration: none;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .onglet {
+      background: #e9eef2;
+    }
+
+    .sous-onglet {
+      background: #f1f4f6;
+    }
+
+    .onglet:hover,
+    .sous-onglet:hover {
+      background: #d7e3ea;
+    }
+
+    .onglet.actif,
+    .sous-onglet.actif {
+      background: #123b57;
+      color: white;
+    }
+
+    main {
+      max-width: 1200px;
+      min-height: 650px;
+      margin: 0 auto;
+      padding: 40px 25px 140px;
+      background: white;
+    }
+
+    h1 {
+      margin: 0 0 35px;
+      color: #123b57;
+      text-align: center;
+      font-size: 34px;
+    }
+
+    /* Style spécifique pour les étapes du guide */
+    .conteneur-guide {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .etape-guide {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      background: #f4f7f8;
+      border: 1px solid #d9e2e8;
+      border-radius: 16px;
+      padding: 25px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    .etape-image {
+      flex: 0 0 300px; /* Largeur fixe pour l'image sur ordinateur */
+    }
+
+    .etape-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      display: block;
+    }
+
+    .etape-texte {
+      flex: 1;
+    }
+
+    .etape-texte h2 {
+      margin: 0 0 15px;
+      color: #123b57;
+      font-size: 22px;
+    }
+
+    .etape-texte p {
+      margin: 0;
+      color: #52606d;
+      font-size: 17px;
+      line-height: 1.6;
+    }
+
+    .boutons-navigation {
+      position: fixed;
+      left: 28px;
+      bottom: 28px;
+      z-index: 2000;
+      display: flex;
+      gap: 14px;
+    }
+
+    .bouton-rond {
+      width: 82px;
+      height: 82px;
+      padding: 0;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      background:
+        linear-gradient(
+          160deg,
+          rgba(255, 255, 255, 0.55) 0%,
+          rgba(255, 255, 255, 0.08) 38%,
+          transparent 39%
+        ),
+        linear-gradient(145deg, #2389dc, #07559c);
+
+      border: 3px solid #164d87;
+
+      box-shadow:
+        0 5px 12px rgba(0, 0, 0, 0.25),
+        inset 0 1px 3px rgba(255, 255, 255, 0.65);
+
+      color: white;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .bouton-rond:hover {
+      transform: scale(1.06);
+    }
+
+    .bouton-rond svg {
+      width: 35px;
+      height: 35px;
+      fill: none;
+      stroke: white;
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .bouton-rond span {
+      margin-top: 2px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    @media (max-width: 950px) {
+      .nav-principale {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .nav-malles {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      main {
+        padding: 30px 15px 140px;
+      }
+
+      h1 {
+        font-size: 28px;
+      }
+      
+      .etape-guide {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .etape-image {
+        flex: auto;
+        width: 100%;
+        max-width: 400px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .nav-principale,
+      .nav-malles {
+        grid-template-columns: 1fr;
+        gap: 7px;
+        padding: 10px;
+      }
+
+      .onglet,
+      .sous-onglet {
+        min-height: 46px;
+        font-size: 14px;
+      }
+
+      .etape-guide {
+        padding: 20px 15px;
+      }
+
+      .boutons-navigation {
+        left: 15px;
+        bottom: 15px;
+        gap: 10px;
+      }
+
+      .bouton-rond {
+        width: 68px;
+        height: 68px;
+      }
+
+      .bouton-rond svg {
+        width: 29px;
+        height: 29px;
+      }
+
+      .bouton-rond span {
+        font-size: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="nav-principale">
+    <a href="epishuttle.html" class="onglet">EpiShuttle</a>
+    <a href="materiel.html" class="onglet actif">Matériel</a>
+    <a href="procedures.html" class="onglet">Procédures / Check-lists</a>
+    <a href="epi.html" class="onglet">EPI</a>
+    <a href="informations.html" class="onglet">Informations</a>
+    <a href="depart-operationnel.html" class="onglet">Départ opérationnel</a>
+  </nav>
+
+  <nav class="nav-malles">
+    <a href="malle-operationnelle-1.html" class="sous-onglet">
+      Malle Opérationnelle N°1
+    </a>
+
+    <a href="malle-operationnelle-2.html" class="sous-onglet">
+      Malle Opérationnelle N°2
+    </a>
+
+    <a href="malle-operationnelle-3.html" class="sous-onglet">
+      Malle Opérationnelle N°3
+    </a>
+
+    <a href="malle-communication-ceotronics.html" class="sous-onglet actif">
+      Malle communication CEOTRONICS
+    </a>
+  </nav>
+
+  <main>
+
+    <h1>Démarrage</h1>
+
+    <div class="conteneur-guide">
+
+      <!-- ÉTAPE 1 -->
+      <div class="etape-guide">
+        <div class="etape-image">
+          <img src="ceotronic-demarrage-1.jpg" alt="Identification du Master">
+        </div>
+        <div class="etape-texte">
+          <h2>Étape 1 : Identifier le Master</h2>
+          <p>
+            Parmi les différents boîtiers de communication fournis, commencez par identifier celui qui porte l'étiquette "Master". C'est ce boîtier qui servira de relais principal.
+          </p>
+        </div>
+      </div>
+
+      <!-- ÉTAPE 2 -->
+      <div class="etape-guide">
+        <div class="etape-image">
+          <img src="ceotronic-demarrage-2.jpg" alt="Préparation du matériel">
+        </div>
+        <div class="etape-texte">
+          <h2>Étape 2 : Préparer le matériel</h2>
+          <p>
+            Munissez-vous de votre boîtier de communication ainsi que du système d'écoute et de microphone associé (câblage complet).
+          </p>
+        </div>
+      </div>
+
+      <!-- ÉTAPE 3 -->
+      <div class="etape-guide">
+        <div class="etape-image">
+          <img src="ceotronic-demarrage-3.jpg" alt="Ajustement de l'écouteur">
+        </div>
+        <div class="etape-texte">
+          <h2>Étape 3 : Ajustement de l'écouteur</h2>
+          <p>
+            Positionnez correctement l'écouteur en vous assurant que la boucle de maintien est bien réglée pour garantir confort et maintien pendant l'opération.
+          </p>
+        </div>
+      </div>
+
+      <!-- ÉTAPE 4 -->
+      <div class="etape-guide">
+        <div class="etape-image">
+          <img src="ceotronic-demarrage-4.jpg" alt="Ajustement du tour de cou">
+        </div>
+        <div class="etape-texte">
+          <h2>Étape 4 : Système de maintien</h2>
+          <p>
+            Vérifiez l'assemblage de la lanière élastique et des attaches (clips) qui permettent de fixer le système de communication de manière sécurisée.
+          </p>
+        </div>
+      </div>
+
+      <!-- ÉTAPE 5 -->
+      <div class="etape-guide">
+        <div class="etape-image">
+          <img src="ceotronic-demarrage-5.jpg" alt="Branchement du connecteur">
+        </div>
+        <div class="etape-texte">
+          <h2>Étape 5 : Connexion au boîtier</h2>
+          <p>
+            Insérez fermement la fiche du casque dans le port de connexion situé sur la partie supérieure du boîtier CEOTRONICS.
+          </p>
+        </div>
+      </div>
+
+      <!-- ÉTAPE 6 -->
+      <div class="etape-guide">
+        <div class="etape-image">
+          <img src="ceotronic-demarrage-6.jpg" alt="Alignement des repères rouges">
+        </div>
+        <div class="etape-texte">
+          <h2>Étape 6 : Verrouillage de la fiche</h2>
+          <p>
+            Assurez-vous que les deux repères rouges (points rouges) soient parfaitement alignés pour garantir l'étanchéité et le bon fonctionnement de la connexion.
+          </p>
+        </div>
+      </div>
+
+      <!-- ÉTAPE 7 -->
+      <div class="etape-guide">
+        <div class="etape-image">
+          <img src="ceotronic-demarrage-7.jpg" alt="Boutons de commande">
+        </div>
+        <div class="etape-texte">
+          <h2>Étape 7 : Démarrage et commandes</h2>
+          <p>
+            Appuyez de manière prolongée sur le bouton central (ON/OFF) pour allumer l'appareil. Familiarisez-vous avec les boutons : volume, coupure micro et Push to Talk.
+          </p>
+        </div>
+      </div>
+
+      <!-- ÉTAPE 8 -->
+      <div class="etape-guide">
+        <div class="etape-image">
+          <img src="ceotronic-demarrage-8.jpg" alt="Écran d'accueil et verrouillage">
+        </div>
+        <div class="etape-texte">
+          <h2>Étape 8 : Vérification de l'écran</h2>
+          <p>
+            Une fois allumé, l'écran doit afficher votre profil (ex: EXPERT). Vérifiez en haut à gauche l'icône indiquant l'état de la connexion et l'activation des fonctions.
+          </p>
+        </div>
+      </div>
+
+      <!-- ÉTAPE 9 -->
+      <div class="etape-guide">
+        <div class="etape-image">
+          <img src="ceotronic-demarrage-9.jpg" alt="Indicateur de réseau">
+        </div>
+        <div class="etape-texte">
+          <h2>Étape 9 : Niveau de signal</h2>
+          <p>
+            Contrôlez l'indicateur de réseau en haut de l'écran (les barres de signal) pour vous assurer d'une bonne réception avec les autres membres de l'équipe.
+          </p>
+        </div>
+      </div>
+
+      <!-- ÉTAPE 10 -->
+      <div class="etape-guide">
+        <div class="etape-image">
+          <img src="ceotronic-demarrage-10.jpg" alt="Détail du branchement">
+        </div>
+        <div class="etape-texte">
+          <h2>Étape 10 : Vérification finale</h2>
+          <p>
+            Procédez à une dernière vérification visuelle de vos branchements et effectuez un test de communication radio avec le reste de l'équipe avant de valider votre équipement.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <div class="boutons-navigation">
+
+    <button
+      type="button"
+      class="bouton-rond"
+      title="Retour à la page précédente"
+      aria-label="Retour à la page précédente"
+      onclick="history.back()"
+    >
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M9 7L4 12l5 5"></path>
+        <path d="M4 12h9a6 6 0 0 1 6 6"></path>
+      </svg>
+
+      <span>Retour</span>
+    </button>
+
+    <a
+      href="index.html"
+      class="bouton-rond"
+      title="Retour à l’accueil"
+      aria-label="Retour à l’accueil"
+    >
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M3 11.5L12 4l9 7.5"></path>
+        <path d="M5.5 10v10h13V10"></path>
+        <path d="M9.5 20v-6h5v6"></path>
+      </svg>
+
+      <span>Accueil</span>
+    </a>
+
+  </div>
+
+</body>
+
+</html>
