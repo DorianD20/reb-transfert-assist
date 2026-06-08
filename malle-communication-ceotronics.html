@@ -89,7 +89,7 @@
       font-size: 34px;
     }
 
-    /* Grille des cartes Ceotronics (1 en haut, 2 en bas) */
+    /* Grille pour 4 cartes (2x2) */
     .grille-malle {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -121,13 +121,6 @@
       transform: translateY(-4px);
       background: #e8f0f4;
       box-shadow: 0 7px 18px rgba(0, 0, 0, 0.14);
-    }
-
-    /* Centre la carte du haut et lui donne la même largeur que les autres */
-    .centre-haut {
-      grid-column: 1 / -1; 
-      justify-self: center;
-      width: calc(50% - 12px);
     }
 
     .titre-carte {
@@ -213,12 +206,6 @@
       .grille-malle {
         grid-template-columns: 1fr;
       }
-      
-      .centre-haut {
-        grid-column: 1; 
-        justify-self: stretch;
-        width: 100%;
-      }
     }
 
     @media (max-width: 600px) {
@@ -293,7 +280,7 @@
 
     <div class="grille-malle">
 
-      <a href="ceotronics-contenu.html" class="carte-malle centre-haut">
+      <a href="ceotronics-contenu.html" class="carte-malle">
         <div class="titre-carte">
           Contenu de la malle
         </div>
@@ -308,6 +295,12 @@
       <a href="ceotronics-video.html" class="carte-malle">
         <div class="titre-carte">
           Vidéo
+        </div>
+      </a>
+
+      <a href="ceotronics-informations.html" class="carte-malle">
+        <div class="titre-carte">
+          Informations
         </div>
       </a>
 
