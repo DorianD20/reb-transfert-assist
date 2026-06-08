@@ -89,22 +89,51 @@
       font-size: 34px;
     }
 
-    .contenu {
-      max-width: 900px;
+    /* Grille des cartes Ceotronics (1 en haut, 2 en bas) */
+    .grille-malle {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      max-width: 950px;
       margin: 0 auto;
-      padding: 24px;
+    }
+
+    .carte-malle {
+      min-height: 180px;
+      padding: 25px;
+      border: 2px solid #d9e2e8;
+      border-radius: 16px;
       background: #f4f7f8;
-      border: 1px solid #d9e2e8;
-      border-radius: 14px;
-    }
-
-    h2 {
-      margin-top: 0;
       color: #123b57;
+      text-decoration: none;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      transition:
+        transform 0.2s,
+        background 0.2s,
+        box-shadow 0.2s;
     }
 
-    li {
-      margin-bottom: 10px;
+    .carte-malle:hover {
+      transform: translateY(-4px);
+      background: #e8f0f4;
+      box-shadow: 0 7px 18px rgba(0, 0, 0, 0.14);
+    }
+
+    /* Centre la carte du haut et lui donne la même largeur que les autres */
+    .centre-haut {
+      grid-column: 1 / -1; 
+      justify-self: center;
+      width: calc(50% - 12px);
+    }
+
+    .titre-carte {
+      font-size: 24px;
+      line-height: 1.25;
+      font-weight: bold;
     }
 
     .boutons-navigation {
@@ -180,12 +209,30 @@
       }
     }
 
+    @media (max-width: 700px) {
+      .grille-malle {
+        grid-template-columns: 1fr;
+      }
+      
+      .centre-haut {
+        grid-column: 1; 
+        justify-self: stretch;
+        width: 100%;
+      }
+    }
+
     @media (max-width: 600px) {
       .nav-principale,
       .nav-malles {
         grid-template-columns: 1fr;
         gap: 7px;
         padding: 10px;
+      }
+
+      .onglet,
+      .sous-onglet {
+        min-height: 46px;
+        font-size: 14px;
       }
 
       .boutons-navigation {
@@ -235,10 +282,7 @@
       Malle Opérationnelle N°3
     </a>
 
-    <a
-      href="malle-communication-ceotronics.html"
-      class="sous-onglet actif"
-    >
+    <a href="malle-communication-ceotronics.html" class="sous-onglet actif">
       Malle communication CEOTRONICS
     </a>
   </nav>
@@ -247,16 +291,25 @@
 
     <h1>Malle communication CEOTRONICS</h1>
 
-    <div class="contenu">
+    <div class="grille-malle">
 
-      <h2>Contenu de la malle</h2>
+      <a href="ceotronics-contenu.html" class="carte-malle centre-haut">
+        <div class="titre-carte">
+          Contenu de la malle
+        </div>
+      </a>
 
-      <ul>
-        <li>Matériel à renseigner</li>
-        <li>Matériel à renseigner</li>
-        <li>Matériel à renseigner</li>
-        <li>Matériel à renseigner</li>
-      </ul>
+      <a href="ceotronics-guide.html" class="carte-malle">
+        <div class="titre-carte">
+          Guide pas à pas
+        </div>
+      </a>
+
+      <a href="ceotronics-video.html" class="carte-malle">
+        <div class="titre-carte">
+          Vidéo
+        </div>
+      </a>
 
     </div>
 
