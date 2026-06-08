@@ -136,6 +136,30 @@
       line-height: 1.6;
     }
 
+    /* Style spécifique pour l'étape 8 à plusieurs photos */
+    .etape-large {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .etape-large .etape-texte {
+      margin-bottom: 20px;
+    }
+
+    .etape-galerie {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+
+    .etape-galerie img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      display: block;
+    }
+
     .boutons-navigation {
       position: fixed;
       left: 28px;
@@ -212,7 +236,7 @@
         font-size: 28px;
       }
       
-      .etape-guide {
+      .etape-guide:not(.etape-large) {
         flex-direction: column;
         text-align: center;
       }
@@ -221,6 +245,16 @@
         flex: auto;
         width: 100%;
         max-width: 400px;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .etape-galerie {
+        grid-template-columns: 1fr;
+      }
+      
+      .etape-large .etape-texte {
+        text-align: center;
       }
     }
 
@@ -303,12 +337,12 @@
       <!-- ÉTAPE 1 -->
       <div class="etape-guide">
         <div class="etape-image">
-          <img src="ceotronic-demarrage-1.jpg" alt="Identification du Master">
+          <img src="ceotronic-demarrage-1.jpg" alt="Étape 1">
         </div>
         <div class="etape-texte">
-          <h2>Étape 1 : Identifier le Master</h2>
+          <h2>Étape 1</h2>
           <p>
-            Parmi les différents boîtiers de communication fournis, commencez par identifier celui qui porte l'étiquette "Master". C'est ce boîtier qui servira de relais principal.
+            Dans la malle, prendre le nombre de modules de communication et les écouteurs, nécessaires pour chaque personne de l’équipe. Le module <strong>MASTER</strong> doit impérativement être choisi par le superviseur.
           </p>
         </div>
       </div>
@@ -316,12 +350,12 @@
       <!-- ÉTAPE 2 -->
       <div class="etape-guide">
         <div class="etape-image">
-          <img src="ceotronic-demarrage-2.jpg" alt="Préparation du matériel">
+          <img src="ceotronic-demarrage-2.jpg" alt="Étape 2">
         </div>
         <div class="etape-texte">
-          <h2>Étape 2 : Préparer le matériel</h2>
+          <h2>Étape 2</h2>
           <p>
-            Munissez-vous de votre boîtier de communication ainsi que du système d'écoute et de microphone associé (câblage complet).
+            Chaque module est complété d'un kit mains libres.
           </p>
         </div>
       </div>
@@ -329,12 +363,12 @@
       <!-- ÉTAPE 3 -->
       <div class="etape-guide">
         <div class="etape-image">
-          <img src="ceotronic-demarrage-3.jpg" alt="Ajustement de l'écouteur">
+          <img src="ceotronic-demarrage-3.jpg" alt="Étape 3">
         </div>
         <div class="etape-texte">
-          <h2>Étape 3 : Ajustement de l'écouteur</h2>
+          <h2>Étape 3</h2>
           <p>
-            Positionnez correctement l'écouteur en vous assurant que la boucle de maintien est bien réglée pour garantir confort et maintien pendant l'opération.
+            L'oreillette est réglable au niveau de la boucle de maintien. L'écouteur peut pivoter pour un port à l'oreille gauche ou droite.
           </p>
         </div>
       </div>
@@ -342,12 +376,12 @@
       <!-- ÉTAPE 4 -->
       <div class="etape-guide">
         <div class="etape-image">
-          <img src="ceotronic-demarrage-4.jpg" alt="Ajustement du tour de cou">
+          <img src="ceotronic-demarrage-4.jpg" alt="Étape 4">
         </div>
         <div class="etape-texte">
-          <h2>Étape 4 : Système de maintien</h2>
+          <h2>Étape 4</h2>
           <p>
-            Vérifiez l'assemblage de la lanière élastique et des attaches (clips) qui permettent de fixer le système de communication de manière sécurisée.
+            Les kits mains libres sont des systèmes de communication par vibration du Larynx. Le collier doit être parfaitement ajusté pour <strong>plaquer le micro</strong> rond sur le <strong>côté du Larynx</strong> et non devant.
           </p>
         </div>
       </div>
@@ -355,12 +389,12 @@
       <!-- ÉTAPE 5 -->
       <div class="etape-guide">
         <div class="etape-image">
-          <img src="ceotronic-demarrage-5.jpg" alt="Branchement du connecteur">
+          <img src="ceotronic-demarrage-7.jpg" alt="Étape 5">
         </div>
         <div class="etape-texte">
-          <h2>Étape 5 : Connexion au boîtier</h2>
+          <h2>Étape 5</h2>
           <p>
-            Insérez fermement la fiche du casque dans le port de connexion situé sur la partie supérieure du boîtier CEOTRONICS.
+            L’allumage s’effectue en <strong>appui long</strong> sur le bouton central de la face avant.
           </p>
         </div>
       </div>
@@ -368,12 +402,13 @@
       <!-- ÉTAPE 6 -->
       <div class="etape-guide">
         <div class="etape-image">
-          <img src="ceotronic-demarrage-6.jpg" alt="Alignement des repères rouges">
+          <img src="ceotronic-demarrage-8.jpg" alt="Étape 6">
         </div>
         <div class="etape-texte">
-          <h2>Étape 6 : Verrouillage de la fiche</h2>
+          <h2>Étape 6</h2>
           <p>
-            Assurez-vous que les deux repères rouges (points rouges) soient parfaitement alignés pour garantir l'étanchéité et le bon fonctionnement de la connexion.
+            Après l’allumage, s’assurer de l’établissement de la connexion en <strong>EXPERT</strong>, de la charge suffisante des <strong>batteries</strong> (Autonomie 16h) et de l’appairage entre les différents modules.<br><br>
+            <em>(La flèche rouge indique l'intensité du signal des modules secondaires).</em>
           </p>
         </div>
       </div>
@@ -381,52 +416,28 @@
       <!-- ÉTAPE 7 -->
       <div class="etape-guide">
         <div class="etape-image">
-          <img src="ceotronic-demarrage-7.jpg" alt="Boutons de commande">
+          <img src="ceotronic-demarrage-9.jpg" alt="Étape 7">
         </div>
         <div class="etape-texte">
-          <h2>Étape 7 : Démarrage et commandes</h2>
+          <h2>Étape 7</h2>
           <p>
-            Appuyez de manière prolongée sur le bouton central (ON/OFF) pour allumer l'appareil. Familiarisez-vous avec les boutons : volume, coupure micro et Push to Talk.
+            Nombre de connexions (modules secondaires) au module MASTER.
           </p>
         </div>
       </div>
 
-      <!-- ÉTAPE 8 -->
-      <div class="etape-guide">
-        <div class="etape-image">
-          <img src="ceotronic-demarrage-8.jpg" alt="Écran d'accueil et verrouillage">
-        </div>
+      <!-- ÉTAPE 8 (Grosse étape avec 3 photos) -->
+      <div class="etape-guide etape-large">
         <div class="etape-texte">
-          <h2>Étape 8 : Vérification de l'écran</h2>
+          <h2>Étape 8</h2>
           <p>
-            Une fois allumé, l'écran doit afficher votre profil (ex: EXPERT). Vérifiez en haut à gauche l'icône indiquant l'état de la connexion et l'activation des fonctions.
+            Connecter / Déconnecter le casque au module par simple <strong>pousser / tirer</strong> en s’assurant que les repères soient alignés.
           </p>
         </div>
-      </div>
-
-      <!-- ÉTAPE 9 -->
-      <div class="etape-guide">
-        <div class="etape-image">
-          <img src="ceotronic-demarrage-9.jpg" alt="Indicateur de réseau">
-        </div>
-        <div class="etape-texte">
-          <h2>Étape 9 : Niveau de signal</h2>
-          <p>
-            Contrôlez l'indicateur de réseau en haut de l'écran (les barres de signal) pour vous assurer d'une bonne réception avec les autres membres de l'équipe.
-          </p>
-        </div>
-      </div>
-
-      <!-- ÉTAPE 10 -->
-      <div class="etape-guide">
-        <div class="etape-image">
-          <img src="ceotronic-demarrage-10.jpg" alt="Détail du branchement">
-        </div>
-        <div class="etape-texte">
-          <h2>Étape 10 : Vérification finale</h2>
-          <p>
-            Procédez à une dernière vérification visuelle de vos branchements et effectuez un test de communication radio avec le reste de l'équipe avant de valider votre équipement.
-          </p>
+        <div class="etape-galerie">
+          <img src="ceotronic-demarrage-5.jpg" alt="Branchement 1">
+          <img src="ceotronic-demarrage-10.jpg" alt="Branchement 2">
+          <img src="ceotronic-demarrage-6.jpg" alt="Branchement 3">
         </div>
       </div>
 
