@@ -1,11 +1,26 @@
+```html
 <!DOCTYPE html>
 <html lang="fr">
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
   <title>REB Transfert Assist</title>
+
+  <!--
+    REB Transfert Assist
+    Conception et développement : Dorian Duval
+    © 2026 Dorian Duval — Tous droits réservés.
+
+    Toute reproduction, adaptation, extraction, diffusion
+    ou réutilisation, totale ou partielle, nécessite
+    l’autorisation écrite préalable de l’auteur.
+  -->
 
   <style>
     * {
@@ -88,12 +103,10 @@
       background: #f4f7f8;
       border: 2px solid #d9e2e8;
       border-radius: 18px;
-
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-
       text-align: center;
     }
 
@@ -131,10 +144,36 @@
     }
 
     footer {
-      padding: 20px;
+      padding: 24px 20px 110px;
       color: #5f6b73;
       text-align: center;
       font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .footer-prototype {
+      margin: 0 0 6px;
+    }
+
+    .footer-auteur {
+      margin: 0 0 6px;
+      color: #34495e;
+      font-weight: bold;
+    }
+
+    .footer-droits {
+      margin: 0;
+    }
+
+    .footer-droits a {
+      color: #164d87;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .footer-droits a:hover,
+    .footer-droits a:focus {
+      text-decoration: underline;
     }
 
     .boutons-navigation {
@@ -152,7 +191,6 @@
       padding: 0;
       border: 3px solid #164d87;
       border-radius: 50%;
-
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -253,6 +291,11 @@
         font-size: 26px;
       }
 
+      footer {
+        padding: 20px 15px 100px;
+        font-size: 12px;
+      }
+
       .boutons-navigation {
         left: 15px;
         bottom: 15px;
@@ -278,56 +321,89 @@
 <body>
 
   <header>
-
     <h1>REB Transfert Assist</h1>
 
     <p>
       Outil d’aide au transport en contexte de risque épidémique et biologique
     </p>
-
   </header>
 
-  <nav>
-    <a href="epishuttle.html" class="onglet">EpiShuttle</a>
-    <a href="materiel.html" class="onglet">Matériel</a>
-    <a href="procedures.html" class="onglet">Procédures / Check-lists</a>
-    <a href="epi.html" class="onglet">EPI</a>
-    <a href="informations.html" class="onglet">Informations</a>
-    <a href="depart-operationnel.html" class="onglet">Départ opérationnel</a>
+  <nav aria-label="Navigation principale">
+    <a
+      href="epishuttle.html"
+      class="onglet"
+    >
+      EpiShuttle
+    </a>
+
+    <a
+      href="materiel.html"
+      class="onglet"
+    >
+      Matériel
+    </a>
+
+    <a
+      href="procedures.html"
+      class="onglet"
+    >
+      Procédures / Check-lists
+    </a>
+
+    <a
+      href="epi.html"
+      class="onglet"
+    >
+      EPI
+    </a>
+
+    <a
+      href="informations.html"
+      class="onglet"
+    >
+      Informations
+    </a>
+
+    <a
+      href="depart-operationnel.html"
+      class="onglet"
+    >
+      Départ opérationnel
+    </a>
   </nav>
 
   <main>
-
     <div class="schema">
 
       <div class="bloc">
-
         <div class="titre">
           Structure<br>
           de départ
         </div>
-
       </div>
 
-      <div class="fleche">
+      <div
+        class="fleche"
+        aria-hidden="true"
+      >
         ➜
       </div>
 
       <div class="bloc epishuttle">
-
         <img
           src="epishuttle.png"
           alt="EpiShuttle"
         >
-
       </div>
 
-      <div class="fleche">
+      <div
+        class="fleche"
+        aria-hidden="true"
+      >
         ➜
       </div>
 
       <div class="bloc">
-
         <div class="titre">
           ESR<br>
           National
@@ -336,19 +412,29 @@
         <div class="sous-texte">
           Établissement de référence REB
         </div>
-
       </div>
 
     </div>
-
   </main>
 
   <footer>
-    Prototype réalisé dans le cadre d’un mémoire universitaire
+    <p class="footer-prototype">
+      Prototype réalisé dans le cadre d’un mémoire universitaire
+    </p>
+
+    <p class="footer-auteur">
+      Conçu et développé par Dorian Duval
+    </p>
+
+    <p class="footer-droits">
+      © 2026 Dorian Duval — REB Transfert Assist —
+      <a href="mentions-legales.html">
+        Mentions légales
+      </a>
+    </p>
   </footer>
 
   <div class="boutons-navigation">
-
     <button
       type="button"
       class="bouton-rond"
@@ -356,16 +442,18 @@
       aria-label="Retour à la page précédente"
       onclick="history.back()"
     >
-      <svg viewBox="0 0 24 24" aria-hidden="true">
+      <svg
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
         <path d="M9 7L4 12l5 5"></path>
         <path d="M4 12h9a6 6 0 0 1 6 6"></path>
       </svg>
 
       <span>Retour</span>
     </button>
-
   </div>
 
 </body>
-
 </html>
+```
