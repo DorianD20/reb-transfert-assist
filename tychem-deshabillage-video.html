@@ -19,8 +19,15 @@
     .onglet.actif, .sous-onglet.actif { background: #123b57; color: white; }
     
     main { max-width: 1000px; min-height: 650px; margin: 0 auto; padding: 40px 25px 140px; background: white; }
-    h1 { margin: 0 0 15px; color: #123b57; text-align: center; font-size: 34px; }
-    .intro-texte { text-align: center; color: #52606d; font-size: 18px; margin-bottom: 40px; }
+    h1 { margin: 0 0 25px; color: #123b57; text-align: center; font-size: 34px; }
+    
+    /* Encart d'avertissement */
+    .alerte-deshabillage { max-width: 100%; margin: 0 auto 30px; background: #fff4e5; border-left: 6px solid #f59e0b; padding: 20px 25px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+    .alerte-deshabillage p { margin: 0 0 10px; color: #b45309; font-size: 17px; line-height: 1.5; }
+    .alerte-deshabillage p:last-child { margin-bottom: 0; }
+    .alerte-deshabillage strong { color: #92400e; }
+
+    .intro-texte { text-align: center; color: #52606d; font-size: 18px; margin-bottom: 30px; }
     
     .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; background: #000; border-radius: 12px; box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15); }
     .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
@@ -40,6 +47,7 @@
     @media (max-width: 600px) {
       .nav-principale, .nav-tychem { grid-template-columns: 1fr; gap: 7px; padding: 10px; }
       .onglet, .sous-onglet { min-height: 46px; font-size: 14px; }
+      .alerte-deshabillage { padding: 15px; }
       .intro-texte { font-size: 16px; margin-bottom: 25px; }
       .boutons-navigation { left: 15px; bottom: 15px; gap: 10px; }
       .bouton-rond { width: 68px; height: 68px; }
@@ -49,6 +57,7 @@
   </style>
 </head>
 <body>
+
   <nav class="nav-principale">
     <a href="epishuttle.html" class="onglet">EpiShuttle</a>
     <a href="materiel.html" class="onglet">Matériel</a>
@@ -66,7 +75,14 @@
 
   <main>
     <h1>Déshabillage Tychem 2000C</h1>
+
+    <div class="alerte-deshabillage">
+      <p><strong>⚠️ Attention :</strong> Le déshabillage est la partie la plus à risque de contamination. Elle doit être effectuée par une personne maîtrisant les différentes étapes et en parfaite coopération Déshabilleur/Déshabillé.</p>
+      <p>L'ensemble des éléments sont à éliminer par la filière DASRI.</p>
+    </div>
+
     <p class="intro-texte">Visionnez la vidéo ci-dessous pour suivre étape par étape le protocole de déshabillage de la tenue Tychem 2000C.</p>
+    
     <div class="video-container">
       <iframe src="https://www.youtube.com/embed/ZpKIezUfZ34?rel=0" title="Vidéo Déshabillage Tychem 2000C" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
