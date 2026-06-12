@@ -15,7 +15,7 @@
     .sous-onglet { background: #f1f4f6; }
     .onglet:hover, .sous-onglet:hover { background: #d7e3ea; }
     .onglet.actif, .sous-onglet.actif { background: #123b57; color: white; }
-    main { max-width: 1200px; min-height: 650px; margin: 0 auto; padding: 40px 25px 140px; background: white; }
+    main { max-width: 1200px; min-height: 650px; margin: 0 auto; padding: 40px 25px 140px; background: white; position: relative; z-index: 1; }
     h1 { margin: 0 0 35px; color: #123b57; text-align: center; font-size: 34px; }
     .alerte-deshabillage { max-width: 950px; margin: 0 auto 40px; background: #fff4e5; border-left: 6px solid #f59e0b; padding: 20px 25px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
     .alerte-deshabillage p { margin: 0 0 10px; color: #b45309; font-size: 17px; line-height: 1.5; }
@@ -28,7 +28,7 @@
     .etape-texte { flex: 1; }
     .etape-texte h2 { margin: 0 0 15px; color: #123b57; font-size: 22px; }
     .etape-texte p { margin: 0; color: #52606d; font-size: 17px; line-height: 1.6; }
-    .boutons-navigation { position: fixed; left: 28px; bottom: 28px; z-index: 2000; display: flex; gap: 14px; }
+    .boutons-navigation { position: fixed; left: 28px; bottom: 28px; z-index: 9999; display: flex; gap: 14px; }
     .bouton-rond { width: 82px; height: 82px; padding: 0; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; background: linear-gradient(160deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0.08) 38%, transparent 39%), linear-gradient(145deg, #2389dc, #07559c); border: 3px solid #164d87; box-shadow: 0 5px 12px rgba(0, 0, 0, 0.25), inset 0 1px 3px rgba(255, 255, 255, 0.65); color: white; text-decoration: none; cursor: pointer; }
     .bouton-rond:hover { transform: scale(1.06); }
     .bouton-rond svg { width: 35px; height: 35px; fill: none; stroke: white; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
@@ -63,74 +63,4 @@
     <a href="depart-operationnel.html" class="onglet">Départ opérationnel</a>
   </nav>
 
-  <nav class="nav-tychem">
-    <a href="tychem-composition.html" class="sous-onglet">Composition / Vérification</a>
-    <a href="tychem-habillage.html" class="sous-onglet">Habillage</a>
-    <a href="tychem-deshabillage.html" class="sous-onglet actif">Déshabillage</a>
-  </nav>
-
-  <main>
-    <h1>Guide pas à pas : Déshabillage Tychem 2000C</h1>
-
-    <div class="alerte-deshabillage">
-      <p><strong>⚠️ Attention :</strong> Le déshabillage est la partie la plus à risque de contamination. Elle doit être effectuée par une personne maîtrisant les différentes étapes et en parfaite coopération Déshabilleur/Déshabillé.</p>
-      <p>L'ensemble des éléments sont à éliminer par la filière DASRI.</p>
-    </div>
-
-    <div class="conteneur-guide">
-      <div class="etape-guide">
-        <div class="etape-image"><img src="tychem-deshabillage-photo-1.jpg" alt="Étape 1"></div>
-        <div class="etape-texte">
-          <h2>Étape 1</h2>
-          <p>Établir une zone propre et une zone sale, clairement délimitées.</p>
-        </div>
-      </div>
-
-      <div class="etape-guide">
-        <div class="etape-image"><img src="tychem-deshabillage-photo-2.jpg" alt="Étape 2"></div>
-        <div class="etape-texte">
-          <h2>Étape 2</h2>
-          <p>Retirer le heaume de façon autonome et le jeter, ou le mettre dans un contenant isolant pour décontamination ultérieure.</p>
-        </div>
-      </div>
-
-      <div class="etape-guide">
-        <div class="etape-image">
-          <img src="tychem-deshabillage-photo-3.1.jpg" alt="Étape 3.1">
-          <img src="tychem-deshabillage-photo-3.2.jpg" alt="Étape 3.2">
-        </div>
-        <div class="etape-texte">
-          <h2>Étape 3</h2>
-          <p>Retirer la paire de gants externe et la jeter, puis frictionner la paire de gants interne avec du gel hydroalcoolique.</p>
-        </div>
-      </div>
-
-      <div class="etape-guide">
-        <div class="etape-image"><img src="tychem-deshabillage-photo-4.jpg" alt="Étape 4"></div>
-        <div class="etape-texte">
-          <h2>Étape 4</h2>
-          <p>Retirer ou découper les passe-pouces.</p>
-        </div>
-      </div>
-
-      <div class="etape-guide">
-        <div class="etape-image"><img src="tychem-deshabillage-photo-5.jpg" alt="Étape 5"></div>
-        <div class="etape-texte">
-          <h2>Étape 5</h2>
-          <p>Découper le bas de la combinaison pour faciliter son retrait (attention à ne pas remonter plus haut que les surbottes).</p>
-        </div>
-      </div>
-
-      <div class="etape-guide">
-        <div class="etape-image"><img src="tychem-deshabillage-photo-6.jpg" alt="Étape 6"></div>
-        <div class="etape-texte">
-          <h2>Étape 6</h2>
-          <p>Décoller les rabats et ouvrir la combinaison sans toucher la partie intérieure.</p>
-        </div>
-      </div>
-
-      <div class="etape-guide">
-        <div class="etape-image"><img src="tychem-deshabillage-photo-7.jpg" alt="Étape 7"></div>
-        <div class="etape-texte">
-          <h2>Étape 7</h2>
-          <p>Retirer et rabattre la face externe de la combinaison sur
+  <nav class="nav-ty
