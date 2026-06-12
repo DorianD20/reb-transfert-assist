@@ -212,14 +212,16 @@
 
     @media (max-width: 600px) {
       nav {
-        grid-template-columns: 1fr;
-        gap: 7px;
-        padding: 10px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 6px;
+        padding: 8px 10px;
       }
 
       .onglet {
-        min-height: 46px;
-        font-size: 14px;
+        min-height: 38px;
+        font-size: 12px;
+        padding: 5px;
+        line-height: 1.2;
       }
 
       .boutons-navigation {
@@ -229,111 +231,4 @@
       }
 
       .bouton-rond {
-        width: 68px;
-        height: 68px;
-      }
-
-      .bouton-rond svg {
-        width: 29px;
-        height: 29px;
-      }
-
-      .bouton-rond span {
-        font-size: 10px;
-      }
-    }
-  </style>
-</head>
-
-<body>
-
-  <nav>
-    <a href="epishuttle.html" class="onglet">EpiShuttle</a>
-    <a href="materiel.html" class="onglet actif">Matériel</a>
-    <a href="procedures.html" class="onglet">Procédures / Check-lists</a>
-    <a href="epi.html" class="onglet">EPI</a>
-    <a href="informations.html" class="onglet">Informations</a>
-    <a href="depart-operationnel.html" class="onglet">Départ opérationnel</a>
-  </nav>
-
-  <main>
-
-    <h1>Matériel</h1>
-
-    <div class="grille-materiel">
-
-      <a href="malle-operationnelle-1.html" class="carte-materiel">
-        <div class="titre-carte">
-          Malle Opérationnelle N°1
-        </div>
-      </a>
-
-      <a href="malle-operationnelle-2.html" class="carte-materiel">
-        <div class="titre-carte">
-          Malle Opérationnelle N°2
-        </div>
-      </a>
-
-      <a href="malle-operationnelle-3.html" class="carte-materiel">
-        <div class="titre-carte">
-          Malle Opérationnelle N°3
-        </div>
-      </a>
-
-      <a
-        href="malle-communication-ceotronics.html"
-        class="carte-materiel carte-ceotronics"
-      >
-        <div class="titre-carte">
-          Malle communication<br>
-          CEOTRONICS
-        </div>
-
-        <img
-          src="ceotronics.png"
-          alt="Matériel de communication CEOTRONICS"
-          class="image-ceotronics"
-        >
-      </a>
-
-    </div>
-
-  </main>
-
-  <div class="boutons-navigation">
-
-    <button
-      type="button"
-      class="bouton-rond"
-      title="Retour à la page précédente"
-      aria-label="Retour à la page précédente"
-      onclick="history.back()"
-    >
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M9 7L4 12l5 5"></path>
-        <path d="M4 12h9a6 6 0 0 1 6 6"></path>
-      </svg>
-
-      <span>Retour</span>
-    </button>
-
-    <a
-      href="index.html"
-      class="bouton-rond"
-      title="Retour à l’accueil"
-      aria-label="Retour à l’accueil"
-    >
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M3 11.5L12 4l9 7.5"></path>
-        <path d="M5.5 10v10h13V10"></path>
-        <path d="M9.5 20v-6h5v6"></path>
-      </svg>
-
-      <span>Accueil</span>
-    </a>
-
-  </div>
-
-</body>
-
-</html>
+        width:
