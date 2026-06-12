@@ -1,223 +1,82 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>Malle Opérationnelle N°2 - REB Transfert Assist</title>
-
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f5f7f8;
-      color: #1f2933;
-    }
-
-    .nav-principale,
-    .nav-malles {
-      display: grid;
-      gap: 10px;
-      padding: 15px 20px;
-      background: white;
-    }
-
-    .nav-principale {
-      grid-template-columns: repeat(6, 1fr);
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    .nav-malles {
-      grid-template-columns: repeat(4, 1fr);
-      border-top: 1px solid #d9e2e8;
-      border-bottom: 1px solid #d9e2e8;
-    }
-
-    .onglet,
-    .sous-onglet {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 54px;
-      padding: 10px;
-      border-radius: 8px;
-      color: #123b57;
-      text-decoration: none;
-      text-align: center;
-      font-size: 16px;
-      font-weight: bold;
-    }
-
-    .onglet {
-      background: #e9eef2;
-    }
-
-    .sous-onglet {
-      background: #f1f4f6;
-    }
-
-    .onglet:hover,
-    .sous-onglet:hover {
-      background: #d7e3ea;
-    }
-
-    .onglet.actif,
-    .sous-onglet.actif {
-      background: #123b57;
-      color: white;
-    }
-
-    main {
-      max-width: 1200px;
-      min-height: 650px;
-      margin: 0 auto;
-      padding: 40px 25px 140px;
-      background: white;
-    }
-
-    h1 {
-      margin: 0 0 30px;
-      color: #123b57;
-      text-align: center;
-      font-size: 34px;
-    }
-
-    .contenu {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 24px;
-      background: #f4f7f8;
-      border: 1px solid #d9e2e8;
-      border-radius: 14px;
-    }
-
-    h2 {
-      margin-top: 0;
-      color: #123b57;
-    }
-
-    li {
-      margin-bottom: 10px;
-    }
-
-    .boutons-navigation {
-      position: fixed;
-      left: 28px;
-      bottom: 28px;
-      z-index: 2000;
-      display: flex;
-      gap: 14px;
-    }
-
-    .bouton-rond {
-      width: 82px;
-      height: 82px;
-      padding: 0;
-      border-radius: 50%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-
-      background:
-        linear-gradient(
-          160deg,
-          rgba(255, 255, 255, 0.55) 0%,
-          rgba(255, 255, 255, 0.08) 38%,
-          transparent 39%
-        ),
-        linear-gradient(145deg, #2389dc, #07559c);
-
-      border: 3px solid #164d87;
-
-      box-shadow:
-        0 5px 12px rgba(0, 0, 0, 0.25),
-        inset 0 1px 3px rgba(255, 255, 255, 0.65);
-
-      color: white;
-      text-decoration: none;
-      cursor: pointer;
-    }
-
-    .bouton-rond svg {
-      width: 35px;
-      height: 35px;
-      fill: none;
-      stroke: white;
-      stroke-width: 2.2;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-
-    .bouton-rond span {
-      margin-top: 2px;
-      font-size: 12px;
-      font-weight: bold;
-    }
-
-    @media (max-width: 950px) {
-      .nav-principale,
-      .nav-malles {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      main {
-        padding: 30px 15px 140px;
-      }
-
-      h1 {
-        font-size: 28px;
-      }
-    }
-
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: Arial, sans-serif; background: #f5f7f8; color: #1f2933; }
+    .nav-principale, .nav-malles { display: grid; gap: 10px; padding: 15px 20px; background: white; }
+    .nav-principale { grid-template-columns: repeat(6, 1fr); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); position: sticky; top: 0; z-index: 1000; }
+    .nav-malles { grid-template-columns: repeat(4, 1fr); border-top: 1px solid #d9e2e8; border-bottom: 1px solid #d9e2e8; }
+    .onglet, .sous-onglet { display: flex; align-items: center; justify-content: center; min-height: 54px; padding: 10px; border-radius: 8px; color: #123b57; text-decoration: none; text-align: center; font-size: 16px; font-weight: bold; }
+    .onglet { background: #e9eef2; }
+    .sous-onglet { background: #f1f4f6; }
+    .onglet:hover, .sous-onglet:hover { background: #d7e3ea; }
+    .onglet.actif, .sous-onglet.actif { background: #123b57; color: white; }
+    main { max-width: 1200px; min-height: 650px; margin: 0 auto; padding: 40px 25px 140px; background: white; }
+    h1 { margin: 0 0 30px; color: #123b57; text-align: center; font-size: 34px; }
+    .contenu { max-width: 900px; margin: 0 auto; padding: 24px; background: #f4f7f8; border: 1px solid #d9e2e8; border-radius: 14px; }
+    h2 { margin-top: 0; color: #123b57; }
+    li { margin-bottom: 10px; }
+    .boutons-navigation { position: fixed; left: 28px; bottom: 28px; z-index: 2000; display: flex; gap: 14px; }
+    .bouton-rond { width: 82px; height: 82px; padding: 0; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; background: linear-gradient(160deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0.08) 38%, transparent 39%), linear-gradient(145deg, #2389dc, #07559c); border: 3px solid #164d87; box-shadow: 0 5px 12px rgba(0, 0, 0, 0.25), inset 0 1px 3px rgba(255, 255, 255, 0.65); color: white; text-decoration: none; cursor: pointer; }
+    .bouton-rond:hover { transform: scale(1.06); }
+    .bouton-rond svg { width: 35px; height: 35px; fill: none; stroke: white; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+    .bouton-rond span { margin-top: 2px; font-size: 12px; font-weight: bold; }
+    @media (max-width: 950px) { .nav-principale, .nav-malles { grid-template-columns: repeat(2, 1fr); } main { padding: 30px 15px 140px; } h1 { font-size: 28px; } }
     @media (max-width: 600px) {
-      .nav-principale,
-      .nav-malles {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 6px;
-        padding: 8px 10px;
-      }
-
-      .onglet,
-      .sous-onglet {
-        min-height: 38px;
-        font-size: 12px;
-        padding: 5px;
-        line-height: 1.2;
-      }
-
-      .boutons-navigation {
-        left: 15px;
-        bottom: 15px;
-        gap: 10px;
-      }
-
-      .bouton-rond {
-        width: 68px;
-        height: 68px;
-      }
-
-      .bouton-rond svg {
-        width: 29px;
-        height: 29px;
-      }
-
-      .bouton-rond span {
-        font-size: 10px;
-      }
+      .nav-principale, .nav-malles { grid-template-columns: repeat(2, 1fr); gap: 6px; padding: 8px 10px; }
+      .onglet, .sous-onglet { min-height: 38px; font-size: 12px; padding: 5px; line-height: 1.2; }
+      .boutons-navigation { left: 15px; bottom: 15px; gap: 10px; }
+      .bouton-rond { width: 68px; height: 68px; }
+      .bouton-rond svg { width: 29px; height: 29px; }
+      .bouton-rond span { font-size: 10px; }
     }
   </style>
 </head>
-
 <body>
 
- <nav class="nav-principale">
-    <a href="epishuttle.html" class="onglet">
+  <nav class="nav-principale">
+    <a href="epishuttle.html" class="onglet">EpiShuttle</a>
+    <a href="materiel.html" class="onglet actif">Matériel</a>
+    <a href="procedures.html" class="onglet">Procédures / Check-lists</a>
+    <a href="epi.html" class="onglet">EPI</a>
+    <a href="informations.html" class="onglet">Informations</a>
+    <a href="depart-operationnel.html" class="onglet">Départ opérationnel</a>
+  </nav>
+
+  <nav class="nav-malles">
+    <a href="malle-operationnelle-1.html" class="sous-onglet">Malle Opérationnelle N°1</a>
+    <a href="malle-operationnelle-2.html" class="sous-onglet actif">Malle Opérationnelle N°2</a>
+    <a href="malle-operationnelle-3.html" class="sous-onglet">Malle Opérationnelle N°3</a>
+    <a href="malle-communication-ceotronics.html" class="sous-onglet">Malle communication CEOTRONICS</a>
+  </nav>
+
+  <main>
+    <h1>Malle Opérationnelle N°2</h1>
+    <div class="contenu">
+      <h2>Contenu de la malle</h2>
+      <ul>
+        <li>Matériel à renseigner</li>
+        <li>Matériel à renseigner</li>
+        <li>Matériel à renseigner</li>
+        <li>Matériel à renseigner</li>
+      </ul>
+    </div>
+  </main>
+
+  <div class="boutons-navigation">
+    <button type="button" class="bouton-rond" title="Retour à la page précédente" aria-label="Retour à la page précédente" onclick="history.back()">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 7L4 12l5 5"></path><path d="M4 12h9a6 6 0 0 1 6 6"></path></svg>
+      <span>Retour</span>
+    </button>
+    <a href="index.html" class="bouton-rond" title="Retour à l’accueil" aria-label="Retour à l’accueil">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11.5L12 4l9 7.5"></path><path d="M5.5 10v10h13V10"></path><path d="M9.5 20v-6h5v6"></path></svg>
+      <span>Accueil</span>
+    </a>
+  </div>
+
+</body>
+</html>
