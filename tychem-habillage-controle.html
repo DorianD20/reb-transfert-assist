@@ -31,15 +31,14 @@
     .etape-texte ul { margin: 0; padding-left: 20px; color: #52606d; font-size: 17px; line-height: 1.6; }
     .etape-texte li { margin-bottom: 8px; }
     
-    .boutons-navigation { position: fixed; left: 28px; bottom: 28px; z-index: 2000; display: flex; gap: 14px; }
+    .boutons-navigation { position: fixed; left: 28px; bottom: 28px; z-index: 9999; display: flex; gap: 14px; }
     .bouton-rond { width: 82px; height: 82px; padding: 0; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; background: linear-gradient(160deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0.08) 38%, transparent 39%), linear-gradient(145deg, #2389dc, #07559c); border: 3px solid #164d87; box-shadow: 0 5px 12px rgba(0, 0, 0, 0.25), inset 0 1px 3px rgba(255, 255, 255, 0.65); color: white; text-decoration: none; cursor: pointer; }
     .bouton-rond:hover { transform: scale(1.06); }
     .bouton-rond svg { width: 35px; height: 35px; fill: none; stroke: white; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
     .bouton-rond span { margin-top: 2px; font-size: 12px; font-weight: bold; }
     
     @media (max-width: 950px) {
-      .nav-principale { grid-template-columns: repeat(2, 1fr); }
-      .nav-tychem { grid-template-columns: repeat(1, 1fr); }
+      .nav-principale, .nav-tychem { grid-template-columns: repeat(2, 1fr); }
       main { padding: 30px 15px 140px; }
       h1 { font-size: 28px; }
       .etape-guide { flex-direction: column; text-align: center; }
@@ -47,8 +46,8 @@
       .etape-texte ul { text-align: left; display: inline-block; }
     }
     @media (max-width: 600px) {
-      .nav-principale, .nav-tychem { grid-template-columns: 1fr; gap: 7px; padding: 10px; }
-      .onglet, .sous-onglet { min-height: 46px; font-size: 14px; }
+      .nav-principale, .nav-tychem { grid-template-columns: repeat(2, 1fr); gap: 6px; padding: 8px 10px; }
+      .onglet, .sous-onglet { min-height: 38px; font-size: 12px; padding: 5px; line-height: 1.2; }
       .etape-guide { padding: 20px 15px; }
       .boutons-navigation { left: 15px; bottom: 15px; gap: 10px; }
       .bouton-rond { width: 68px; height: 68px; }
