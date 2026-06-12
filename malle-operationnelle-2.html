@@ -181,15 +181,17 @@
     @media (max-width: 600px) {
       .nav-principale,
       .nav-malles {
-        grid-template-columns: 1fr;
-        gap: 7px;
-        padding: 10px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 6px;
+        padding: 8px 10px;
       }
 
       .onglet,
       .sous-onglet {
-        min-height: 46px;
-        font-size: 14px;
+        min-height: 38px;
+        font-size: 12px;
+        padding: 5px;
+        line-height: 1.2;
       }
 
       .boutons-navigation {
@@ -218,83 +220,4 @@
 <body>
 
  <nav class="nav-principale">
-    <a href="epishuttle.html" class="onglet">EpiShuttle</a>
-    <a href="materiel.html" class="onglet actif">Matériel</a>
-    <a href="procedures.html" class="onglet">Procédures / Check-lists</a>
-    <a href="epi.html" class="onglet">EPI</a>
-    <a href="informations.html" class="onglet">Informations</a>
-    <a href="depart-operationnel.html" class="onglet">Départ opérationnel</a>
-  </nav>
-
-  <nav class="nav-malles">
-    <a href="malle-operationnelle-1.html" class="sous-onglet">
-      Malle Opérationnelle N°1
-    </a>
-
-    <a href="malle-operationnelle-2.html" class="sous-onglet actif">
-      Malle Opérationnelle N°2
-    </a>
-
-    <a href="malle-operationnelle-3.html" class="sous-onglet">
-      Malle Opérationnelle N°3
-    </a>
-
-    <a href="malle-communication-ceotronics.html" class="sous-onglet">
-      Malle communication CEOTRONICS
-    </a>
-  </nav>
-
-  <main>
-
-    <h1>Malle Opérationnelle N°2</h1>
-
-    <div class="contenu">
-      <h2>Contenu de la malle</h2>
-
-      <ul>
-        <li>Matériel à renseigner</li>
-        <li>Matériel à renseigner</li>
-        <li>Matériel à renseigner</li>
-        <li>Matériel à renseigner</li>
-      </ul>
-    </div>
-
-  </main>
-
-  <div class="boutons-navigation">
-
-    <button
-      type="button"
-      class="bouton-rond"
-      title="Retour à la page précédente"
-      aria-label="Retour à la page précédente"
-      onclick="history.back()"
-    >
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M9 7L4 12l5 5"></path>
-        <path d="M4 12h9a6 6 0 0 1 6 6"></path>
-      </svg>
-
-      <span>Retour</span>
-    </button>
-
-    <a
-      href="index.html"
-      class="bouton-rond"
-      title="Retour à l’accueil"
-      aria-label="Retour à l’accueil"
-    >
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M3 11.5L12 4l9 7.5"></path>
-        <path d="M5.5 10v10h13V10"></path>
-        <path d="M9.5 20v-6h5v6"></path>
-      </svg>
-
-      <span>Accueil</span>
-    </a>
-
-  </div>
-
-</body>
-
-</html>
+    <a href="epishuttle.html" class="onglet">
