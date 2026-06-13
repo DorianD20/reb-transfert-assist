@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Attentions particulières avant déshabillage - REB Transfert Assist</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: Arial, sans-serif; background: #f5f7f8; color: #1f2933; }
+    
+    .nav-principale, .nav-tychem { display: grid; gap: 10px; padding: 15px 20px; background: white; }
+    .nav-principale { grid-template-columns: repeat(6, 1fr); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); position: sticky; top: 0; z-index: 1000; }
+    .nav-tychem { grid-template-columns: repeat(3, 1fr); border-top: 1px solid #d9e2e8; border-bottom: 1px solid #d9e2e8; }
+    
+    .onglet, .sous-onglet { display: flex; align-items: center; justify-content: center; min-height: 54px; padding: 10px; border-radius: 8px; color: #123b57; text-decoration: none; text-align: center; font-size: 16px; font-weight: bold; }
+    .onglet { background: #e9eef2; }
+    .sous-onglet { background: #f1f4f6; }
+    .onglet:hover, .sous-onglet:hover { background: #d7e3ea; }
+    .onglet.actif, .sous-onglet.actif { background: #123b57; color: white; }
+    
+    main { max-width: 1200px; min-height: 650px; margin: 0 auto; padding: 40px 25px 140px; background: white; }
+    h1 { margin: 0 0 35px; color: #123b57; text-align: center; font-size: 34px; }
+    
+    /* Encart IMPORTANT sur-mesure */
+    .alerte-orange { max-width: 950px; margin: 0 auto 40px; background: #fff4e5; border-left: 6px solid #f59e0b; padding: 25px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+    .alerte-orange h2 { margin: 0 0 15px; color: #92400e; font-size: 24px; font-weight: bold; text-decoration: underline; text-transform: uppercase; }
+    .alerte-orange p { margin: 0 0 12px; color: #b45309; font-size: 17px; line-height: 1.6; }
+    .alerte-orange p:last-child { margin-bottom: 0; }
+    
+    /* Blocs de précautions (Style identique aux cartes étapes) */
+    .conteneur-guide { max-width: 950px; margin: 0 auto; }
+    .bloc-precaution { display: flex; align-items: center; gap: 30px; background: #f4f7f8; border: 1px solid #d9e2e8; border-radius: 16px; padding: 25px; margin-bottom: 24px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); }
+    
+    /* Zone prête pour les futures photos */
+    .precaution-image { flex: 0 0 350px; display: flex; flex-direction: column; gap: 15px; }
+    .precaution-image img { width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); display: block; }
+    
+    .precaution-texte { flex: 1; }
+    .precaution-texte h2 { margin: 0 0 15px; color: #123b57; font-size: 22px; font-weight: bold; }
+    .precaution-texte p { margin: 0 0 10px; color: #52606d; font-size: 17px; line-height: 1.6; }
+    .precaution-texte ul { margin: 0; padding-left: 20px; color: #52606d; font-size: 17px; line-height: 1.6; }
+    .precaution-texte li { margin-bottom: 8px; }
+    .precaution-texte li ul { margin-top: 8px; padding-left: 20px; }
+    
+    .boutons-navigation { position: fixed; left: 28px; bottom: 28px; z-index: 9999; display: flex; gap: 14px; }
+    .bouton-rond { width: 82px; height: 82px; padding: 0; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; background: linear-gradient(160deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0.08) 38%, transparent 39%), linear-gradient(145deg, #2389dc, #07559c); border: 3px solid #164d87; box-shadow: 0 5px 12px rgba(0, 0, 0, 0.25), inset 0 1px 3px rgba(255, 255, 255, 0.65); color: white; text-decoration: none; cursor: pointer; }
+    .bouton-rond:hover { transform: scale(1.06); }
+    .bouton-rond svg { width: 35px; height: 35px; fill: none; stroke: white; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+    .bouton-rond span { margin-top: 2px; font-size: 12px; font-weight: bold; }
+    
+    @media (max-width: 950px) {
+      .nav-principale, .nav-tychem { grid-template-columns: repeat(2, 1fr); }
+      main { padding: 30px 15px 140px; }
+      h1 { font-size: 28px; }
+      .bloc-precaution { flex-direction: column; text-align: center; }
+      .precaution-image { flex: auto; width: 100%; max-width: 450px; }
+      .precaution-texte ul { text-align: left; display: inline-block; }
+    }
+    @media (max-width: 600px) {
+      .nav-principale, .nav-tychem { grid-template-columns: repeat(2, 1fr) !important; gap: 6px !important; padding: 8px 10px !important; }
+      .onglet, .sous-onglet { min-height: 38px !important; font-size: 12px !important; padding: 5px !important; line-height: 1.2 !important; }
+      .bloc-precaution { padding: 20px 15px; }
+      .boutons-navigation { left: 15px; bottom: 15px; gap: 10px; }
+      .bouton-rond { width: 68px; height: 68px; }
+      .bouton-rond svg { width: 29px; height: 29px; }
+      .bouton-rond span { font-size: 10px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav-principale">
+    <a href="epishuttle.html" class="onglet">EpiShuttle</a>
+    <a href="materiel.html" class="onglet">Matériel</a>
+    <a href="procedures.html" class="onglet">Procédures / Check-lists</a>
+    <a href="epi.html" class="onglet actif">EPI</a>
+    <a href="informations.html" class="onglet">Informations</a>
+    <a href="depart-operationnel.html" class="onglet">Départ opérationnel</a>
+  </nav>
+
+  <nav class="nav-tychem">
+    <a href="tychem-composition.html" class="sous-onglet">Composition / Vérification</a>
+    <a href="tychem-habillage.html" class="sous-onglet">Habillage</a>
+    <a href="tychem-deshabillage.html" class="sous-onglet actif">Déshabillage</a>
+  </nav>
+
+  <main>
+    <h1>Attentions particulières avant déshabillage</h1>
+    
+    <div class="alerte-orange">
+      <h2>IMPORTANT</h2>
+      <p>Le déshabillage est la partie la plus à risque de contamination. Elle doit être effectuée en parfaite coopération Déshabilleur/Déshabillé.</p>
+      <p>L'ensemble des éléments sont à éliminer par la filière DASRI.</p>
+    </div>
+    
+    <div class="conteneur-guide">
+    
+      <div class="bloc-precaution">
+        <div class="precaution-texte">
+          <h2>Préparation d'une zone pour le déshabillage :</h2>
+          <ul>
+            <li>Délimiter de façon visuelle la zone propre et la zone sale par un scotch ou une bâche en vinyle.</li>
+            <li>Préparer le matériel nécessaire et le disposer de façon pratique (Fût, ciseaux, gel hydroalcoolique, poubelle, bac de recueil pour les heaumes, seau de javel à 0,5% minimum pour les ciseaux).</li>
+            <li>Le "déshabilleur" devra rester en zone propre sans franchir la délimitation.</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="bloc-precaution">
+        <div class="precaution-texte">
+          <h2>Préparation du "déshabilleur" :</h2>
+          <ul>
+            <li>Le déshabilleur doit être une personne maîtrisant la technique de déshabillage (de préférence le superviseur).</li>
+            <li>Il doit se vêtir d'une casaque de bloc, d'une double paire de gants manchettes, d'un calot couvrant l'ensemble de la tête, d'une paire de lunettes de protection, d'un masque filtrant (FFP2) et d'une paire de sur-chaussures.</li>
+            <li>En cas de présence de liquide contaminant sur la tenue du déshabillé, le "déshabilleur" devra se munir d'un pantalon jetable et d'un tablier supplémentaire.</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="bloc-precaution">
+        <div class="precaution-texte">
+          <h2>Précautions au déshabillage :</h2>
+          <ul>
+            <li>Ne jamais toucher la face intérieure de la combinaison TYCHEM lors du retrait.</li>
+            <li>Procéder étape par étape de façon méticuleuse.</li>
+            <li>En cas de doute sur la manipulation et la contamination des ciseaux lors des différentes étapes :
+              <ul>
+                <li>mettre les ciseaux sales dans le bac de décontamination,</li>
+                <li>changer la paire de gants externe,</li>
+                <li>faire une friction de gel hydroalcoolique sur la paire interne,</li>
+                <li>remettre une paire de gants externe,</li>
+                <li>prendre des ciseaux propres.</li>
+              </ul>
+            </li>
+            <li>Le retrait du masque se fait en fin de déshabillage.</li>
+            <li>Le déshabillé doit suivre les consignes avec attention.</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="bloc-precaution">
+        <div class="precaution-texte">
+          <h2>Élimination des déchets :</h2>
+          <ul>
+            <li>L'ensemble des déchets devra être éliminé dans une poubelle DASRI.</li>
+            <li>La poubelle DASRI fermée devra être placée dans un FÛT plastique DASRI et imbibée de Javel (0,5% minimum), puis le fût devra être lui-même placé dans un autre sac DASRI avant élimination.</li>
+            <li>Changer de ciseaux entre chaque personne déshabillée.</li>
+            <li>Changer de paire de gants externe entre chaque personne déshabillée.</li>
+          </ul>
+        </div>
+      </div>
+      
+    </div>
+  </main>
+
+  <div class="boutons-navigation">
+    <button type="button" class="bouton-rond" title="Retour à la page précédente" aria-label="Retour à la page précédente" onclick="history.back()">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 7L4 12l5 5"></path><path d="M4 12h9a6 6 0 0 1 6 6"></path></svg>
+      <span>Retour</span>
+    </button>
+    <a href="index.html" class="bouton-rond" title="Retour à l’accueil" aria-label="Retour à l’accueil">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11.5L12 4l9 7.5"></path><path d="M5.5 10v10h13V10"></path><path d="M9.5 20v-6h5v6"></path></svg>
+      <span>Accueil</span>
+    </a>
+  </div>
+
+</body>
+</html>
