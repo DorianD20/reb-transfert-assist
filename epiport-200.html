@@ -120,10 +120,6 @@
       gap: 16px;
     }
 
-    .grille-actions.pleine-largeur {
-      grid-template-columns: 1fr;
-    }
-
     .carte-action {
       background: white;
       border: 2px solid #e9eef2;
@@ -133,7 +129,9 @@
       color: #123b57;
       display: flex;
       flex-direction: column;
-      gap: 6px;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
       transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
     }
 
@@ -146,12 +144,6 @@
     .action-titre {
       font-weight: bold;
       font-size: 17px;
-    }
-
-    .action-sous-lien {
-      font-size: 14px;
-      color: #2389dc;
-      text-decoration: underline;
     }
 
     /* Groupements internes */
@@ -167,11 +159,12 @@
 
     .sous-groupe-titre {
       margin: 0;
-      font-size: 15px;
+      font-size: 14px;
       text-transform: uppercase;
       letter-spacing: 0.5px;
       color: #485563;
       font-weight: bold;
+      text-align: center;
     }
 
     .boutons-navigation {
@@ -315,9 +308,9 @@
 
     <div class="contenu">
 
-      <!-- SECTION 1 : CONFIGURATION GANT -->
+      <!-- SECTION 1 : GANT -->
       <section class="section-epiport">
-        <div class="section-titre">Configuration Gant / EpiPort 200</div>
+        <div class="section-titre">Gant</div>
         
         <div class="disposition-bloc">
           <div>
@@ -327,12 +320,10 @@
           <div class="grille-actions">
             <a href="epiport-200-gant-utilisation.html" class="carte-action">
               <span class="action-titre">Utilisation</span>
-              <span class="action-sous-lien">Lien vers page d'utilisation</span>
             </a>
             
             <a href="epiport-200-gant-verification.html" class="carte-action">
               <span class="action-titre">Vérification</span>
-              <span class="action-sous-lien">Lien vers page de vérification</span>
             </a>
 
             <div class="sous-groupe">
@@ -358,9 +349,9 @@
         </div>
       </section>
 
-      <!-- SECTION 2 : CONFIGURATION SAC D'ÉCLUSE -->
+      <!-- SECTION 2 : SAC D'ÉCLUSE -->
       <section class="section-epiport">
-        <div class="section-titre">Configuration Sac d'Écluse / EpiPort 200</div>
+        <div class="section-titre">Sac d'écluse</div>
         
         <div class="disposition-bloc">
           <div>
@@ -370,12 +361,10 @@
           <div class="grille-actions">
             <a href="epiport-200-sac-utilisation.html" class="carte-action">
               <span class="action-titre">Utilisation</span>
-              <span class="action-sous-lien">Lien vers page d'utilisation</span>
             </a>
             
             <a href="epiport-200-sac-verification.html" class="carte-action">
               <span class="action-titre">Vérification</span>
-              <span class="action-sous-lien">Lien vers page de vérification</span>
             </a>
 
             <div class="sous-groupe" style="grid-column: span 2;">
