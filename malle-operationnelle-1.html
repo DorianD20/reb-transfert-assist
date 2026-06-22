@@ -21,28 +21,31 @@
     main { max-width: 1200px; min-height: 650px; margin: 0 auto; padding: 40px 25px 140px; background: white; }
     h1 { margin: 0 0 30px; color: #123b57; text-align: center; font-size: 34px; }
     
-    .conteneur-malle { max-width: 950px; margin: 0 auto; display: flex; flex-direction: column; gap: 24px; }
+    .conteneur-malle { max-width: 850px; margin: 0 auto; display: flex; flex-direction: column; gap: 24px; }
     
-    /* Style de base des sacoches */
-    .sacoche-bloc { background: #f4f7f8; border: 1px solid #d9e2e8; border-radius: 14px; padding: 25px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04); display: flex; flex-direction: column; gap: 15px; }
-    .sacoche-titre { margin: 0; font-size: 22px; font-weight: bold; padding-bottom: 8px; border-bottom: 2px solid #e9eef2; }
-    .sacoche-bloc ul { margin: 0; padding-left: 20px; color: #52606d; font-size: 17px; line-height: 1.6; display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
-    .sacoche-bloc li { margin-bottom: 0; }
-    .quantite { font-weight: bold; color: #123b57; }
+    /* Structure de chaque bulle de sacoche */
+    .sacoche-bloc { background: #f4f7f8; border: 1px solid #d9e2e8; border-radius: 14px; padding: 22px 25px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04); transition: transform 0.2s; }
+    .sacoche-bloc:hover { transform: translateX(4px); }
+    .sacoche-titre { margin: 0 0 15px 0; font-size: 20px; font-weight: bold; padding-bottom: 6px; border-bottom: 2px solid #e9eef2; }
     
-    /* Codes couleurs spécifiques pour chaque sacoche */
-    .epiguard { border-left: 6px solid #e11d48; } .epiguard .sacoche-titre { color: #e11d48; }
-    .respirateur { border-left: 6px solid #2563eb; } .respirateur .sacoche-titre { color: #2563eb; }
-    .oxygenation { border-left: 6px solid #059669; } .oxygenation .sacoche-titre { color: #059669; }
-    .patient { border-left: 6px solid #4f46e5; } .patient .sacoche-titre { color: #4f46e5; }
-    .bavu { border-left: 6px solid #0d9488; } .bavu .sacoche-titre { color: #0d9488; }
-    .protection { border-left: 6px solid #7c3aed; } .protection .sacoche-titre { color: #7c3aed; }
-    .outils { border-left: 6px solid #4b5563; } .outils .sacoche-titre { color: #4b5563; }
-    .personnels { border-left: 6px solid #db2777; } .personnels .sacoche-titre { color: #db2777; }
-    .veineuses { border-left: 6px solid #ea580c; } .veineuses .sacoche-titre { color: #ea580c; }
-    .cables { border-left: 6px solid #b45309; } .cables .sacoche-titre { color: #b45309; }
-    .pompe { border-left: 6px solid #0369a1; } .pompe .sacoche-titre { color: #0369a1; }
-    .accessoires { border-left: 6px solid #15803d; } .accessoires .sacoche-titre { color: #15803d; }
+    /* Listing en une seule colonne propre */
+    .sacoche-bloc ul { margin: 0; padding: 0; list-style: none; }
+    .sacoche-bloc li { padding: 8px 0; border-bottom: 1px solid rgba(0, 0, 0, 0.03); display: flex; justify-content: space-between; align-items: center; font-size: 16px; color: #485563; }
+    .sacoche-bloc li:last-child { border-bottom: none; }
+    .quantite { font-weight: bold; background: #e9eef2; color: #123b57; padding: 3px 10px; border-radius: 12px; font-size: 14px; min-width: 40px; text-align: center; }
+    
+    /* Classes de couleurs spécifiques demandées */
+    .couleur-gris { border-left: 6px solid #6b7280; } .couleur-gris .sacoche-titre { color: #374151; }
+    .couleur-vert { border-left: 6px solid #10b981; } .couleur-vert .sacoche-titre { color: #047857; }
+    .couleur-rouge { border-left: 6px solid #ef4444; } .couleur-rouge .sacoche-titre { color: #b91c1c; }
+    
+    /* Pochette accessoires style bariolé jaune et gris */
+    .bariolé-accessoires { border-left: 6px solid #6b7280; background: linear-gradient(90deg, #f4f7f8 97%, #fef08a 100%); }
+    .bariolé-accessoires .sacoche-titre { color: #374151; border-bottom: 2px solid #fef08a; }
+    
+    /* Gestion des bulles collées */
+    .colle-bas { margin-bottom: 0; border-bottom-left-radius: 0; border-bottom-right-radius: 0; }
+    .colle-haut { border-top-left-radius: 0; border-top-right-radius: 0; border-top: none; }
     
     .boutons-navigation { position: fixed; left: 28px; bottom: 28px; z-index: 9999; display: flex; gap: 14px; }
     .bouton-rond { width: 82px; height: 82px; padding: 0; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; background: linear-gradient(160deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0.08) 38%, transparent 39%), linear-gradient(145deg, #2389dc, #07559c); border: 3px solid #164d87; box-shadow: 0 5px 12px rgba(0, 0, 0, 0.25), inset 0 1px 3px rgba(255, 255, 255, 0.65); color: white; text-decoration: none; cursor: pointer; }
@@ -54,12 +57,11 @@
       .nav-principale, .nav-malles { grid-template-columns: repeat(2, 1fr); }
       main { padding: 30px 15px 140px; }
       h1 { font-size: 28px; }
-      .sacoche-bloc ul { grid-template-columns: 1fr; }
     }
     @media (max-width: 600px) {
       .nav-principale, .nav-malles { grid-template-columns: repeat(2, 1fr) !important; gap: 6px !important; padding: 8px 10px !important; }
       .onglet, .sous-onglet { min-height: 38px !important; font-size: 12px !important; padding: 5px !important; line-height: 1.2 !important; }
-      .sacoche-bloc { padding: 20px 15px; }
+      .sacoche-bloc { padding: 18px 15px; }
       .boutons-navigation { left: 15px; bottom: 15px; gap: 10px; }
       .bouton-rond { width: 68px; height: 68px; }
       .bouton-rond svg { width: 29px; height: 29px; }
@@ -90,80 +92,144 @@
     
     <div class="conteneur-malle">
     
-      <div class="sacoche-bloc epiguard">
+      <div class="sacoche-bloc couleur-gris">
         <h2 class="sacoche-titre">Sacoche EPIGUARD Interventions - Urgences</h2>
         <ul>
-          <li>Gants Epiport — <span class="quantite">x1</span></li>
-          <li>Sac changement Urg Epiport — <span class="quantite">x1</span></li>
-          <li>Seringue 50ml Luer-Lock EpiGuard — <span class="quantite">x1</span></li>
-          <li>Prolongateur avec Robinet — <span class="quantite">x1</span></li>
-          <li>Membrane Filaire Epiport — <span class="quantite">x1</span></li>
-          <li>Filtres EpiShuttle — <span class="quantite">x2</span></li>
-          <li>Joint Blanc Epiport 150 – End Lid Seal 22mm — <span class="quantite">x1</span></li>
-          <li>Epiport 150 Rubber Band (rouge) 74x3 — <span class="quantite">x2</span></li>
+          <li>Gants Epiport <span class="quantite">x1</span></li>
+          <li>Sac changement Urg Epiport <span class="quantite">x1</span></li>
+          <li>Seringue 50ml Luer-Lock EpiGuard <span class="quantite">x1</span></li>
+          <li>Prolongateur avec Robinet <span class="quantite">x1</span></li>
+          <li>Membrane Filaire Epiport <span class="quantite">x1</span></li>
+          <li>Filtres EpiShuttle <span class="quantite">x2</span></li>
+          <li>Joint Blanc Epiport 150 – End Lid Seal 22mm <span class="quantite">x1</span></li>
+          <li>Epiport 150 Rubber Band (rouge) 74x3 <span class="quantite">x2</span></li>
         </ul>
       </div>
 
-      <div class="sacoche-bloc respirateur">
+      <div class="sacoche-bloc couleur-gris">
         <h2 class="sacoche-titre">Pochette Respirateur</h2>
         <ul>
-          <li>Filtre Patient — <span class="quantite">x2</span></li>
-          <li>Filtre Machine — <span class="quantite">x2</span></li>
-          <li>Circuit Respirateur — <span class="quantite">x1</span></li>
-          <li>Capteur Capno — <span class="quantite">x1</span></li>
-          <li>Pince Kocher — <span class="quantite">x1</span></li>
-          <li>Raccord 3 bar — <span class="quantite">x1</span></li>
+          <li>Filtre Patient <span class="quantite">x2</span></li>
+          <li>Filtre Machine <span class="quantite">x2</span></li>
+          <li>Circuit Respirateur <span class="quantite">x1</span></li>
+          <li>Capteur Capno <span class="quantite">x1</span></li>
+          <li>Pince Kocher <span class="quantite">x1</span></li>
+          <li>Raccord 3 bar <span class="quantite">x1</span></li>
         </ul>
       </div>
 
-      <div class="sacoche-bloc oxygenation">
+      <div class="sacoche-bloc couleur-vert colle-bas">
         <h2 class="sacoche-titre">Pochette Oxygénation</h2>
         <ul>
-          <li>Lunette O2 — <span class="quantite">x1</span></li>
-          <li>Masque moyenne Concentration — <span class="quantite">x1</span></li>
-          <li>Manomètre O2 — <span class="quantite">x1</span></li>
-          <li>Prolongateur O2 + Raccord biconique — <span class="quantite">x2</span></li>
+          <li>Lunette O2 <span class="quantite">x1</span></li>
+          <li>Masque moyenne Concentration <span class="quantite">x1</span></li>
+          <li>Manomètre O2 <span class="quantite">x1</span></li>
+          <li>Prolongateur O2 + Raccord biconique <span class="quantite">x2</span></li>
         </ul>
       </div>
 
-      <div class="sacoche-bloc patient">
-        <h2 class="sacoche-titre">Pochette Patient</h2>
-        <ul>
-          <li>Vomix — <span class="quantite">x2</span></li>
-          <li>Eau — <span class="quantite">x1</span></li>
-          <li>Tab Velléda (Patient) — <span class="quantite">x1</span></li>
-          <li>Feutre Velléda (Patient) — <span class="quantite">x2</span></li>
-          <li>Drap de Glisse — <span class="quantite">x1</span></li>
-          <li>Mouchoirs (paquet) — <span class="quantite">x1</span></li>
-        </ul>
-      </div>
-
-      <div class="sacoche-bloc bavu">
+      <div class="sacoche-bloc couleur-vert utile-bavu colle-haut">
         <h2 class="sacoche-titre">BAVU</h2>
         <ul>
-          <li>BAVU — <span class="quantite">x1</span></li>
+          <li>BAVU <span class="quantite">x1</span></li>
         </ul>
       </div>
 
-      <div class="sacoche-bloc protection">
-        <h2 class="sacoche-titre">Protection Latérale</h2>
+      <div class="sacoche-bloc couleur-rouge colle-bas">
+        <h2 class="sacoche-titre">Pochette Patient</h2>
         <ul>
-          <li>Champ de protection Latéral — <span class="quantite">x4</span></li>
+          <li>Vomix <span class="quantite">x2</span></li>
+          <li>Eau <span class="quantite">x1</span></li>
+          <li>Tab Velléda (Patient) <span class="quantite">x1</span></li>
+          <li>Feutre Velléda (Patient) <span class="quantite">x2</span></li>
+          <li>Drap de Glisse <span class="quantite">x1</span></li>
+          <li>Mouchoirs (paquet) <span class="quantite">x1</span></li>
         </ul>
       </div>
 
-      <div class="sacoche-bloc outils">
+      <div class="sacoche-bloc couleur-rouge colle-haut">
+        <h2 class="sacoche-titre">Champ de protection Latéral</h2>
+        <ul>
+          <li>Champ de protection Latéral <span class="quantite">x4</span></li>
+        </ul>
+      </div>
+
+      <div class="sacoche-bloc couleur-gris">
         <h2 class="sacoche-titre">Pochette Outils</h2>
         <ul>
-          <li>Clé à pipe 17mm — <span class="quantite">x2</span></li>
-          <li>Clé Torx N° 25 — <span class="quantite">x2</span></li>
-          <li>Jeu de Clé Allen — <span class="quantite">x1</span></li>
+          <li>Clé à pipe 17mm <span class="quantite">x2</span></li>
+          <li>Clé Torx N° 25 <span class="quantite">x2</span></li>
+          <li>Jeu de Clé Allen <span class="quantite">x1</span></li>
         </ul>
       </div>
 
-      <div class="sacoche-bloc personnels">
+      <div class="sacoche-bloc couleur-gris">
         <h2 class="sacoche-titre">Pochette Personnels</h2>
         <ul>
-          <li>Sac Vestiaire Personnel — <span class="quantite">x4</span></li>
-          <li>Eau — <span class="quantite">8+</span></li>
-          <li>Collation —
+          <li>Sac Vestiaire Personnel <span class="quantite">x4</span></li>
+          <li>Eau <span class="quantite">8+</span></li>
+          <li>Collation <span class="quantite">Dispo</span></li>
+        </ul>
+      </div>
+
+      <div class="sacoche-bloc couleur-rouge">
+        <h2 class="sacoche-titre">Pochette Voies Veineuses</h2>
+        <ul>
+          <li>Prolongateur avec robinet <span class="quantite">x4</span></li>
+          <li>Tubulure Perfusion <span class="quantite">x2</span></li>
+          <li>Prolongateur PSE <span class="quantite">x4</span></li>
+          <li>Robinet <span class="quantite">x4</span></li>
+          <li>Bouchon <span class="quantite">x4</span></li>
+          <li>Octopus <span class="quantite">x1</span></li>
+        </ul>
+      </div>
+
+      <div class="sacoche-bloc couleur-gris">
+        <h2 class="sacoche-titre">Pochette Câbles</h2>
+        <ul>
+          <li>Chargeur de Scope aimanté <span class="quantite">x1</span></li>
+          <li>Chargeur respirateur <span class="quantite">x1</span></li>
+          <li>Chargeur PSE type Araignée (4 sorties) <span class="quantite">x1</span></li>
+          <li>Chargeur Aspiration <span class="quantite">x1</span></li>
+          <li>Chargeur de Batterie Epishuttle <span class="quantite">x2</span></li>
+          <li>Rallonge électrique <span class="quantite">x1</span></li>
+        </ul>
+      </div>
+
+      <div class="sacoche-bloc couleur-gris">
+        <h2 class="sacoche-titre">Pochette Pompe Annexe</h2>
+        <ul>
+          <li>Pompe N°2 <span class="quantite">x1</span></li>
+          <li>Tuyau de raccordement <span class="quantite">x1</span></li>
+          <li>Filtre Spécifique <span class="quantite">x1</span></li>
+        </ul>
+      </div>
+
+      <div class="sacoche-bloc bariolé-accessoires">
+        <h2 class="sacoche-titre">Pochette Accessoires</h2>
+        <ul>
+          <li>Pince Tripode <span class="quantite">x1</span></li>
+          <li>Lubrifiant (Tube) <span class="quantite">x1</span></li>
+          <li>Serflex <span class="quantite">x10</span></li>
+          <li>Clameau <span class="quantite">x2</span></li>
+          <li>Feutre Velléda (équipe) <span class="quantite">x2</span></li>
+          <li>Tableau Velléda (équipe) <span class="quantite">x1</span></li>
+        </ul>
+      </div>
+
+    </div>
+  </main>
+
+  <div class="boutons-navigation">
+    <button type="button" class="bouton-rond" title="Retour à la page précédente" aria-label="Retour à la page précédente" onclick="history.back()">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 7L4 12l5 5"></path><path d="M4 12h9a6 6 0 0 1 6 6"></path></svg>
+      <span>Retour</span>
+    </button>
+    <a href="index.html" class="bouton-rond" title="Retour à l’accueil" aria-label="Retour à l’accueil">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11.5L12 4l9 7.5"></path><path d="M5.5 10v10h13V10"></path><path d="M9.5 20v-6h5v6"></path></svg>
+      <span>Accueil</span>
+    </a>
+  </div>
+
+</body>
+</html>
