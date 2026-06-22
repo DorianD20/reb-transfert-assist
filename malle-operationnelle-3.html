@@ -90,22 +90,94 @@
       font-size: 34px;
     }
 
-    .contenu {
-      max-width: 900px;
+    /* Encart IMPORTANT */
+    .alerte-orange {
+      max-width: 850px;
+      margin: 0 auto 35px;
+      background: #fff4e5;
+      border-left: 6px solid #f59e0b;
+      padding: 22px 25px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    .alerte-orange h2 {
+      margin: 0 0 12px;
+      color: #92400e;
+      font-size: 22px;
+      font-weight: bold;
+      text-decoration: underline;
+      text-transform: uppercase;
+    }
+    .alerte-orange p {
+      margin: 0;
+      color: #b45309;
+      font-size: 16px;
+      line-height: 1.6;
+      font-weight: bold;
+    }
+
+    .conteneur-malle {
+      max-width: 850px;
       margin: 0 auto;
-      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    /* Structure de la bulle de sacoche */
+    .sacoche-bloc {
       background: #f4f7f8;
       border: 1px solid #d9e2e8;
       border-radius: 14px;
+      padding: 22px 25px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+      transition: transform 0.2s;
+    }
+    .sacoche-bloc:hover {
+      transform: translateX(4px);
+    }
+    .sacoche-titre {
+      margin: 0 0 15px 0;
+      font-size: 20px;
+      font-weight: bold;
+      padding-bottom: 6px;
+      border-bottom: 2px solid #e9eef2;
     }
 
-    h2 {
-      margin-top: 0;
+    /* Listing avec alignement d'origine (quantités calées à droite) */
+    .sacoche-bloc ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .sacoche-bloc li {
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 16px;
+      color: #485563;
+    }
+    .sacoche-bloc li:last-child {
+      border-bottom: none;
+    }
+    .quantite {
+      font-weight: bold;
+      background: #e9eef2;
       color: #123b57;
+      padding: 3px 10px;
+      border-radius: 12px;
+      font-size: 14px;
+      min-width: 40px;
+      text-align: center;
     }
 
-    li {
-      margin-bottom: 10px;
+    .couleur-gris {
+      border-left: 6px solid #6b7280;
+    }
+    .couleur-gris .sacoche-titre {
+      color: #374151;
     }
 
     .boutons-navigation {
@@ -126,7 +198,6 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-
       background:
         linear-gradient(
           160deg,
@@ -135,16 +206,16 @@
           transparent 39%
         ),
         linear-gradient(145deg, #2389dc, #07559c);
-
       border: 3px solid #164d87;
-
       box-shadow:
         0 5px 12px rgba(0, 0, 0, 0.25),
         inset 0 1px 3px rgba(255, 255, 255, 0.65);
-
       color: white;
       text-decoration: none;
       cursor: pointer;
+    }
+    .bouton-rond:hover {
+      transform: scale(1.06);
     }
 
     .bouton-rond svg {
@@ -168,11 +239,9 @@
       .nav-malles {
         grid-template-columns: repeat(2, 1fr);
       }
-
       main {
         padding: 30px 15px 140px;
       }
-
       h1 {
         font-size: 28px;
       }
@@ -181,17 +250,21 @@
     @media (max-width: 600px) {
       .nav-principale,
       .nav-malles {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 6px;
-        padding: 8px 10px;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 6px !important;
+        padding: 8px 10px !important;
       }
 
       .onglet,
       .sous-onglet {
-        min-height: 38px;
-        font-size: 12px;
-        padding: 5px;
-        line-height: 1.2;
+        min-height: 38px !important;
+        font-size: 12px !important;
+        padding: 5px !important;
+        line-height: 1.2 !important;
+      }
+
+      .sacoche-bloc {
+        padding: 18px 15px;
       }
 
       .boutons-navigation {
@@ -229,36 +302,45 @@
   </nav>
 
   <nav class="nav-malles">
-    <a href="malle-operationnelle-1.html" class="sous-onglet">
-      Malle Opérationnelle N°1
-    </a>
-
-    <a href="malle-operationnelle-2.html" class="sous-onglet">
-      Malle Opérationnelle N°2
-    </a>
-
-    <a href="malle-operationnelle-3.html" class="sous-onglet actif">
-      Malle Opérationnelle N°3
-    </a>
-
-    <a href="malle-communication-ceotronics.html" class="sous-onglet">
-      Malle communication CEOTRONICS
-    </a>
+    <a href="malle-operationnelle-1.html" class="sous-onglet">Malle Opérationnelle N°1</a>
+    <a href="malle-operationnelle-2.html" class="sous-onglet">Malle Opérationnelle N°2</a>
+    <a href="malle-operationnelle-3.html" class="sous-onglet actif">Malle Opérationnelle N°3</a>
+    <a href="malle-communication-ceotronics.html" class="sous-onglet">Malle communication CEOTRONICS</a>
   </nav>
 
   <main>
 
     <h1>Malle Opérationnelle N°3</h1>
 
-    <div class="contenu">
-      <h2>Contenu de la malle</h2>
+    <!-- Encart d'avertissement identique à la malle 1 -->
+    <div class="alerte-orange">
+      <h2>IMPORTANT</h2>
+      <p>L'ensemble du matériel de la malle doit faire l'objet d'une vérification de sa bonne présence, de son intégrité et des dates de péremption.</p>
+    </div>
 
-      <ul>
-        <li>Matériel à renseigner</li>
-        <li>Matériel à renseigner</li>
-        <li>Matériel à renseigner</li>
-        <li>Matériel à renseigner</li>
-      </ul>
+    <div class="conteneur-malle">
+
+      <!-- Pochette Déshabillage -->
+      <div class="sacoche-bloc couleur-gris">
+        <h2 class="sacoche-titre">Pochette Déshabillage[cite: 4]</h2>
+        <ul>
+          <li>Bâche vinyle 2m x 2m <span class="quantite">x4</span>[cite: 4]</li>
+          <li>Ciseaux Jesko <span class="quantite">x8</span>[cite: 4]</li>
+          <li>Petit flacon manugel <span class="quantite">x2</span>[cite: 4]</li>
+          <li>Casaque de bloc <span class="quantite">x2</span>[cite: 4]</li>
+          <li>Surchaussure <span class="quantite">x6</span>[cite: 4]</li>
+          <li>Lunettes de protection <span class="quantite">x2</span>[cite: 4]</li>
+          <li>Cagoule de bloc <span class="quantite">x2</span>[cite: 4]</li>
+          <li>Lingette microfibre (paquet) <span class="quantite">x2</span>[cite: 4]</li>
+          <li>Spray OXIVIR EXCEL® Foam <span class="quantite">x1</span>[cite: 4]</li>
+          <li>Flacon vide <span class="quantite">x1</span>[cite: 4]</li>
+          <li>Bidon OXIVIR EXCEL® Foam <span class="quantite">x1</span>[cite: 4]</li>
+          <li>Tablier de change <span class="quantite">x10</span>[cite: 4]</li>
+          <li>Pyjama Tissu (paquet L & XXXL) <span class="quantite">x1</span>[cite: 4]</li>
+          <li>Pulvérisateur <span class="quantite">x1</span>[cite: 4]</li>
+        </ul>
+      </div>
+
     </div>
 
   </main>
@@ -276,7 +358,6 @@
         <path d="M9 7L4 12l5 5"></path>
         <path d="M4 12h9a6 6 0 0 1 6 6"></path>
       </svg>
-
       <span>Retour</span>
     </button>
 
@@ -291,7 +372,6 @@
         <path d="M5.5 10v10h13V10"></path>
         <path d="M9.5 20v-6h5v6"></path>
       </svg>
-
       <span>Accueil</span>
     </a>
 
