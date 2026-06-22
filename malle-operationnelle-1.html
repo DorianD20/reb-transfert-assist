@@ -28,16 +28,17 @@
     .sacoche-bloc:hover { transform: translateX(4px); }
     .sacoche-titre { margin: 0 0 15px 0; font-size: 20px; font-weight: bold; padding-bottom: 6px; border-bottom: 2px solid #e9eef2; }
     
-    /* Listing en une seule colonne propre */
-    .sacoche-bloc ul { margin: 0; padding: 0; list-style: none; }
+    /* Listing et resserrement de l'espace nom/quantité sur Ordinateur */
+    .sacoche-bloc ul { margin: 0; padding: 0; list-style: none; max-width: 550px; }
     .sacoche-bloc li { padding: 8px 0; border-bottom: 1px solid rgba(0, 0, 0, 0.03); display: flex; justify-content: space-between; align-items: center; font-size: 16px; color: #485563; }
     .sacoche-bloc li:last-child { border-bottom: none; }
     .quantite { font-weight: bold; background: #e9eef2; color: #123b57; padding: 3px 10px; border-radius: 12px; font-size: 14px; min-width: 40px; text-align: center; }
     
-    /* Classes de couleurs spécifiques demandées */
+    /* Classes de couleurs spécifiques */
     .couleur-gris { border-left: 6px solid #6b7280; } .couleur-gris .sacoche-titre { color: #374151; }
     .couleur-vert { border-left: 6px solid #10b981; } .couleur-vert .sacoche-titre { color: #047857; }
     .couleur-rouge { border-left: 6px solid #ef4444; } .couleur-rouge .sacoche-titre { color: #b91c1c; }
+    .couleur-noire { border-left: 6px solid #000000; } .couleur-noire .sacoche-titre { color: #000000; }
     
     /* Pochette accessoires style bariolé jaune et gris */
     .bariolé-accessoires { border-left: 6px solid #6b7280; background: linear-gradient(90deg, #f4f7f8 97%, #fef08a 100%); }
@@ -62,6 +63,7 @@
       .nav-principale, .nav-malles { grid-template-columns: repeat(2, 1fr) !important; gap: 6px !important; padding: 8px 10px !important; }
       .onglet, .sous-onglet { min-height: 38px !important; font-size: 12px !important; padding: 5px !important; line-height: 1.2 !important; }
       .sacoche-bloc { padding: 18px 15px; }
+      .sacoche-bloc ul { max-width: 100%; } /* Reprend toute la largeur sur mobile */
       .boutons-navigation { left: 15px; bottom: 15px; gap: 10px; }
       .bouton-rond { width: 68px; height: 68px; }
       .bouton-rond svg { width: 29px; height: 29px; }
@@ -154,7 +156,7 @@
         </ul>
       </div>
 
-      <div class="sacoche-bloc couleur-gris">
+      <div class="sacoche-bloc couleur-noire">
         <h2 class="sacoche-titre">Pochette Outils</h2>
         <ul>
           <li>Clé à pipe 17mm <span class="quantite">x2</span></li>
