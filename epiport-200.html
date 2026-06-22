@@ -64,34 +64,114 @@
     }
 
     h1 {
-      margin: 0 0 30px;
+      margin: 0 0 40px;
       color: #123b57;
       text-align: center;
       font-size: 34px;
     }
 
     .contenu {
-      max-width: 900px;
+      max-width: 1000px;
       margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
     }
 
-    .bloc {
-      margin-bottom: 22px;
-      padding: 22px;
+    /* Sections principales */
+    .section-epiport {
       background: #f4f7f8;
       border: 1px solid #d9e2e8;
-      border-radius: 14px;
+      border-radius: 16px;
+      padding: 30px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
     }
 
-    .bloc h2 {
-      margin: 0 0 12px;
+    .section-titre {
+      margin: 0 0 25px 0;
       color: #123b57;
-      font-size: 23px;
+      font-size: 24px;
+      font-weight: bold;
+      border-bottom: 3px solid #123b57;
+      padding-bottom: 8px;
     }
 
-    .bloc p {
+    /* Disposition Media + Grille d'actions */
+    .disposition-bloc {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 30px;
+      align-items: start;
+    }
+
+    .illustration-img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      border: 1px solid #d9e2e8;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+      background: white;
+    }
+
+    /* Grilles des boutons d'action */
+    .grille-actions {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .grille-actions.pleine-largeur {
+      grid-template-columns: 1fr;
+    }
+
+    .carte-action {
+      background: white;
+      border: 2px solid #e9eef2;
+      border-radius: 10px;
+      padding: 18px;
+      text-decoration: none;
+      color: #123b57;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .carte-action:hover {
+      transform: translateY(-2px);
+      border-color: #2389dc;
+      box-shadow: 0 4px 12px rgba(35, 137, 220, 0.15);
+    }
+
+    .action-titre {
+      font-weight: bold;
+      font-size: 17px;
+    }
+
+    .action-sous-lien {
+      font-size: 14px;
+      color: #2389dc;
+      text-decoration: underline;
+    }
+
+    /* Groupements internes */
+    .sous-groupe {
+      background: rgba(18, 59, 87, 0.03);
+      border-radius: 12px;
+      padding: 15px;
+      border: 1px dashed #d9e2e8;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .sous-groupe-titre {
       margin: 0;
-      line-height: 1.6;
+      font-size: 15px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #485563;
+      font-weight: bold;
     }
 
     .boutons-navigation {
@@ -162,6 +242,15 @@
       h1 {
         font-size: 28px;
       }
+
+      .disposition-bloc {
+        grid-template-columns: 1fr;
+        justify-items: center;
+      }
+
+      .illustration-img {
+        max-width: 320px;
+      }
     }
 
     @media (max-width: 600px) {
@@ -176,6 +265,14 @@
         font-size: 12px;
         padding: 5px;
         line-height: 1.2;
+      }
+
+      .grille-actions {
+        grid-template-columns: 1fr;
+      }
+
+      .section-epiport {
+        padding: 20px 15px;
       }
 
       .boutons-navigation {
@@ -218,36 +315,82 @@
 
     <div class="contenu">
 
-      <section class="bloc">
-        <h2>Fonction</h2>
-        <p>
-          Cette partie présentera le rôle de l’EpiPort 200 dans l’accès au
-          patient et dans l’utilisation de l’EpiShuttle.
-        </p>
+      <!-- SECTION 1 : CONFIGURATION GANT -->
+      <section class="section-epiport">
+        <div class="section-titre">Configuration Gant / EpiPort 200</div>
+        
+        <div class="disposition-bloc">
+          <div>
+            <img src="Epiport-200-gant-presentation.jpg" alt="EpiPort 200 Configuration Gant" class="illustration-img">
+          </div>
+          
+          <div class="grille-actions">
+            <a href="epiport-200-gant-utilisation.html" class="carte-action">
+              <span class="action-titre">Utilisation</span>
+              <span class="action-sous-lien">Lien vers page d'utilisation</span>
+            </a>
+            
+            <a href="epiport-200-gant-verification.html" class="carte-action">
+              <span class="action-titre">Vérification</span>
+              <span class="action-sous-lien">Lien vers page de vérification</span>
+            </a>
+
+            <div class="sous-groupe">
+              <div class="sous-groupe-titre">Changement Standard</div>
+              <a href="epiport-200-gant-changement-pas-a-pas.html" class="carte-action">
+                <span class="action-titre">Pas-à-pas</span>
+              </a>
+              <a href="epiport-200-gant-changement-video.html" class="carte-action">
+                <span class="action-titre">Vidéo</span>
+              </a>
+            </div>
+
+            <div class="sous-groupe">
+              <div class="sous-groupe-titre">Changement en Urgence</div>
+              <a href="epiport-200-gant-urgence-pas-a-pas.html" class="carte-action">
+                <span class="action-titre">Pas-à-pas</span>
+              </a>
+              <a href="epiport-200-gant-urgence-video.html" class="carte-action">
+                <span class="action-titre">Vidéo</span>
+              </a>
+            </div>
+          </div>
+        </div>
       </section>
 
-      <section class="bloc">
-        <h2>Points de contrôle</h2>
-        <p>
-          Les vérifications à réaliser avant l’installation du patient seront
-          précisées ici.
-        </p>
-      </section>
+      <!-- SECTION 2 : CONFIGURATION SAC D'ÉCLUSE -->
+      <section class="section-epiport">
+        <div class="section-titre">Configuration Sac d'Écluse / EpiPort 200</div>
+        
+        <div class="disposition-bloc">
+          <div>
+            <img src="Epiport-200-sac-ecluse-presentation.jpg" alt="EpiPort 200 Configuration Sac Écluse" class="illustration-img">
+          </div>
+          
+          <div class="grille-actions">
+            <a href="epiport-200-sac-utilisation.html" class="carte-action">
+              <span class="action-titre">Utilisation</span>
+              <span class="action-sous-lien">Lien vers page d'utilisation</span>
+            </a>
+            
+            <a href="epiport-200-sac-verification.html" class="carte-action">
+              <span class="action-titre">Vérification</span>
+              <span class="action-sous-lien">Lien vers page de vérification</span>
+            </a>
 
-      <section class="bloc">
-        <h2>Utilisation</h2>
-        <p>
-          Une explication, des photographies ou une vidéo pourront être ajoutées
-          dans cette partie.
-        </p>
-      </section>
-
-      <section class="bloc">
-        <h2>Points de vigilance</h2>
-        <p>
-          Les erreurs à éviter et les situations nécessitant une attention
-          particulière seront indiquées ici.
-        </p>
+            <div class="sous-groupe" style="grid-column: span 2;">
+              <div class="sous-groupe-titre">Changement de Sac d'Écluse</div>
+              <div class="grille-actions">
+                <a href="epiport-200-sac-changement-pas-a-pas.html" class="carte-action">
+                  <span class="action-titre">Pas-à-pas</span>
+                </a>
+                <a href="epiport-200-sac-changement-video.html" class="carte-action">
+                  <span class="action-titre">Vidéo</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
     </div>
