@@ -21,6 +21,11 @@
     main { max-width: 1200px; min-height: 650px; margin: 0 auto; padding: 40px 25px 140px; background: white; }
     h1 { margin: 0 0 30px; color: #123b57; text-align: center; font-size: 34px; }
     
+    /* Encart IMPORTANT */
+    .alerte-orange { max-width: 850px; margin: 0 auto 35px; background: #fff4e5; border-left: 6px solid #f59e0b; padding: 22px 25px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+    .alerte-orange h2 { margin: 0 0 12px; color: #92400e; font-size: 22px; font-weight: bold; text-decoration: underline; text-transform: uppercase; }
+    .alerte-orange p { margin: 0; color: #b45309; font-size: 16px; line-height: 1.6; font-weight: bold; }
+
     .conteneur-malle { max-width: 850px; margin: 0 auto; display: flex; flex-direction: column; gap: 24px; }
     
     /* Structure de chaque bulle de sacoche */
@@ -90,6 +95,11 @@
 
   <main>
     <h1>Malle Opérationnelle N°1</h1>
+    
+    <div class="alerte-orange">
+      <h2>IMPORTANT</h2>
+      <p>L'ensemble du matériel de la malle doit faire l'objet d'une vérification de sa bonne présence, de son intégrité et des dates de péremption.</p>
+    </div>
     
     <div class="conteneur-malle">
     
