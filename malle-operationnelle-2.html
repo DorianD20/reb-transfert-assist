@@ -25,7 +25,12 @@
     .alerte-orange { max-width: 850px; margin: 0 auto 35px; background: #fff4e5; border-left: 6px solid #f59e0b; padding: 22px 25px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
     .alerte-orange h2 { margin: 0 0 12px; color: #92400e; font-size: 22px; font-weight: bold; text-decoration: underline; text-transform: uppercase; }
     .alerte-orange p { margin: 0 0 10px 0; color: #b45309; font-size: 16px; line-height: 1.6; font-weight: bold; }
-    .alerte-orange p:last-child { margin-bottom: 0; }
+    .alerte-orange ul { margin: 0; padding-left: 20px; color: #b45309; font-size: 16px; line-height: 1.5; font-weight: bold; }
+    .alerte-orange li { margin-bottom: 5px; }
+    .alerte-orange li:last-child { margin-bottom: 0; }
+    
+    /* Style spécifique pour la phrase en rouge et gras */
+    .texte-rouge-gras { color: #b91c1c !important; font-weight: bold; }
 
     .conteneur-malle { max-width: 850px; margin: 0 auto; display: flex; flex-direction: column; gap: 24px; }
     
@@ -85,22 +90,29 @@
   <main>
     <h1>Malle Opérationnelle N°2</h1>
     
+    <!-- Encart d'avertissement mis à jour -->
     <div class="alerte-orange">
       <h2>IMPORTANT</h2>
-      <p>Les personnes œuvrant durant le transport doivent vérifier les tailles des tenues TYCHEM® 2000C présentes dans la malle.</p>
-      <p>L'ensemble du matériel de la malle doit faire l'objet d'une vérification de son intégrité et des dates de péremption.</p>
+      <p class="texte-rouge-gras">Avant tout départ opérationnel, les personnes œuvrant durant le transport doivent vérifier les tailles des tenues TYCHEM® 2000C présentes dans la malle.[cite: 3]</p>
+      <p>De plus, l'ensemble du matériel de la malle doit faire l'objet des vérifications suivantes :</p>
+      <ul>
+        <li>Dotation complète,</li>
+        <li>Intégrité du matériel,</li>
+        <li>Dates de péremption à jour.</li>
+      </ul>
     </div>
     
     <div class="conteneur-malle">
     
+      <!-- Matériels Habillage -->
       <div class="sacoche-bloc couleur-gris">
-        <h2 class="sacoche-titre">Matériels Habillage</h2>
+        <h2 class="sacoche-titre">Matériels Habillage[cite: 3]</h2>
         <ul>
-          <li>Tenue TYCHEM® (à rajouter) <span class="quantite">x9</span></li>
-          <li>Surbottes TYCHEM® (paire) <span class="quantite">x9</span></li>
-          <li>Masque FFP3 (boîte) <span class="quantite">x1</span></li>
-          <li>Heaume + Visière <span class="quantite">x9</span></li>
-          <li>Gants avec manchon (boîte S/M/L/XL) <span class="quantite">x1</span></li>
+          <li>Tenue TYCHEM® (à rajouter) <span class="quantite">x9</span>[cite: 3]</li>
+          <li>Surbottes TYCHEM® (paire) <span class="quantite">x9</span>[cite: 3]</li>
+          <li>Masque FFP3 (boîte) <span class="quantite">x1</span>[cite: 3]</li>
+          <li>Heaume + Visière <span class="quantite">x9</span>[cite: 3]</li>
+          <li>Gants avec manchon (boîte S/M/L/XL) <span class="quantite">x1</span>[cite: 3]</li>
         </ul>
       </div>
 
