@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Utilisation Sac d'Écluse - REB Transfert Assist</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f7f8;
+      color: #1f2933;
+    }
+
+    nav {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 10px;
+      padding: 15px 20px;
+      background: white;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .onglet {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 54px;
+      padding: 10px;
+      background: #e9eef2;
+      border-radius: 8px;
+      color: #123b57;
+      text-decoration: none;
+      text-align: center;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .onglet:hover {
+      background: #d7e3ea;
+    }
+
+    .onglet.actif {
+      background: #123b57;
+      color: white;
+    }
+
+    main {
+      max-width: 1200px;
+      min-height: 650px;
+      margin: 0 auto;
+      padding: 40px 25px 140px;
+      background: white;
+    }
+
+    h1 {
+      margin: 0 0 10px 0;
+      color: #123b57;
+      text-align: center;
+      font-size: 34px;
+    }
+
+    .sous-titre-page {
+      text-align: center;
+      color: #485563;
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 40px;
+    }
+
+    .conteneur-utilisation {
+      max-width: 850px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    /* Encart d'avertissement */
+    .alerte-orange {
+      background: #fff4e5;
+      border-left: 6px solid #f59e0b;
+      padding: 22px 25px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    .alerte-orange h2 {
+      margin: 0 0 12px;
+      color: #92400e;
+      font-size: 22px;
+      font-weight: bold;
+      text-decoration: underline;
+      text-transform: uppercase;
+    }
+    .alerte-orange p {
+      margin: 0 0 12px 0;
+      color: #b45309;
+      font-size: 16px;
+      line-height: 1.6;
+      font-weight: bold;
+    }
+    .alerte-orange p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Structure Pas-à-Pas des étapes */
+    .etape-bloc {
+      background: #f4f7f8;
+      border: 1px solid #d9e2e8;
+      border-radius: 16px;
+      padding: 25px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .etape-entete {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .etape-numero {
+      background: #123b57;
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .etape-titre {
+      margin: 0;
+      color: #123b57;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .zone-image {
+      display: flex;
+      justify-content: center;
+      background: white;
+      padding: 15px;
+      border-radius: 12px;
+      border: 1px solid #e2e8f0;
+    }
+
+    .img-etape {
+      max-width: 100%;
+      height: auto;
+      max-height: 400px;
+      border-radius: 8px;
+      object-fit: contain;
+    }
+
+    .boutons-navigation {
+      position: fixed;
+      left: 28px;
+      bottom: 28px;
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .bouton-rond {
+      width: 82px;
+      height: 82px;
+      padding: 0;
+      border: 3px solid #164d87;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background:
+        linear-gradient(
+          160deg,
+          rgba(255, 255, 255, 0.55) 0%,
+          rgba(255, 255, 255, 0.08) 38%,
+          transparent 39%
+        ),
+        linear-gradient(145deg, #2389dc, #07559c);
+      box-shadow:
+        0 5px 12px rgba(0, 0, 0, 0.25),
+        inset 0 1px 3px rgba(255, 255, 255, 0.65);
+      color: white;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .bouton-rond:hover {
+      transform: scale(1.06);
+    }
+
+    .bouton-rond svg {
+      width: 35px;
+      height: 35px;
+      fill: none;
+      stroke: white;
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .bouton-rond span {
+      margin-top: 2px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    @media (max-width: 950px) {
+      nav {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      main {
+        padding: 30px 15px 140px;
+      }
+
+      h1 {
+        font-size: 28px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 6px;
+        padding: 8px 10px;
+      }
+
+      .onglet {
+        min-height: 38px;
+        font-size: 12px;
+        padding: 5px;
+        line-height: 1.2;
+      }
+
+      .etape-bloc {
+        padding: 20px 15px;
+      }
+
+      .boutons-navigation {
+        left: 15px;
+        bottom: 15px;
+        gap: 10px;
+      }
+
+      .bouton-rond {
+        width: 68px;
+        height: 68px;
+      }
+
+      .bouton-rond svg {
+        width: 29px;
+        height: 29px;
+      }
+
+      .bouton-rond span {
+        font-size: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <a href="epishuttle.html" class="onglet actif">EpiShuttle</a>
+    <a href="materiel.html" class="onglet">Matériel</a>
+    <a href="procedures.html" class="onglet">Procédures / Check-lists</a>
+    <a href="epi.html" class="onglet">EPI</a>
+    <a href="informations.html" class="onglet">Informations</a>
+    <a href="depart-operationnel.html" class="onglet">Départ opérationnel</a>
+  </nav>
+
+  <main>
+
+    <h1>EpiPort 200</h1>
+    <div class="sous-titre-page">Utilisation du sac d'écluse</div>
+
+    <div class="conteneur-utilisation">
+
+      <div class="alerte-orange">
+        <h2>IMPORTANT</h2>
+        <p>Afin de transférer un objet dans l'EpiShuttle en toute sécurité en présence du patient, il est nécessaire d'utiliser le sac d'écluse prévu à cet effet.</p>
+        <p>Lors de la première utilisation, et seulement si la trappe intérieure n'a jamais été ouverte en présence du patient, il ne sera pas nécessaire de procéder à la décontamination primaire du sac d'écluse avant d'introduire l'objet voulu.</p>
+        <p>À l'inverse, si la trappe intérieure a déjà été ouverte, il sera obligatoire de procéder à une décontamination du sac d'écluse (trappe intérieure fermée) comme décrit dans la procédure ci-dessous.</p>
+      </div>
+
+      <div class="etape-bloc">
+        <div class="etape-entete">
+          <div class="etape-numero">1</div>
+          <h3 class="etape-titre">Vérifier la bonne fermeture de la trappe interne.</h3>
+        </div>
+        <div class="zone-image">
+          <img src="Sac-ecluse-utilisation-pas-a-pas-1.jpg" alt="Vérification fermeture trappe interne" class="img-etape">
+        </div>
+      </div>
+
+      <div class="etape-bloc">
+        <div class="etape-entete">
+          <div class="etape-numero">2</div>
+          <h3 class="etape-titre">Procéder à une décontamination de l'intérieur du sac d'écluse avec 50&nbsp;ml d'Oxivir Excel Foam®, puis attendre le délai d'action requis (Virucide EN14476&nbsp;: 5&nbsp;min à 2&nbsp;% ou 30&nbsp;sec à 4&nbsp;%).</h3>
+        </div>
+        <div class="zone-image">
+          <img src="Sac-ecluse-utilisation-pas-a-pas-2.jpg" alt="Décontamination intérieur du sac d'écluse" class="img-etape">
+        </div>
+      </div>
+
+      <div class="etape-bloc">
+        <div class="etape-entete">
+          <div class="etape-numero">3</div>
+          <h3 class="etape-titre">Ouvrir le couvercle du sac d'écluse prévu à cet effet.</h3>
+        </div>
+        <div class="zone-image">
+          <img src="Sac-ecluse-utilisation-pas-a-pas-3.jpg" alt="Ouverture du couvercle externe" class="img-etape">
+        </div>
+      </div>
+
+      <div class="etape-bloc">
+        <div class="etape-entete">
+          <div class="etape-numero">4</div>
+          <h3 class="etape-titre">Insérer l'objet voulu (ex&nbsp;: filtre interne).</h3>
+        </div>
+        <div class="zone-image">
+          <img src="Sac-ecluse-utilisation-pas-a-pas-4.jpg" alt="Insertion de l'objet dans le sac d'écluse" class="img-etape">
+        </div>
+      </div>
+
+      <div class="etape-bloc">
+        <div class="etape-entete">
+          <div class="etape-numero">5</div>
+          <h3 class="etape-titre">Refermer le couvercle du sac d'écluse avant le transfert.</h3>
+        </div>
+        <div class="zone-image">
+          <img src="Sac-ecluse-utilisation-pas-a-pas-5.jpg" alt="Fermeture du couvercle du sac d'écluse" class="img-etape">
+        </div>
+      </div>
+
+      <div class="etape-bloc">
+        <div class="etape-entete">
+          <div class="etape-numero">6</div>
+          <h3 class="etape-titre">Ouvrir la trappe interne du sac d'écluse, puis introduire l'objet dans l'EpiShuttle.</h3>
+        </div>
+        <div class="zone-image">
+          <img src="Sac-ecluse-utilisation-pas-a-pas-6.jpg" alt="Ouverture trappe interne et transfert dans l'EpiShuttle" class="img-etape">
+        </div>
+      </div>
+
+      <div class="etape-bloc">
+        <div class="etape-entete">
+          <div class="etape-numero">7</div>
+          <h3 class="etape-titre">Refermer la trappe intérieure pour sécuriser le sac d'écluse.</h3>
+        </div>
+        <div class="zone-image">
+          <img src="Sac-ecluse-utilisation-pas-a-pas-7.jpg" alt="Fermeture et sécurisation de la trappe intérieure" class="img-etape">
+        </div>
+      </div>
+
+      <div class="etape-bloc">
+        <div class="etape-entete">
+          <div class="etape-numero">8</div>
+          <h3 class="etape-titre">Procéder à une décontamination finale de l'intérieur du sac d'écluse avec 50&nbsp;ml d'Oxivir Excel Foam®, puis attendre le délai d'action requis (Virucide EN14476&nbsp;: 5&nbsp;min à 2&nbsp;% ou 30&nbsp;sec à 4&nbsp;%).</h3>
+        </div>
+        <div class="zone-image">
+          <img src="Sac-ecluse-utilisation-pas-a-pas-2.jpg" alt="Décontamination finale après transfert" class="img-etape">
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <div class="boutons-navigation">
+
+    <button
+      type="button"
+      class="bouton-rond"
+      title="Retour à la page précédente"
+      aria-label="Retour à la page précédente"
+      onclick="history.back()"
+    >
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M9 7L4 12l5 5"></path>
+        <path d="M4 12h9a6 6 0 0 1 6 6"></path>
+      </svg>
+      <span>Retour</span>
+    </button>
+
+    <a
+      href="index.html"
+      class="bouton-rond"
+      title="Retour à l’accueil"
+      aria-label="Retour à l’accueil"
+    >
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M3 11.5L12 4l9 7.5"></path>
+        <path d="M5.5 10v10h13V10"></path>
+        <path d="M9.5 20v-6h5v6"></path>
+      </svg>
+      <span>Accueil</span>
+    </a>
+
+  </div>
+
+</body>
+
+</html>
