@@ -7,28 +7,55 @@
   <style>
     * { box-sizing: border-box; }
     body { margin: 0; font-family: Arial, sans-serif; background: #f5f7f8; color: #1f2933; }
+    
     .nav-principale, .nav-malles { display: grid; gap: 10px; padding: 15px 20px; background: white; }
     .nav-principale { grid-template-columns: repeat(6, 1fr); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); position: sticky; top: 0; z-index: 1000; }
     .nav-malles { grid-template-columns: repeat(4, 1fr); border-top: 1px solid #d9e2e8; border-bottom: 1px solid #d9e2e8; }
+    
     .onglet, .sous-onglet { display: flex; align-items: center; justify-content: center; min-height: 54px; padding: 10px; border-radius: 8px; color: #123b57; text-decoration: none; text-align: center; font-size: 16px; font-weight: bold; }
     .onglet { background: #e9eef2; }
     .sous-onglet { background: #f1f4f6; }
     .onglet:hover, .sous-onglet:hover { background: #d7e3ea; }
     .onglet.actif, .sous-onglet.actif { background: #123b57; color: white; }
+    
     main { max-width: 1200px; min-height: 650px; margin: 0 auto; padding: 40px 25px 140px; background: white; }
     h1 { margin: 0 0 30px; color: #123b57; text-align: center; font-size: 34px; }
-    .contenu { max-width: 900px; margin: 0 auto; padding: 24px; background: #f4f7f8; border: 1px solid #d9e2e8; border-radius: 14px; }
-    h2 { margin-top: 0; color: #123b57; }
-    li { margin-bottom: 10px; }
-    .boutons-navigation { position: fixed; left: 28px; bottom: 28px; z-index: 2000; display: flex; gap: 14px; }
+    
+    /* Encart IMPORTANT (Style identique au déshabillage) */
+    .alerte-orange { max-width: 850px; margin: 0 auto 35px; background: #fff4e5; border-left: 6px solid #f59e0b; padding: 22px 25px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+    .alerte-orange h2 { margin: 0 0 12px; color: #92400e; font-size: 22px; font-weight: bold; text-decoration: underline; text-transform: uppercase; }
+    .alerte-orange p { margin: 0; color: #b45309; font-size: 16px; line-height: 1.6; font-weight: bold; }
+
+    .conteneur-malle { max-width: 850px; margin: 0 auto; display: flex; flex-direction: column; gap: 24px; }
+    
+    /* Structure de la bulle de sacoche */
+    .sacoche-bloc { background: #f4f7f8; border: 1px solid #d9e2e8; border-radius: 14px; padding: 22px 25px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04); transition: transform 0.2s; }
+    .sacoche-bloc:hover { transform: translateX(4px); }
+    .sacoche-titre { margin: 0 0 15px 0; font-size: 20px; font-weight: bold; padding-bottom: 6px; border-bottom: 2px solid #e9eef2; }
+    
+    /* Listing avec alignement d'origine (quantités calées à droite) */
+    .sacoche-bloc ul { margin: 0; padding: 0; list-style: none; }
+    .sacoche-bloc li { padding: 8px 0; border-bottom: 1px solid rgba(0, 0, 0, 0.03); display: flex; justify-content: space-between; align-items: center; font-size: 16px; color: #485563; }
+    .sacoche-bloc li:last-child { border-bottom: none; }
+    .quantite { font-weight: bold; background: #e9eef2; color: #123b57; padding: 3px 10px; border-radius: 12px; font-size: 14px; min-width: 40px; text-align: center; }
+    
+    .couleur-gris { border-left: 6px solid #6b7280; } .couleur-gris .sacoche-titre { color: #374151; }
+    
+    .boutons-navigation { position: fixed; left: 28px; bottom: 28px; z-index: 9999; display: flex; gap: 14px; }
     .bouton-rond { width: 82px; height: 82px; padding: 0; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; background: linear-gradient(160deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0.08) 38%, transparent 39%), linear-gradient(145deg, #2389dc, #07559c); border: 3px solid #164d87; box-shadow: 0 5px 12px rgba(0, 0, 0, 0.25), inset 0 1px 3px rgba(255, 255, 255, 0.65); color: white; text-decoration: none; cursor: pointer; }
     .bouton-rond:hover { transform: scale(1.06); }
     .bouton-rond svg { width: 35px; height: 35px; fill: none; stroke: white; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
     .bouton-rond span { margin-top: 2px; font-size: 12px; font-weight: bold; }
-    @media (max-width: 950px) { .nav-principale, .nav-malles { grid-template-columns: repeat(2, 1fr); } main { padding: 30px 15px 140px; } h1 { font-size: 28px; } }
+    
+    @media (max-width: 950px) {
+      .nav-principale, .nav-malles { grid-template-columns: repeat(2, 1fr); }
+      main { padding: 30px 15px 140px; }
+      h1 { font-size: 28px; }
+    }
     @media (max-width: 600px) {
-      .nav-principale, .nav-malles { grid-template-columns: repeat(2, 1fr); gap: 6px; padding: 8px 10px; }
-      .onglet, .sous-onglet { min-height: 38px; font-size: 12px; padding: 5px; line-height: 1.2; }
+      .nav-principale, .nav-malles { grid-template-columns: repeat(2, 1fr) !important; gap: 6px !important; padding: 8px 10px !important; }
+      .onglet, .sous-onglet { min-height: 38px !important; font-size: 12px !important; padding: 5px !important; line-height: 1.2 !important; }
+      .sacoche-bloc { padding: 18px 15px; }
       .boutons-navigation { left: 15px; bottom: 15px; gap: 10px; }
       .bouton-rond { width: 68px; height: 68px; }
       .bouton-rond svg { width: 29px; height: 29px; }
@@ -56,14 +83,25 @@
 
   <main>
     <h1>Malle Opérationnelle N°2</h1>
-    <div class="contenu">
-      <h2>Contenu de la malle</h2>
-      <ul>
-        <li>Matériel à renseigner</li>
-        <li>Matériel à renseigner</li>
-        <li>Matériel à renseigner</li>
-        <li>Matériel à renseigner</li>
-      </ul>
+    
+    <div class="alerte-orange">
+      <h2>IMPORTANT</h2>
+      <p>Les personnes œuvrant durant le transport doivent vérifier les tailles des tenues TYCHEM® 2000C présentes dans la malle.</p>
+    </div>
+    
+    <div class="conteneur-malle">
+    
+      <div class="sacoche-bloc couleur-gris">
+        <h2 class="sacoche-titre">Matériels Habillage</h2>
+        <ul>
+          <li>Tenue TYCHEM® (à rajouter) <span class="quantite">x9</span></li>
+          <li>Surbottes TYCHEM® (paire) <span class="quantite">x9</span></li>
+          <li>Masque FFP3 (boîte) <span class="quantite">x1</span></li>
+          <li>Heaume + Visière <span class="quantite">x9</span></li>
+          <li>Gants avec manchon (boîte S/M/L/XL) <span class="quantite">x1</span></li>
+        </ul>
+      </div>
+
     </div>
   </main>
 
