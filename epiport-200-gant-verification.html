@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Vérification Gant EpiPort 200 - REB Transfert Assist</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f7f8;
+      color: #1f2933;
+    }
+
+    nav {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 10px;
+      padding: 15px 20px;
+      background: white;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .onglet {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 54px;
+      padding: 10px;
+      background: #e9eef2;
+      border-radius: 8px;
+      color: #123b57;
+      text-decoration: none;
+      text-align: center;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .onglet:hover {
+      background: #d7e3ea;
+    }
+
+    .onglet.actif {
+      background: #123b57;
+      color: white;
+    }
+
+    main {
+      max-width: 1200px;
+      min-height: 650px;
+      margin: 0 auto;
+      padding: 40px 25px 140px;
+      background: white;
+    }
+
+    h1 {
+      margin: 0 0 10px 0;
+      color: #123b57;
+      text-align: center;
+      font-size: 34px;
+    }
+
+    .sous-titre-page {
+      text-align: center;
+      color: #485563;
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 40px;
+    }
+
+    .conteneur-verification {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 35px;
+    }
+
+    /* Style des blocs de contrôle */
+    .bloc-controle {
+      background: #f4f7f8;
+      border: 1px solid #d9e2e8;
+      border-radius: 16px;
+      padding: 25px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    }
+
+    .controle-titre {
+      margin: 0 0 20px 0;
+      color: #123b57;
+      font-size: 22px;
+      font-weight: bold;
+      border-bottom: 2px solid #d9e2e8;
+      padding-bottom: 8px;
+    }
+
+    .controle-texte {
+      font-size: 16px;
+      line-height: 1.6;
+      color: #334155;
+      margin-bottom: 20px;
+    }
+
+    .controle-texte ul {
+      margin: 10px 0 0 0;
+      padding-left: 20px;
+    }
+
+    .controle-texte li {
+      margin-bottom: 8px;
+    }
+
+    .remarque-info {
+      background: #e0f2fe;
+      border-left: 4px solid #0284c7;
+      padding: 12px 15px;
+      border-radius: 6px;
+      color: #0369a1;
+      font-size: 15px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    /* Conteneur d'images */
+    .zone-images {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      background: white;
+      padding: 15px;
+      border-radius: 12px;
+      border: 1px solid #e2e8f0;
+    }
+
+    .img-verification {
+      max-width: 100%;
+      height: auto;
+      max-height: 380px;
+      border-radius: 8px;
+      object-fit: contain;
+    }
+
+    .img-moitie {
+      max-width: calc(50% - 8px);
+    }
+
+    .boutons-navigation {
+      position: fixed;
+      left: 28px;
+      bottom: 28px;
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .bouton-rond {
+      width: 82px;
+      height: 82px;
+      padding: 0;
+      border: 3px solid #164d87;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background:
+        linear-gradient(
+          160deg,
+          rgba(255, 255, 255, 0.55) 0%,
+          rgba(255, 255, 255, 0.08) 38%,
+          transparent 39%
+        ),
+        linear-gradient(145deg, #2389dc, #07559c);
+      box-shadow:
+        0 5px 12px rgba(0, 0, 0, 0.25),
+        inset 0 1px 3px rgba(255, 255, 255, 0.65);
+      color: white;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .bouton-rond:hover {
+      transform: scale(1.06);
+    }
+
+    .bouton-rond svg {
+      width: 35px;
+      height: 35px;
+      fill: none;
+      stroke: white;
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .bouton-rond span {
+      margin-top: 2px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    @media (max-width: 950px) {
+      nav {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      main {
+        padding: 30px 15px 140px;
+      }
+
+      h1 {
+        font-size: 28px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 6px;
+        padding: 8px 10px;
+      }
+
+      .onglet {
+        min-height: 38px;
+        font-size: 12px;
+        padding: 5px;
+        line-height: 1.2;
+      }
+
+      .bloc-controle {
+        padding: 20px 15px;
+      }
+
+      .img-moitie {
+        max-width: 100%;
+      }
+
+      .boutons-navigation {
+        left: 15px;
+        bottom: 15px;
+        gap: 10px;
+      }
+
+      .bouton-rond {
+        width: 68px;
+        height: 68px;
+      }
+
+      .bouton-rond svg {
+        width: 29px;
+        height: 29px;
+      }
+
+      .bouton-rond span {
+        font-size: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <a href="epishuttle.html" class="onglet actif">EpiShuttle</a>
+    <a href="materiel.html" class="onglet">Matériel</a>
+    <a href="procedures.html" class="onglet">Procédures / Check-lists</a>
+    <a href="epi.html" class="onglet">EPI</a>
+    <a href="informations.html" class="onglet">Informations</a>
+    <a href="depart-operationnel.html" class="onglet">Départ opérationnel</a>
+  </nav>
+
+  <main>
+
+    <h1>EpiPort 200</h1>
+    <div class="sous-titre-page">Vérification des gants</div>
+
+    <div class="conteneur-verification">
+
+      <div class="remarque-info" style="background: #fff4e5; border-left: 4px solid #f59e0b; color: #b45309; font-size: 16px; text-align: center; margin-bottom: 10px;">
+        Avant chaque départ opérationnel, il est nécessaire de faire les vérifications suivantes :
+      </div>
+
+      <section class="bloc-controle">
+        <div class="controle-titre">1. Placement des gants</div>
+        <div class="controle-texte">
+          Vérifier que le placement des gants sur les EpiPorts 200 est adéquat selon l'organisation voulue.
+        </div>
+        <div class="remarque-info">
+          Pour rappel, 7 des 8 emplacements sont destinés aux gants.
+        </div>
+        <div class="zone-images">
+          <img src="gant-verification-1.jpg" alt="Placement des gants sur les Epiports 200" class="img-verification">
+        </div>
+      </section>
+
+      <section class="bloc-controle">
+        <div class="controle-titre">2. Bonne installation des EpiPorts</div>
+        <div class="controle-texte">
+          Procéder aux vérifications de sécurité mécanique de l'ensemble de la structure :
+          <ul>
+            <li>Vérifier le bon serrage de l'ensemble des courroies.</li>
+            <li>Vérifier la jonction gant / courroie.</li>
+            <li>Vérifier le verrouillage des 3 clips rouges par EpiPort.</li>
+            <li>Vérifier la bonne fermeture des trappes internes.</li>
+            <li>Vérifier la bonne fermeture des trappes externes.</li>
+          </ul>
+        </div>
+        <div class="zone-images">
+          <img src="gant-verification-2.1.jpg" alt="Jonction gant courroie" class="img-verification img-moitie">
+          <img src="gant-verification-2.2.jpg" alt="Verrouillage des 3 clips rouges" class="img-verification img-moitie">
+          <img src="gant-verification-2.3.jpg" alt="Fermeture trappes internes" class="img-verification img-moitie">
+          <img src="gant-verification-2.4.jpg" alt="Fermeture trappes externes" class="img-verification img-moitie">
+        </div>
+      </section>
+
+      <section class="bloc-controle">
+        <div class="controle-titre">3. Intégrité et absence de perforation</div>
+        <div class="controle-texte">
+          Il est préférable d'ouvrir l'ensemble des trappes internes des EpiPorts 200 et de mettre en marche la pompe CleanAir en pression négative afin de procéder à ce contrôle.
+        </div>
+        <div class="remarque-info">
+          En pression négative, les gants se déploieront vers l'intérieur, facilitant ainsi le repérage de toute perforation ou dégradation.
+        </div>
+        <div class="zone-images">
+          <img src="gant-verification-3.jpg" alt="Contrôle d'intégrité en pression négative" class="img-verification">
+        </div>
+      </section>
+
+      <section class="bloc-controle">
+        <div class="controle-titre">4. Date de péremption</div>
+        <div class="controle-texte">
+          Vérifier sur les gants déployés la date de péremption ou de production selon les modèles.
+        </div>
+        <div class="remarque-info">
+          Les gants expirent 42 mois après leur date de production.
+        </div>
+        <div class="zone-images">
+          <img src="gant-verification-4.jpg" alt="Vérification des marquages et dates de péremption" class="img-verification">
+        </div>
+      </section>
+
+    </div>
+
+  </main>
+
+  <div class="boutons-navigation">
+
+    <button
+      type="button"
+      class="bouton-rond"
+      title="Retour à la page précédente"
+      aria-label="Retour à la page précédente"
+      onclick="history.back()"
+    >
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M9 7L4 12l5 5"></path>
+        <path d="M4 12h9a6 6 0 0 1 6 6"></path>
+      </svg>
+      <span>Retour</span>
+    </button>
+
+    <a
+      href="index.html"
+      class="bouton-rond"
+      title="Retour à l’accueil"
+      aria-label="Retour à l’accueil"
+    >
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M3 11.5L12 4l9 7.5"></path>
+        <path d="M5.5 10v10h13V10"></path>
+        <path d="M9.5 20v-6h5v6"></path>
+      </svg>
+      <span>Accueil</span>
+    </a>
+
+  </div>
+
+</body>
+
+</html>
